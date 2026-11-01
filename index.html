@@ -308,15 +308,98 @@ details.mfy[open] summary{margin-bottom:6px}
 textarea.code{width:100%;min-height:84px;font:12px/1.35 ui-monospace,Menlo,monospace;border:1.5px solid var(--line);border-radius:12px;padding:10px;background:var(--card);color:var(--ink);word-break:break-all}
 ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:var(--soft)}
 .gm .ic{font-size:18px}
+/* ===== v3 ===== */
+.top{gap:8px}
+.top .back{font-size:28px;line-height:1;padding:0 6px 4px 0}
+.tav{width:40px;height:40px;flex:none;border:0;background:var(--card);border-radius:50%;box-shadow:var(--shadow);padding:3px;cursor:pointer}
+.tav svg{width:100%;height:100%}
+.cmb{font-weight:800;color:var(--goldink);font-size:15px;min-width:0}
+.cmb.pop{animation:cpop .35s}
+@keyframes cpop{40%{transform:scale(1.5)}}
+.mtoast{top:calc(env(safe-area-inset-top,0px) + 62px);bottom:auto;align-items:flex-start;justify-content:flex-end;animation:tdown .3s cubic-bezier(.2,.8,.2,1);pointer-events:auto}
+.mtoast .bubble{border-radius:18px 6px 18px 18px;max-width:330px;flex:0 1 auto;box-shadow:0 12px 30px -12px rgba(30,79,163,.45)}
+.mtoast .mface{width:38px;height:38px;animation:none}
+.mtoast.out{opacity:0;transform:translate(-50%,-10px);transition:.25s}
+@keyframes tdown{from{opacity:0;transform:translate(-50%,-14px)}}
+.hws{display:inline}
+.hw{cursor:pointer;border-radius:8px;padding:0 2px;transition:background .15s;text-decoration:underline dotted color-mix(in srgb,var(--blue) 35%,transparent);text-underline-offset:10px;text-decoration-thickness:2px}
+.hw:hover,.hw:focus{background:var(--bluesoft);outline:none}
+.hw.learn{text-decoration-color:color-mix(in srgb,var(--gold) 60%,transparent)}
+.tapnote{display:block;font-family:var(--ui);direction:ltr;font-size:12px;color:var(--muted);line-height:1.3;padding-bottom:6px}
+.lk{display:flex;flex-direction:column;gap:2px;background:var(--card);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow)}
+.lkh{font-size:26px}
+.lkw{font-family:var(--he);font-size:40px;text-align:center;line-height:1.6}
+.learncard{background:var(--goldsoft)}
+.pbody{display:flex;flex-direction:column;gap:10px}
+.psum{display:flex;gap:6px;flex-wrap:wrap;min-height:4px}
+.pchip{font-size:13px;font-weight:700;border-radius:99px;padding:4px 10px;background:var(--card2)}
+.pchip.ok{background:var(--okbg);color:var(--ok)}.pchip.no{background:var(--badbg);color:var(--bad)}
+.plan .coach,.coach{background:var(--card2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.pn.done{background:var(--gold);color:#fff}
+.ring{width:46px;height:46px;flex:none}.ring svg{width:100%;height:100%}
+.burst{position:fixed;left:50%;top:45%;z-index:70;pointer-events:none}
+.burst i{position:absolute;width:9px;height:9px;border-radius:2px;animation:bst .8s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes bst{to{transform:translate(var(--x),var(--y)) rotate(320deg);opacity:0}}
+.combo{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%);z-index:71;font-weight:800;font-size:40px;color:var(--goldink);letter-spacing:.04em;text-shadow:0 2px 0 #fff,0 6px 24px rgba(201,162,74,.6);animation:cmbo 1s ease forwards;pointer-events:none}
+@keyframes cmbo{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}25%{transform:translate(-50%,-50%) scale(1.15);opacity:1}100%{transform:translate(-50%,-90%) scale(1);opacity:0}}
+.collect{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:72;background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:22px 26px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:0 30px 60px -20px rgba(30,79,163,.5);animation:col .5s cubic-bezier(.2,.9,.3,1.3);text-align:center;min-width:220px}
+.collect .cic{font-family:var(--he);font-size:56px;line-height:1.2;color:var(--blue)}
+.collect span{font-size:13px;color:var(--muted)}
+@keyframes col{from{transform:translate(-50%,-50%) scale(.5);opacity:0}}
+.lgrid{display:grid;grid-template-columns:repeat(11,1fr);gap:4px;direction:rtl}
+.lt2{font-family:var(--he);font-size:20px;text-align:center;border-radius:8px;background:var(--card2);color:#C5CFE0;line-height:1.7}
+.lt2.on{background:var(--bluesoft);color:var(--blue)}
+.sgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+.scr{position:relative;text-align:center;font-size:20px;filter:grayscale(1);opacity:.35}
+.scr.on{filter:none;opacity:1}.scr i{position:absolute;right:2px;bottom:-2px;font-style:normal;font-size:10px;font-weight:800;color:var(--blue)}
+.bgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.bdg{display:flex;flex-direction:column;align-items:flex-start;background:var(--card2);border-radius:12px;padding:8px 10px;opacity:.45}
+.bdg.on{opacity:1;background:var(--goldsoft)}.bdg span{font-size:18px}.bdg b{font-size:13px}.bdg i{font-style:normal;font-size:11px;color:var(--muted)}
+.rbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0px) + 10px);z-index:44;width:min(488px,calc(100% - 32px));display:flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border:0;border-radius:16px;padding:12px 14px;font-size:14.5px;text-align:left;box-shadow:0 14px 30px -12px rgba(30,79,163,.7);cursor:pointer;animation:tin .3s}
+.rbar .rp{width:28px;height:28px;border-radius:50%;background:var(--gold);display:grid;place-items:center;flex:none;font-size:12px}
+.rbar>span:nth-child(2){flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rbar .rx{opacity:.7;padding:0 4px}
+/* syöte */
+body.onfeed .app{padding:0;max-width:none}
+.fhead{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top,0px) + 8px) 16px 8px;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);max-width:520px;margin:0 auto}
+.fst{display:flex;flex-direction:column;line-height:1.1}.fst b{font-size:17px}.fst span{font-size:10.5px;color:var(--muted)}
+.fmid{flex:1;display:flex;flex-direction:column;align-items:center;line-height:1.15}.fmid b{letter-spacing:.14em;color:var(--blue);font-size:15px}.fmid span{font-size:11.5px;color:var(--muted)}
+.feed{height:calc(100dvh - var(--tabh) - env(safe-area-inset-bottom,0px));overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;scrollbar-width:none;max-width:520px;margin:0 auto}
+.feed::-webkit-scrollbar{display:none}
+.fc{height:calc(100dvh - var(--tabh) - env(safe-area-inset-bottom,0px));scroll-snap-align:start;scroll-snap-stop:always;padding:calc(env(safe-area-inset-top,0px) + 66px) 16px 16px;display:flex;overflow-y:auto}
+.fin{margin:auto 0;width:100%;display:flex;flex-direction:column;gap:12px}
+.fstage{min-height:0}
+.fc .bighe{font-size:clamp(40px,12vw,58px)}
+.fc.greet .fin{gap:14px}
+.swipe{text-align:center;color:var(--muted);font-weight:700;font-size:13px;animation:sw 1.6s ease-in-out infinite}
+@keyframes sw{50%{transform:translateY(-6px)}}
+.pmini{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.pm{background:var(--card);border:0;border-radius:16px;box-shadow:var(--shadow);padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;font-weight:700;cursor:pointer;color:var(--soft)}
+.pm .ring{width:38px;height:38px}
+.next{text-align:center;color:var(--muted);font-size:13px;font-weight:700}
+.fc.lessonbit .fin,.fc.fun .fin,.fc.word .fin,.fc.coachc .fin{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:20px}
+.fc.word .flip-in{height:min(36vh,280px)}
+/* splash */
+.splash{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 80% at 50% 30%,#FFFFFF 0,#EEF3FB 60%,#E3EBF8 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .55s,transform .55s}
+.splash.out{opacity:0;transform:scale(1.06);pointer-events:none}
+.sstar{width:110px;height:110px}
+.sstar path{fill:none;stroke:var(--gold);stroke-width:4.5;stroke-linejoin:round;stroke-dasharray:330;stroke-dashoffset:330;animation:draw 1s cubic-bezier(.6,0,.2,1) forwards}
+.sstar path+path{stroke:var(--blue);animation-delay:.25s}
+.sword{font-weight:800;font-size:32px;letter-spacing:.18em;color:var(--blue);display:flex}
+.sword span{opacity:0;transform:translateY(10px);animation:lup .4s ease forwards}
+@keyframes lup{to{opacity:1;transform:none}}
+.ssub{color:var(--muted);font-size:13.5px;opacity:0;animation:lup .5s 1.2s ease forwards}
+
+body.hasbar .app{padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0px) + 96px)}
 
 </style>
 </head><body style="margin:0"><div class="app" id="app"></div>
 <div class="tabs"><nav role="tablist" aria-label="Osiot" id="tabbar">
-<button role="tab" data-v="koti" aria-selected="true"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Koti</button>
+<button role="tab" data-v="koti" aria-selected="true"><svg viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M10 9.5l4.5 2.5-4.5 2.5z"/></svg>Syöte</button>
+<button role="tab" data-v="polku" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M5 20c0-4 4-4 4-8s-4-4-4-8M15 20c0-4 4-4 4-8"/><circle cx="17" cy="6" r="2.5"/></svg>Polku</button>
 <button role="tab" data-v="opi" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h7M8 11h7"/></svg>Opi</button>
 <button role="tab" data-v="pelaa" aria-selected="false"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15.5 11.5h.01M18 13.5h.01"/></svg>Pelaa</button>
-<button role="tab" data-v="sanasto" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M9 9h6M9 13h4"/></svg>Sanasto</button>
-<button role="tab" data-v="mina" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Osaaminen</button>
+<button role="tab" data-v="mina" aria-selected="false"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg>Minä</button>
 </nav></div>
 <script>
 const VOCAB=[{"h": "אָב", "f": "isä", "c": 1, "p": 26, "x": "mon. אָבוֹת"}, {"h": "אָדָם", "f": "ihminen, ihmiskunta, Aadam", "c": 1, "p": 26, "x": ""}, {"h": "אָח", "f": "veli", "c": 1, "p": 26, "x": "mon. אַחִים"}, {"h": "אָחוֹת", "f": "(fem.) sisko", "c": 1, "p": 26, "x": ""}, {"h": "אֵל", "f": "Jumala, jumala, El", "c": 1, "p": 26, "x": ""}, {"h": "אֵם", "f": "(fem.) äiti", "c": 1, "p": 26, "x": "mon. אִמּוֹת"}, {"h": "אָמֵן", "f": "aamen", "c": 1, "p": 26, "x": ""}, {"h": "אֶרֶץ", "f": "(fem.) maa", "c": 1, "p": 26, "x": "mon. אֲרָצוֹת"}, {"h": "אִשָּׁה", "f": "(fem.) nainen, vaimo", "c": 1, "p": 26, "x": "mon. נָשִׁים"}, {"h": "אַתָּה", "f": "(mask.) sinä", "c": 1, "p": 26, "x": ""}, {"h": "בַּיִת", "f": "talo, palatsi, temppeli", "c": 1, "p": 26, "x": "mon. בָּתִּים"}, {"h": "בֵּית־אֵל", "f": "Betel", "c": 1, "p": 26, "x": ""}, {"h": "בֵּית־לֶחֶם", "f": "Betlehem", "c": 1, "p": 26, "x": ""}, {"h": "בֵּן", "f": "poika", "c": 1, "p": 26, "x": "mon. בָּנִים"}, {"h": "בְּרִית", "f": "(fem.) liitto", "c": 1, "p": 26, "x": ""}, {"h": "בַּת", "f": "(fem.) tytär", "c": 1, "p": 26, "x": "mon. בָּנוֹת"}, {"h": "הוֹשִׁיעָה נָּא", "f": "hoosianna", "c": 1, "p": 26, "x": ""}, {"h": "הַלְלוּיָהּ", "f": "halleluja", "c": 1, "p": 26, "x": ""}, {"h": "הַר", "f": "vuori", "c": 1, "p": 26, "x": "mon. הָרִים"}, {"h": "יֶלֶד", "f": "lapsi, poika", "c": 1, "p": 26, "x": "mon. יְלָדִים"}, {"h": "לֶחֶם", "f": "leipä, ruoka", "c": 1, "p": 26, "x": ""}, {"h": "מֶלֶךְ", "f": "kuningas", "c": 1, "p": 26, "x": "mon. מְלָכִים"}, {"h": "מַלְכָּה", "f": "(fem.) kuningatar", "c": 1, "p": 26, "x": "mon. מְלָכוֹת"}, {"h": "מָקוֹם", "f": "paikka", "c": 1, "p": 26, "x": "mon. מְקוֹמוֹת"}, {"h": "סוּס", "f": "hevonen", "c": 1, "p": 26, "x": "mon. סוּסִים"}, {"h": "עַם", "f": "kansa", "c": 1, "p": 26, "x": "mon. עַמִּים"}, {"h": "קָדוֹשׁ", "f": "pyhä", "c": 1, "p": 26, "x": "fem. קְדוֹשָׁה"}, {"h": "שַׁבָּת", "f": "(mask./fem.) sapatti", "c": 1, "p": 26, "x": ""}, {"h": "שָׁלוֹם", "f": "rauha", "c": 1, "p": 26, "x": ""}, {"h": "שָׁמַיִם", "f": "taivas", "c": 1, "p": 26, "x": ""}, {"h": "תּוֹרָה", "f": "(fem.) opetus, ohje, laki", "c": 1, "p": 26, "x": ""}, {"h": "אֶבֶן", "f": "(fem.) kivi", "c": 3, "p": 41, "x": "mon. אֲבָנִים"}, {"h": "אִישׁ", "f": "mies, ihminen", "c": 3, "p": 41, "x": "mon. אֲנָשִׁים"}, {"h": "גָּדוֹל", "f": "suuri", "c": 3, "p": 41, "x": "fem. גְּדוֹלָה"}, {"h": "דָּבָר", "f": "sana, asia", "c": 3, "p": 41, "x": "mon. דְּבָרִים"}, {"h": "טוֹב", "f": "hyvä", "c": 3, "p": 41, "x": "fem. טוֹבָה"}, {"h": "יָפֶה", "f": "kaunis, komea", "c": 3, "p": 41, "x": "fem. יָפָה"}, {"h": "יְשׁוּעָה", "f": "(fem.) pelastus, voitto, apu", "c": 3, "p": 41, "x": "mon. יְשׁוּעוֹת"}, {"h": "מִשְׁפָּט", "f": "oikeus, säädös, tuomio", "c": 3, "p": 41, "x": "mon. מִשְׁפָּטִים"}, {"h": "נַעַר", "f": "nuorukainen", "c": 3, "p": 41, "x": "mon. נְעָרִים"}, {"h": "עִיר", "f": "(fem.) kaupunki", "c": 3, "p": 41, "x": "mon. עָרִים"}, {"h": "קוֹל", "f": "ääni", "c": 3, "p": 41, "x": "mon. קוֹלוֹת"}, {"h": "קָטֹן", "f": "pieni", "c": 3, "p": 41, "x": "fem. קְטַנָּה"}, {"h": "רוּחַ", "f": "(fem./mask.) tuuli, henki", "c": 3, "p": 41, "x": "mon. רוּחוֹת"}, {"h": "רַע", "f": "paha", "c": 3, "p": 41, "x": "fem. רָעָה"}, {"h": "שִׁיר", "f": "laulu", "c": 3, "p": 41, "x": "mon. שִׁירִים"}, {"h": "יִשְׂרָאֵל", "f": "Israel", "c": 4, "p": 47, "x": ""}, {"h": "יָשָׁר", "f": "suora, oikeamielinen", "c": 4, "p": 47, "x": "fem. יְשָׁרָה"}, {"h": "מְאֹד", "f": "erittäin, paljon", "c": 4, "p": 47, "x": ""}, {"h": "נַעֲרָה", "f": "(fem.) nuori nainen", "c": 4, "p": 47, "x": "mon. נְעָרוֹת"}, {"h": "עַיִן", "f": "(fem.) silmä", "c": 4, "p": 47, "x": "du. עֵינַיִם"}, {"h": "שְׁלֹמֹה", "f": "Salomo", "c": 4, "p": 47, "x": ""}, {"h": "אֵין", "f": "nominaalilauseen kieltosana", "c": 5, "p": 53, "x": ""}, {"h": "אֱלוֹהַּ", "f": "jumala; mon. אֱלֹהִים Jumala", "c": 5, "p": 53, "x": "mon. אֱלֹהִים"}, {"h": "דָּוִד", "f": "Daavid", "c": 5, "p": 53, "x": ""}, {"h": "דֶּרֶךְ", "f": "(mask./fem.) tie", "c": 5, "p": 53, "x": "mon. דְּרָכִים"}, {"h": "הִנֵּה", "f": "katso, kas (partikkeli)", "c": 5, "p": 53, "x": ""}, {"h": "חָזָק", "f": "vahva, voimakas", "c": 5, "p": 53, "x": "fem. חֲזָקָה"}, {"h": "חָכָם", "f": "viisas", "c": 5, "p": 53, "x": "fem. חֲכָמָה"}, {"h": "חַנָּה", "f": "Hanna", "c": 5, "p": 53, "x": ""}, {"h": "יָד", "f": "(fem.) käsi", "c": 5, "p": 53, "x": "du. יָדַיִם"}, {"h": "יוֹם", "f": "päivä", "c": 5, "p": 53, "x": "mon. יָמִים"}, {"h": "יְרוּשָׁלַ͏ִם", "f": "Jerusalem", "c": 5, "p": 53, "x": ""}, {"h": "לַיְלָה", "f": "(mask.) yö", "c": 5, "p": 53, "x": ""}, {"h": "מִדְבָּר", "f": "erämaa, autiomaa", "c": 5, "p": 53, "x": ""}, {"h": "מֹשֶׁה", "f": "Mooses", "c": 5, "p": 53, "x": ""}, {"h": "צִיּוֹן", "f": "Siion", "c": 5, "p": 53, "x": ""}, {"h": "שָׂרָה", "f": "Saara", "c": 5, "p": 53, "x": ""}, {"h": "שְׁמוּאֵל", "f": "Samuel", "c": 5, "p": 53, "x": ""}, {"h": "אָמַר", "f": "sanoa (perf. yks. 3. mask.)", "c": 6, "p": 55, "x": "וַיֹּאמֶר ja hän sanoi"}, {"h": "הָיָה", "f": "olla", "c": 6, "p": 55, "x": "וַיְהִי ja hän oli, ja tapahtui"}, {"h": "עָשָׂה", "f": "tehdä", "c": 6, "p": 55, "x": "וַיַּעַשׂ ja hän teki"}, {"h": "הָלַךְ", "f": "mennä, kulkea, vaeltaa", "c": 6, "p": 55, "x": "וַיֵּלֶךְ ja hän meni"}, {"h": "בָּא", "f": "tulla", "c": 6, "p": 55, "x": "וַיָּבֹא ja hän tuli"}, {"h": "יָצָא", "f": "lähteä, mennä (ulos)", "c": 6, "p": 55, "x": "וַיֵּצֵא ja hän lähti"}, {"h": "נָתַן", "f": "antaa", "c": 6, "p": 55, "x": "וַיִּתֵּן ja hän antoi"}, {"h": "לָקַח", "f": "ottaa", "c": 6, "p": 55, "x": "וַיִּקַּח ja hän otti"}, {"h": "אַבְרָהָם", "f": "Abraham", "c": 7, "p": 64, "x": ""}, {"h": "אַבְרָם", "f": "Abram", "c": 7, "p": 64, "x": ""}, {"h": "אֵלֶּה", "f": "nämä", "c": 7, "p": 64, "x": ""}, {"h": "אֲנַחְנוּ", "f": "me", "c": 7, "p": 64, "x": ""}, {"h": "אָנֹכִי / אֲנִי", "f": "minä", "c": 7, "p": 64, "x": ""}, {"h": "אֲשֶׁר", "f": "joka, mikä, jotka, mitkä", "c": 7, "p": 64, "x": ""}, {"h": "אַתְּ", "f": "(fem.) sinä", "c": 7, "p": 64, "x": ""}, {"h": "אַתֶּם", "f": "(mask.) te", "c": 7, "p": 64, "x": ""}, {"h": "אַתֵּן", "f": "(fem.) te", "c": 7, "p": 64, "x": ""}, {"h": "גַּם", "f": "myös", "c": 7, "p": 64, "x": ""}, {"h": "הוּא", "f": "(mask.) hän, se, tuo", "c": 7, "p": 64, "x": ""}, {"h": "הִיא", "f": "(fem.) hän, se, tuo", "c": 7, "p": 64, "x": ""}, {"h": "הֵם", "f": "(mask.) he, ne, nuo", "c": 7, "p": 64, "x": ""}, {"h": "זֹאת", "f": "(fem.) tämä", "c": 7, "p": 64, "x": ""}, {"h": "זֶה", "f": "(mask.) tämä", "c": 7, "p": 64, "x": ""}, {"h": "יוֹסֵף", "f": "Joosef", "c": 7, "p": 64, "x": ""}, {"h": "יַעֲקֹב", "f": "Jaakob", "c": 7, "p": 64, "x": ""}, {"h": "יְהוָה", "f": "Jahve", "c": 7, "p": 64, "x": ""}, {"h": "אֲבִימֶלֶךְ", "f": "Abimelek", "c": 8, "p": 74, "x": ""}, {"h": "גּוֹי", "f": "(pakana)kansa, vieras kansa", "c": 8, "p": 74, "x": "mon. גּוֹיִם"}, {"h": "גְּרָר", "f": "Gerar", "c": 8, "p": 74, "x": ""}, {"h": "הֵיכָל", "f": "temppeli", "c": 8, "p": 75, "x": ""}, {"h": "חָדָשׁ", "f": "uusi", "c": 8, "p": 75, "x": "fem. חֲדָשָׁה"}, {"h": "חַיִּים", "f": "elämä (mon.)", "c": 8, "p": 75, "x": "cstr. חַיֵּי"}, {"h": "יְהוּדָה", "f": "Juuda", "c": 8, "p": 75, "x": ""}, {"h": "יָם", "f": "meri", "c": 8, "p": 75, "x": "mon. יַמִּים"}, {"h": "יִצְחָק", "f": "Iisak", "c": 8, "p": 75, "x": ""}, {"h": "יִשַׁי", "f": "Iisai", "c": 8, "p": 75, "x": ""}, {"h": "כֹּה", "f": "näin", "c": 8, "p": 75, "x": ""}, {"h": "כֹּהֵן", "f": "pappi", "c": 8, "p": 75, "x": "mon. כֹּהֲנִים"}, {"h": "כֹּל / כָּל־", "f": "kaikki, koko", "c": 8, "p": 75, "x": ""}, {"h": "כְּנַעַן", "f": "Kanaan, Kanaaninmaa", "c": 8, "p": 75, "x": ""}, {"h": "אַהֲבָה", "f": "(fem.) rakkaus", "c": 9, "p": 88, "x": ""}, {"h": "אֶחָד", "f": "yksi, eräs, muutama", "c": 9, "p": 88, "x": "fem. אַחַת"}, {"h": "הֶבֶל", "f": "Abel", "c": 9, "p": 88, "x": ""}, {"h": "דּוֹד", "f": "rakastettu", "c": 9, "p": 88, "x": "mon. דּוֹדִים"}, {"h": "הֵן", "f": "katso, kas", "c": 9, "p": 88, "x": ""}, {"h": "וַיָּבֵא", "f": "hän toi (hif. kons. impf. yks. 3. mask.)", "c": 9, "p": 88, "x": ""}, {"h": "חָרָן", "f": "Harran", "c": 9, "p": 88, "x": ""}, {"h": "כִּי", "f": "sillä, että, kun", "c": 9, "p": 88, "x": ""}, {"h": "כִּי אִם", "f": "vaan, pikemmin", "c": 9, "p": 88, "x": ""}, {"h": "לִפְנֵי", "f": "edessä, ennen", "c": 9, "p": 89, "x": ""}, {"h": "מֵאַיִן", "f": "mistä (kysymyssana)", "c": 9, "p": 89, "x": ""}, {"h": "מָה", "f": "mikä, mitkä", "c": 9, "p": 89, "x": ""}, {"h": "מִי", "f": "kuka, ketkä", "c": 9, "p": 89, "x": ""}, {"h": "נֹחַ", "f": "Nooa", "c": 9, "p": 89, "x": ""}, {"h": "עֵשָׂו", "f": "Esau", "c": 9, "p": 89, "x": ""}, {"h": "עֵת", "f": "(fem./mask.) aika, ajankohta, hetki", "c": 9, "p": 89, "x": ""}, {"h": "צְדָקָה", "f": "(fem.) vanhurskaus, oikeus, totuus", "c": 9, "p": 89, "x": ""}, {"h": "קַיִן", "f": "Kain", "c": 9, "p": 89, "x": ""}, {"h": "רִבְקָה", "f": "Rebekka", "c": 9, "p": 89, "x": ""}, {"h": "רָחֵל", "f": "Raakel", "c": 9, "p": 89, "x": ""}, {"h": "שָׂפָה", "f": "(fem.) huuli, puhuttu kieli", "c": 9, "p": 89, "x": "du. שְׂפָתַיִם"}, {"h": "שַׁדַּי", "f": "Kaikkivaltias", "c": 9, "p": 89, "x": ""}, {"h": "שֵׁם", "f": "nimi", "c": 9, "p": 89, "x": "mon. שֵׁמוֹת"}, {"h": "שֹׁמֵר", "f": "vartija", "c": 9, "p": 89, "x": "mon. שֹׁמְרִים"}, {"h": "לֵאָה", "f": "Lea", "c": 8, "p": 76, "x": ""}, {"h": "לָבָן", "f": "Laban", "c": 8, "p": 76, "x": ""}, {"h": "לֵוִי", "f": "Leevi", "c": 8, "p": 76, "x": ""}, {"h": "לוּחַ", "f": "taulu", "c": 8, "p": 76, "x": "mon. לֻחוֹת"}, {"h": "מִלְחָמָה", "f": "(fem.) sota, taistelu", "c": 8, "p": 76, "x": "cstr. מִלְחֶמֶת, mon. מִלְחָמוֹת"}, {"h": "סוּסָה", "f": "(fem.) tamma", "c": 8, "p": 76, "x": "cstr. סוּסַת"}, {"h": "סוּף", "f": "kaisla, ruoko", "c": 8, "p": 76, "x": ""}, {"h": "סִינַי", "f": "Siinai", "c": 8, "p": 76, "x": ""}, {"h": "פְּלִשְׁתִּי", "f": "filistealainen", "c": 8, "p": 76, "x": "mon. פְּלִשְׁתִּים"}, {"h": "אַחַר / אַחֲרֵי", "f": "(jonkin) jälkeen", "c": 11, "p": 107, "x": ""}, {"h": "בָּנָה", "f": "rakentaa", "c": 11, "p": 107, "x": ""}, {"h": "זֶבַח", "f": "uhri", "c": 11, "p": 107, "x": "mon. זְבָחִים"}, {"h": "זְרֻבָּבֶל", "f": "Serubbabel", "c": 11, "p": 107, "x": ""}, {"h": "יֵשׁוּעַ", "f": "Jesua", "c": 11, "p": 107, "x": ""}, {"h": "לֵאמֹר", "f": "(sanoen), vastaa suomen kaksoispistettä", "c": 11, "p": 107, "x": ""}, {"h": "מְרֵמוֹת", "f": "Meremot", "c": 11, "p": 107, "x": ""}, {"h": "סֹפֵר", "f": "kirjuri", "c": 11, "p": 107, "x": ""}, {"h": "עָלָה", "f": "nousta, tulla, mennä", "c": 11, "p": 107, "x": ""}, {"h": "קָרָא", "f": "lukea, huutaa", "c": 11, "p": 107, "x": ""}, {"h": "רָאָה", "f": "nähdä", "c": 11, "p": 107, "x": ""}, {"h": "רִאשׁוֹן", "f": "ensimmäinen", "c": 11, "p": 107, "x": ""}, {"h": "שֵׁנִי", "f": "toinen", "c": 11, "p": 107, "x": ""}, {"h": "מָלַךְ", "f": "olla kuninkaana, hallita kuninkaana", "c": 10, "p": 97, "x": "a-perf."}, {"h": "מָשַׁל", "f": "hallita", "c": 10, "p": 97, "x": "a-perf."}, {"h": "גָּדַל", "f": "olla suuri, tulla suureksi", "c": 10, "p": 97, "x": ""}, {"h": "כָּתַב", "f": "kirjoittaa", "c": 10, "p": 97, "x": ""}, {"h": "אָכַל", "f": "syödä", "c": 10, "p": 97, "x": "I lar."}, {"h": "אָהַב", "f": "rakastaa", "c": 10, "p": 97, "x": "I lar. + II lar."}, {"h": "שָׁלַח", "f": "lähettää", "c": 10, "p": 97, "x": "III lar."}, {"h": "בָּחַר", "f": "valita", "c": 10, "p": 98, "x": ""}, {"h": "שָׁמַר", "f": "vartioida, noudattaa", "c": 10, "p": 98, "x": ""}, {"h": "שָׁמַע", "f": "kuulla", "c": 10, "p": 98, "x": ""}, {"h": "כָּרַת", "f": "leikata; solmia (liitto)", "c": 10, "p": 98, "x": ""}, {"h": "יָדַע", "f": "tietää, tuntea", "c": 10, "p": 97, "x": ""}, {"h": "אָז", "f": "silloin", "c": 12, "p": 114, "x": ""}, {"h": "אַחֲרִית", "f": "(fem.) tulevaisuus", "c": 12, "p": 114, "x": ""}, {"h": "דָּרַשׁ", "f": "etsiä, kysyä", "c": 12, "p": 114, "x": ""}, {"h": "חָשַׁב", "f": "ajatella, suunnitella", "c": 12, "p": 114, "x": "part. חֹשֵׁב"}, {"h": "מַחֲשָׁבָה", "f": "(fem.) ajatus, suunnitelma", "c": 12, "p": 114, "x": ""}, {"h": "מָלֵא", "f": "olla täynnä, täyttyä", "c": 12, "p": 114, "x": ""}, {"h": "נְאֻם", "f": "sana, oraakkeli; נְאֻם־יְהוָה (näin) sanoo Jahve", "c": 12, "p": 114, "x": ""}, {"h": "אֲדָמָה", "f": "(fem.) maa, maaperä", "c": 13, "p": 123, "x": ""}, {"h": "אַחֵר", "f": "toinen, muu, vieras", "c": 13, "p": 123, "x": "mon. אֲחֵרִים"}, {"h": "אִם", "f": "jos", "c": 13, "p": 123, "x": ""}, {"h": "יָשַׁב", "f": "istua, asua", "c": 13, "p": 123, "x": ""}, {"h": "כַּאֲשֶׁר", "f": "niin kuin", "c": 13, "p": 123, "x": ""}, {"h": "כִּסֵּא", "f": "valtaistuin", "c": 13, "p": 123, "x": ""}, {"h": "מֵעַל פְּנֵי", "f": "jonkin päältä (prep.)", "c": 13, "p": 123, "x": ""}, {"h": "מִצְוָה", "f": "(fem.) käsky", "c": 13, "p": 123, "x": ""}, {"h": "עָבַד", "f": "palvella, palvoa", "c": 13, "p": 123, "x": ""}, {"h": "עוֹלָם", "f": "ikuisuus", "c": 13, "p": 123, "x": ""}, {"h": "אַחֶרֶת", "f": "(fem.) toinen", "c": 14, "p": 135, "x": ""}, {"h": "זוֹנָה", "f": "(fem.) prostituoitu", "c": 14, "p": 135, "x": ""}, {"h": "חַי", "f": "elävä", "c": 14, "p": 135, "x": ""}, {"h": "חֵיק", "f": "syli", "c": 14, "p": 135, "x": ""}, {"h": "חֲצִי", "f": "puolet", "c": 14, "p": 135, "x": ""}, {"h": "חֶרֶב", "f": "miekka", "c": 14, "p": 135, "x": ""}, {"h": "יָלַד", "f": "synnyttää", "c": 14, "p": 135, "x": ""}, {"h": "מוּת", "f": "kuolla", "c": 14, "p": 135, "x": ""}, {"h": "מֵת", "f": "kuollut", "c": 14, "p": 135, "x": ""}, {"h": "עָמַד", "f": "seistä", "c": 14, "p": 135, "x": ""}, {"h": "קוּם", "f": "nousta", "c": 14, "p": 135, "x": ""}, {"h": "שָׁכַב", "f": "maata, nukkua", "c": 14, "p": 135, "x": ""}, {"h": "שָׁפַט", "f": "tuomita", "c": 14, "p": 135, "x": ""}, {"h": "אֹהֲבִי", "f": "ystäväni, rakastettuni", "c": 15, "p": 144, "x": ""}, {"h": "בָּאִים", "f": "(partisiippi) tulevat", "c": 15, "p": 144, "x": ""}, {"h": "זֶרַע", "f": "siemen, jälkeläinen", "c": 15, "p": 144, "x": ""}, {"h": "לוּלֵי", "f": "(konj.) jollei, ellei", "c": 15, "p": 144, "x": ""}, {"h": "קָצָה", "f": "(fem.) laita, ääri", "c": 15, "p": 144, "x": ""}, {"h": "קֶרֶב", "f": "sisin, keskus", "c": 15, "p": 144, "x": ""}, {"h": "רֵיקָם", "f": "(adv.) tyhjin käsin", "c": 15, "p": 144, "x": ""}, {"h": "אָבַד", "f": "tuhoutua", "c": 0, "p": 262, "x": ""}, {"h": "אֹהֶל", "f": "teltta, perhe", "c": 0, "p": 262, "x": ""}, {"h": "אוּרִיָּה", "f": "Uria", "c": 0, "p": 262, "x": ""}, {"h": "אוֹת", "f": "(mask./fem.) merkki", "c": 0, "p": 262, "x": ""}, {"h": "אֹזֶן", "f": "(fem.) korva", "c": 0, "p": 262, "x": ""}, {"h": "אֲחָדִים", "f": "muutama", "c": 0, "p": 262, "x": ""}, {"h": "אַחַר", "f": "jälkeen, taakse", "c": 0, "p": 262, "x": ""}, {"h": "אַי", "f": "missä", "c": 0, "p": 262, "x": ""}, {"h": "אִיּוֹב", "f": "Job", "c": 0, "p": 262, "x": ""}, {"h": "אַיִל", "f": "pässi", "c": 16, "p": 157, "x": ""}, {"h": "אָכְלָה", "f": "(fem.) ruoka", "c": 0, "p": 262, "x": ""}, {"h": "אֶל", "f": "-lle, johonkin, jonkin luokse", "c": 0, "p": 262, "x": ""}, {"h": "אֵלִיָּהוּ", "f": "Elia", "c": 0, "p": 262, "x": ""}, {"h": "אֱלִישָׁע", "f": "Elisa", "c": 0, "p": 262, "x": ""}, {"h": "אָסַף", "f": "koota", "c": 0, "p": 262, "x": ""}, {"h": "אֶסְתֵּר", "f": "Ester", "c": 0, "p": 262, "x": ""}, {"h": "אֶפְרַיִם", "f": "Efraim", "c": 0, "p": 263, "x": ""}, {"h": "אָרַר", "f": "kirota", "c": 0, "p": 263, "x": ""}, {"h": "אֵשׁ", "f": "(fem./mask.) tuli", "c": 16, "p": 157, "x": ""}, {"h": "אֲשֵׁרָה", "f": "Asera", "c": 0, "p": 263, "x": ""}, {"h": "אֵת", "f": "objektin merkki", "c": 0, "p": 263, "x": ""}, {"h": "אֵת (II)", "f": "kanssa, luona", "c": 0, "p": 263, "x": ""}, {"h": "בְּ", "f": "-ssa, jossakin, jonakin hetkenä, jonkin avulla", "c": 0, "p": 263, "x": ""}, {"h": "בָּבֶל", "f": "Babylonia", "c": 0, "p": 263, "x": ""}, {"h": "בֶּגֶד", "f": "vaate", "c": 0, "p": 263, "x": ""}, {"h": "בּוֹא", "f": "tulla, saapua; hif. viedä", "c": 0, "p": 263, "x": ""}, {"h": "בּוֹשׁ", "f": "hävetä", "c": 0, "p": 263, "x": ""}, {"h": "בְּטֶרֶם", "f": "ennen kuin", "c": 0, "p": 263, "x": ""}, {"h": "בֵּין", "f": "välissä, välillä", "c": 0, "p": 263, "x": ""}, {"h": "בִּין", "f": "ymmärtää", "c": 0, "p": 263, "x": ""}, {"h": "בְּכִירָה", "f": "(fem.) esikoinen, vanhempi", "c": 0, "p": 263, "x": ""}, {"h": "בַּעַל", "f": "omistaja, herra, Baal", "c": 0, "p": 263, "x": ""}, {"h": "דַּל", "f": "köyhä", "c": 0, "p": 264, "x": ""}, {"h": "דֶּלֶת", "f": "(fem.) ovi", "c": 0, "p": 264, "x": ""}, {"h": "דָּם", "f": "veri", "c": 0, "p": 264, "x": ""}, {"h": "הָרַג", "f": "tappaa", "c": 0, "p": 264, "x": ""}, {"h": "הָרָה", "f": "(fem.) raskaana oleva", "c": 0, "p": 264, "x": ""}, {"h": "הִתְפַּלֵּל", "f": "hitp. rukoilla", "c": 0, "p": 264, "x": ""}, {"h": "זָבַח", "f": "uhrata", "c": 16, "p": 157, "x": ""}, {"h": "זָהָב", "f": "kulta", "c": 17, "p": 175, "x": ""}, {"h": "זָכַר", "f": "muistaa", "c": 0, "p": 264, "x": ""}, {"h": "חוֹמָה", "f": "(fem.) muuri", "c": 18, "p": 190, "x": ""}, {"h": "חָזַק", "f": "olla voimakas, vahvistua", "c": 0, "p": 264, "x": ""}, {"h": "חָיָה", "f": "elää", "c": 0, "p": 264, "x": ""}, {"h": "חַיָּה", "f": "(fem.) eläin, elävä", "c": 0, "p": 264, "x": ""}, {"h": "חַיִל", "f": "voima, kyky, armeija", "c": 0, "p": 264, "x": ""}, {"h": "חָכְמָה", "f": "(fem.) viisaus", "c": 0, "p": 264, "x": ""}, {"h": "חָלָב", "f": "maito", "c": 0, "p": 264, "x": ""}, {"h": "חֵמָה", "f": "(fem.) viha, raivo", "c": 0, "p": 264, "x": ""}, {"h": "חָמַם", "f": "olla lämmin", "c": 0, "p": 264, "x": ""}, {"h": "חָמֵשׁ", "f": "viisi", "c": 0, "p": 264, "x": ""}, {"h": "חָנַן", "f": "armahtaa", "c": 0, "p": 264, "x": ""}, {"h": "חֹק", "f": "säädös", "c": 17, "p": 175, "x": ""}, {"h": "חָרָה", "f": "olla kuuma, suuttua", "c": 0, "p": 265, "x": ""}, {"h": "חָשַׂךְ", "f": "säästää", "c": 16, "p": 157, "x": ""}, {"h": "יֹאשִׁיָּהוּ", "f": "Josia", "c": 0, "p": 265, "x": ""}, {"h": "יָטַב", "f": "menestyä, käydä hyvin", "c": 0, "p": 265, "x": ""}, {"h": "יָמִין", "f": "(fem.) oikea (käsi, puoli)", "c": 17, "p": 175, "x": ""}, {"h": "יַעַר", "f": "metsä", "c": 0, "p": 265, "x": ""}, {"h": "יָצַק", "f": "kaataa", "c": 0, "p": 265, "x": ""}, {"h": "יֵצֶר", "f": "taipumus", "c": 0, "p": 265, "x": ""}, {"h": "יָרֵא", "f": "pelätä", "c": 17, "p": 175, "x": ""}, {"h": "יָרַד", "f": "laskeutua, mennä alas", "c": 0, "p": 265, "x": ""}, {"h": "יְרִיחוֹ", "f": "Jeriko", "c": 18, "p": 190, "x": ""}, {"h": "יָרַשׁ", "f": "periä, ottaa omakseen", "c": 0, "p": 265, "x": ""}, {"h": "יֵשׁ", "f": "olla olemassa", "c": 0, "p": 265, "x": ""}, {"h": "יִשְׁמָעֵאל", "f": "Ismael", "c": 0, "p": 265, "x": ""}, {"h": "יִתְרוֹ", "f": "Jetro", "c": 0, "p": 265, "x": ""}, {"h": "כְּ", "f": "kuin, niin kuin, mukaisesti", "c": 0, "p": 265, "x": ""}, {"h": "כָּבֵד", "f": "olla raskas; pi. pitää arvokkaana, kunnioittaa", "c": 0, "p": 265, "x": ""}, {"h": "כּוֹכָב", "f": "tähti", "c": 16, "p": 157, "x": ""}, {"h": "כָּלָה", "f": "loppua; pi. lopettaa, saada valmiiksi", "c": 0, "p": 265, "x": ""}, {"h": "כְּלִי", "f": "esine, astia", "c": 0, "p": 265, "x": ""}, {"h": "כֶּסֶף", "f": "hopea", "c": 17, "p": 175, "x": ""}, {"h": "כַּף", "f": "(fem.) kämmen", "c": 0, "p": 265, "x": ""}, {"h": "כֶּרֶם", "f": "viinitarha", "c": 0, "p": 265, "x": ""}, {"h": "כַּרְמֶל", "f": "Karmel", "c": 0, "p": 265, "x": ""}, {"h": "כַּשְׂדִּים", "f": "babylonialaiset", "c": 0, "p": 266, "x": ""}, {"h": "לְ", "f": "-lle, -lla, jollakin, johonkin suuntaan, joksikin", "c": 0, "p": 266, "x": ""}, {"h": "לֹא", "f": "ei", "c": 0, "p": 266, "x": ""}, {"h": "לֵב", "f": "sydän", "c": 0, "p": 266, "x": ""}, {"h": "לֵבָב", "f": "sydän", "c": 0, "p": 266, "x": ""}, {"h": "לְבִלְתִּי", "f": "kieltosana infinitiivin kanssa", "c": 0, "p": 266, "x": ""}, {"h": "לוֹט", "f": "Loot", "c": 0, "p": 266, "x": ""}, {"h": "לָחַם", "f": "nif. sotia, taistella", "c": 0, "p": 266, "x": ""}, {"h": "לָמַד", "f": "oppia; pi. opettaa", "c": 0, "p": 266, "x": ""}, {"h": "לָמָּה", "f": "miksi", "c": 0, "p": 266, "x": ""}, {"h": "לְמַעַן", "f": "että, jotta", "c": 0, "p": 266, "x": ""}, {"h": "לִקְרַאת", "f": "tapaamaan, vastaan", "c": 0, "p": 266, "x": ""}, {"h": "מֵאָה", "f": "sata", "c": 0, "p": 266, "x": ""}, {"h": "מְאוּמָה", "f": "mitään (kiellon kanssa)", "c": 16, "p": 157, "x": ""}, {"h": "מַאֲכֶלֶת", "f": "(fem.) puukko", "c": 16, "p": 157, "x": ""}, {"h": "מָאַס", "f": "hylätä", "c": 0, "p": 266, "x": ""}, {"h": "מַבּוּל", "f": "tulva, vedenpaisumus", "c": 0, "p": 266, "x": ""}, {"h": "מִדְיָן", "f": "Midian", "c": 0, "p": 266, "x": ""}, {"h": "מוֹרָא", "f": "pelko", "c": 0, "p": 266, "x": ""}, {"h": "מָוֶת", "f": "kuolema", "c": 0, "p": 266, "x": ""}, {"h": "מִזְבֵּחַ", "f": "alttari", "c": 16, "p": 157, "x": ""}, {"h": "מִטָּה", "f": "(fem.) sänky", "c": 0, "p": 266, "x": ""}, {"h": "מַיִם", "f": "vesi", "c": 0, "p": 266, "x": ""}, {"h": "מָכַר", "f": "myydä", "c": 0, "p": 266, "x": ""}, {"h": "מַלְאָךְ", "f": "lähettiläs, viestinviejä, enkeli", "c": 16, "p": 157, "x": ""}, {"h": "מְלָאכָה", "f": "(fem.) työ, tehtävä", "c": 0, "p": 266, "x": ""}, {"h": "מְלוּכָה", "f": "(fem.) kuningaskunta, kuninkuus", "c": 0, "p": 266, "x": ""}, {"h": "מֶלַח", "f": "suola", "c": 0, "p": 266, "x": ""}, {"h": "מִלִּפְנֵי", "f": "edestä, hallusta", "c": 17, "p": 175, "x": ""}, {"h": "מָחֳרָת", "f": "seuraavana päivänä", "c": 0, "p": 266, "x": ""}, {"h": "מַמְלָכָה", "f": "(fem.) kuningaskunta, valtakunta", "c": 17, "p": 175, "x": ""}, {"h": "מִן", "f": "-sta, jostakin; ilmaisee vertailua", "c": 0, "p": 266, "x": ""}, {"h": "מִנְחָה", "f": "(fem.) uhri, lahja", "c": 0, "p": 266, "x": ""}, {"h": "מַעֲשֶׂה", "f": "teko", "c": 0, "p": 266, "x": ""}, {"h": "נֶפֶשׁ", "f": "(fem.) elämän henki, sielu", "c": 0, "p": 267, "x": ""}, {"h": "נָשָׂא", "f": "nostaa, kohottaa", "c": 16, "p": 157, "x": ""}, {"h": "נָשַׁק", "f": "suudella", "c": 0, "p": 267, "x": ""}, {"h": "סָבַב", "f": "kiertää, kääntyä", "c": 18, "p": 190, "x": ""}, {"h": "סָגַר", "f": "sulkea", "c": 18, "p": 190, "x": ""}, {"h": "סְדֹם", "f": "Sodoma", "c": 0, "p": 267, "x": ""}, {"h": "סוּר", "f": "kääntyä pois, poiketa", "c": 17, "p": 175, "x": ""}, {"h": "סֵפֶר", "f": "kirja, kirjoitus", "c": 17, "p": 175, "x": ""}, {"h": "עָבַר", "f": "kulkea läpi, ohittaa, ylittää", "c": 0, "p": 267, "x": ""}, {"h": "עַד", "f": "asti, saakka", "c": 0, "p": 267, "x": ""}, {"h": "עוֹד", "f": "vielä, toinen", "c": 0, "p": 267, "x": ""}, {"h": "עָזַב", "f": "hylätä, jättää", "c": 0, "p": 267, "x": ""}, {"h": "עָוֹן", "f": "synti", "c": 0, "p": 267, "x": ""}, {"h": "עֶזְרָא", "f": "Esra", "c": 0, "p": 267, "x": ""}, {"h": "עַל", "f": "-lla, päällä, päälle, koskien, vastaan", "c": 0, "p": 267, "x": ""}, {"h": "עֹלָה", "f": "(fem.) polttouhri", "c": 16, "p": 157, "x": ""}, {"h": "עַלְמָה", "f": "(fem.) nuori nainen", "c": 0, "p": 268, "x": ""}, {"h": "עִם", "f": "kanssa, luona", "c": 0, "p": 268, "x": ""}, {"h": "עַמּוֹן", "f": "Ammon", "c": 0, "p": 268, "x": ""}, {"h": "עֲמֹרָה", "f": "Gomorra", "c": 0, "p": 268, "x": ""}, {"h": "עָנָה", "f": "vastata", "c": 0, "p": 268, "x": ""}, {"h": "עָנָן", "f": "pilvi", "c": 0, "p": 268, "x": ""}, {"h": "עֵץ", "f": "puu", "c": 16, "p": 157, "x": ""}, {"h": "עֶרֶב", "f": "ilta", "c": 0, "p": 268, "x": ""}, {"h": "עָשָׂה (nif.)", "f": "nif. tulla tehdyksi", "c": 0, "p": 268, "x": ""}, {"h": "עֲשָׂרָה", "f": "kymmenen", "c": 0, "p": 268, "x": ""}, {"h": "עֶשְׂרִים", "f": "kaksikymmentä", "c": 0, "p": 268, "x": ""}, {"h": "פֶּה", "f": "suu", "c": 0, "p": 268, "x": ""}, {"h": "פָּלַל", "f": "hitp. rukoilla", "c": 0, "p": 268, "x": ""}, {"h": "פָּנָה", "f": "kääntyä (jnk puoleen)", "c": 0, "p": 268, "x": ""}, {"h": "פָּנִים", "f": "kasvot", "c": 0, "p": 268, "x": ""}, {"h": "פַּעַם", "f": "(fem.) kerta", "c": 18, "p": 190, "x": ""}, {"h": "פָּקַד", "f": "pitää huolta; + עַל kostaa, rangaista", "c": 0, "p": 268, "x": ""}, {"h": "פָּקַח", "f": "avata (silmät)", "c": 0, "p": 268, "x": ""}, {"h": "פַּר", "f": "sonni", "c": 0, "p": 268, "x": ""}, {"h": "פְּרִי", "f": "hedelmä", "c": 0, "p": 268, "x": ""}, {"h": "פַּרְעֹה", "f": "farao", "c": 0, "p": 268, "x": ""}, {"h": "פָּתַח", "f": "avata", "c": 0, "p": 268, "x": ""}, {"h": "צֹאן", "f": "pikkukarja (lampaat ja vuohet)", "c": 0, "p": 268, "x": ""}, {"h": "צָהֳרַיִם", "f": "puolipäivä", "c": 0, "p": 268, "x": ""}, {"h": "צָוָה", "f": "pi. käskeä", "c": 0, "p": 268, "x": ""}, {"h": "צָחַק", "f": "nauraa", "c": 0, "p": 268, "x": ""}, {"h": "צְעִירָה", "f": "(fem.) nuorempi, kuopus", "c": 0, "p": 268, "x": ""}, {"h": "צָעַק", "f": "huutaa", "c": 0, "p": 268, "x": ""}, {"h": "קָדַשׁ", "f": "olla pyhä; pi. pyhittää", "c": 0, "p": 268, "x": ""}, {"h": "קֹהֶלֶת", "f": "Saarnaaja", "c": 0, "p": 268, "x": ""}, {"h": "קָלַל", "f": "olla pieni; pi. kirota", "c": 0, "p": 268, "x": ""}, {"h": "שָׂדֶה", "f": "pelto", "c": 0, "p": 269, "x": ""}, {"h": "שִׂים", "f": "asettaa", "c": 17, "p": 175, "x": ""}, {"h": "שָׂמַח", "f": "iloita", "c": 0, "p": 269, "x": ""}, {"h": "שְׂמֹאל", "f": "vasen", "c": 17, "p": 175, "x": ""}, {"h": "שָׂנֵא", "f": "vihata", "c": 0, "p": 269, "x": ""}, {"h": "שַׂר", "f": "komentaja, korkea virkamies", "c": 0, "p": 269, "x": ""}, {"h": "שָׂרַף", "f": "polttaa", "c": 18, "p": 190, "x": ""}, {"h": "שָׁאַל", "f": "kysyä, pyytää", "c": 0, "p": 269, "x": ""}, {"h": "שָׁבַר", "f": "rikkoa", "c": 0, "p": 269, "x": ""}, {"h": "שֵׁבֶט", "f": "sauva, sukukunta, heimo", "c": 0, "p": 269, "x": ""}, {"h": "שֶׁבַע", "f": "seitsemän", "c": 0, "p": 269, "x": ""}, {"h": "שׁוּב", "f": "palata, kääntyä", "c": 0, "p": 269, "x": ""}, {"h": "שׁוֹפָר", "f": "(oinaan sarvesta tehty) torvi", "c": 18, "p": 190, "x": ""}, {"h": "שָׁחַט", "f": "tappaa, teurastaa", "c": 0, "p": 269, "x": ""}, {"h": "שָׁם", "f": "siellä", "c": 0, "p": 270, "x": ""}, {"h": "שֶׁמֶן", "f": "öljy", "c": 0, "p": 270, "x": ""}, {"h": "שֶׁמֶשׁ", "f": "(mask./fem.) aurinko", "c": 0, "p": 270, "x": ""}, {"h": "שָׁנָה", "f": "(fem.) vuosi", "c": 0, "p": 270, "x": ""}, {"h": "שְׁנַיִם", "f": "(du.) kaksi", "c": 0, "p": 270, "x": ""}, {"h": "שַׁעַר", "f": "portti", "c": 18, "p": 190, "x": ""}, {"h": "שָׁפַךְ", "f": "vuodattaa", "c": 0, "p": 270, "x": ""}, {"h": "שְׁלִישִׁי", "f": "kolmas", "c": 16, "p": 157, "x": ""}, {"h": "אַיֵּה", "f": "missä (kysymyssana)", "c": 16, "p": 157, "x": ""}, {"h": "בָּרוּךְ", "f": "siunattu", "c": 16, "p": 157, "x": ""}, {"h": "מוֹרִיָּה", "f": "Moria", "c": 16, "p": 157, "x": ""}, {"h": "רָבָה", "f": "tulla runsaaksi", "c": 16, "p": 157, "x": ""}, {"h": "תַּחַת", "f": "sijaan, sijasta; alla", "c": 16, "p": 157, "x": ""}, {"h": "מִשְׁנֶה", "f": "kopio", "c": 17, "p": 175, "x": ""}, {"h": "רוּם", "f": "olla korkealla, ylpistyä", "c": 17, "p": 175, "x": ""}, {"h": "נָפַל", "f": "kaatua, pudota", "c": 18, "p": 190, "x": ""}, {"h": "תָּקַע", "f": "puhaltaa (torveen)", "c": 18, "p": 190, "x": ""}, {"h": "תְּרוּעָה", "f": "(fem.) huuto", "c": 18, "p": 190, "x": ""}];
@@ -1231,6 +1314,55 @@ TY.forEach(m=>{m[1]=fixAbbr(m[1]);m[4]=fixAbbr(m[4])});
 TEXTS.forEach(t=>t.w.forEach(w=>{w[2]=fixAbbr(w[2])}));
 TOPICS.forEach(t=>{t.sum=t.sum.map(fixAbbr);t.deep=fixAbbr(t.deep)});
 
+/* ===== V3: LISÄSISÄLTÖ ===== */
+/* Constructus-ketjut: [cstr, absolutus, suomi nom., suomi gen.] */
+const CS_HEAD=[["בֵּית","בַּיִת","talo","talon"],["דְּבַר","דָּבָר","sana","sanan"],["בְּנֵי","בָּנִים","pojat","poikien"],["תּוֹרַת","תּוֹרָה","laki","lain"],["אַנְשֵׁי","אֲנָשִׁים","miehet","miesten"],["קוֹל","קוֹל","ääni","äänen"],["סֵפֶר","סֵפֶר","kirja","kirjan"],["אֶרֶץ","אֶרֶץ","maa","maan"],["עַם","עַם","kansa","kansan"],["יַד","יָד","käsi","käden"],["עִיר","עִיר","kaupunki","kaupungin"],["מֶלֶךְ","מֶלֶךְ","kuningas","kuninkaan"]];
+/* omistaja: [heprea, suomi gen., suomi nom., määräinen] */
+const CS_OWN=[["הַמֶּלֶךְ","kuninkaan","kuningas",1],["יְהוָה","Herran","Herra",1],["יִשְׂרָאֵל","Israelin","Israel",1],["מֹשֶׁה","Mooseksen","Mooses",1],["הָעָם","kansan","kansa",1],["דָּוִד","Daavidin","Daavid",1],["הָאִישׁ","miehen","mies",1],["אֱלֹהִים","Jumalan","Jumala",1],["מִצְרַיִם","Egyptin","Egypti",1],["הַכֹּהֵן","papin","pappi",1],["מֶלֶךְ","(erään) kuninkaan","kuningas",0],["אִישׁ","(erään) miehen","mies",0],["נָבִיא","(erään) profeetan","profeetta",0]];
+/* prepositio + artikkeli: [art. sana, ilman art., suomi määr., suomi epämäär., prep] */
+const PREP_N=[["הַמֶּלֶךְ","מֶלֶךְ","kuninkaalle","eräälle kuninkaalle","לְ"],["הָאִישׁ","אִישׁ","miehelle","eräälle miehelle","לְ"],["הָעָם","עַם","kansalle","eräälle kansalle","לְ"],["הַכֹּהֵן","כֹהֵן","papille","eräälle papille","לְ"],["הַנָּבִיא","נָבִיא","profeetalle","eräälle profeetalle","לְ"],
+ ["הַבַּיִת","בַיִת","talossa","eräässä talossa","בְּ"],["הָעִיר","עִיר","kaupungissa","eräässä kaupungissa","בְּ"],["הָאָרֶץ","אֶרֶץ","maassa","eräässä maassa","בְּ"],["הַמִּדְבָּר","מִדְבָּר","erämaassa","eräässä erämaassa","בְּ"],["הַשָּׂדֶה","שָׂדֶה","pellolla","eräällä pellolla","בְּ"]];
+/* attribuutti / nominaalilause: substantiivit [art., suomi, suku 0=m 1=f], adjektiivit [m, f, m+art, f+art, suomi] */
+const AN_N=[["הַמֶּלֶךְ","kuningas",0],["הָאִישׁ","mies",0],["הָעָם","kansa",0],["הַבַּיִת","talo",0],["הַדָּבָר","sana",0],["הָעִיר","kaupunki",1],["הָאָרֶץ","maa",1],["הָאִשָּׁה","nainen",1],["הַתּוֹרָה","laki",1]];
+const AN_A=[["טוֹב","טוֹבָה","הַטּוֹב","הַטּוֹבָה","hyvä"],["גָּדוֹל","גְּדוֹלָה","הַגָּדוֹל","הַגְּדוֹלָה","suuri"],["קָדוֹשׁ","קְדוֹשָׁה","הַקָּדוֹשׁ","הַקְּדוֹשָׁה","pyhä"],["רַע","רָעָה","הָרַע","הָרָעָה","paha"],["חָכָם","חֲכָמָה","הֶחָכָם","הַחֲכָמָה","viisas"],["זָקֵן","זְקֵנָה","הַזָּקֵן","הַזְּקֵנָה","vanha"]];
+/* demonstratiivit: [heprea, oikea, väärät] */
+const DEMO=[["הַמֶּלֶךְ הַזֶּה","tämä kuningas",["tämä on kuningas","se kuningas","nämä kuninkaat"]],["זֶה הַמֶּלֶךְ","tämä on kuningas",["tämä kuningas","tuo kuningas","kuningas on täällä"]],["הָעִיר הַזֹּאת","tämä kaupunki",["tämä on kaupunki","nämä kaupungit","se kaupunki"]],["זֹאת הָעִיר","tämä on kaupunki",["tämä kaupunki","se kaupunki","kaupunki on tämä?"]],["הַדְּבָרִים הָאֵלֶּה","nämä sanat",["nämä ovat sanoja","ne sanat","tämä sana"]],["אֵלֶּה הַדְּבָרִים","nämä ovat ne sanat",["nämä sanat","ne sanat","tämä sana"]],["הַיּוֹם הַהוּא","se päivä",["tämä päivä","hän on päivä","ne päivät"]],["הָאִישׁ הַהוּא","se mies",["tämä mies","hän on mies","ne miehet"]],["הַיָּמִים הָהֵם","ne päivät",["nämä päivät","se päivä","he ovat päiviä"]]];
+/* heikot verbimuodot: [muoto, juuri, aikamuoto, PGN, suomi, aihe] */
+const WEAKF=[
+ ["בָּנָה","בנה","perfekti","3ms","hän rakensi","weakperf"],["בָּנִיתִי","בנה","perfekti","1cs","minä rakensin","weakperf"],["בָּנוּ","בנה","perfekti","3cp","he rakensivat","weakperf"],
+ ["עָשָׂה","עשׂה","perfekti","3ms","hän teki","weakperf"],["עָשִׂיתָ","עשׂה","perfekti","2ms","sinä teit","weakperf"],["רָאָה","ראה","perfekti","3ms","hän näki","weakperf"],["רָאִיתִי","ראה","perfekti","1cs","minä näin","weakperf"],
+ ["קָם","קום","perfekti","3ms","hän nousi","weakperf"],["קַמְתִּי","קום","perfekti","1cs","minä nousin","weakperf"],["קָמוּ","קום","perfekti","3cp","he nousivat","weakperf"],["שָׁב","שׁוב","perfekti","3ms","hän palasi","weakperf"],
+ ["בָּא","בוא","perfekti","3ms","hän tuli","weakperf"],["בָּאתִי","בוא","perfekti","1cs","minä tulin","weakperf"],["מָצָא","מצא","perfekti","3ms","hän löysi","weakperf"],["מָצָאתִי","מצא","perfekti","1cs","minä löysin","weakperf"],["נָתַתִּי","נתן","perfekti","1cs","minä annoin","weakperf"],
+ ["יִבְנֶה","בנה","imperfekti","3ms","hän rakentaa","weakimpf"],["יַעֲשֶׂה","עשׂה","imperfekti","3ms","hän tekee","weakimpf"],["יִרְאֶה","ראה","imperfekti","3ms","hän näkee","weakimpf"],["יָקוּם","קום","imperfekti","3ms","hän nousee","weakimpf"],["יָשׁוּב","שׁוב","imperfekti","3ms","hän palaa","weakimpf"],
+ ["יָבוֹא","בוא","imperfekti","3ms","hän tulee","weakimpf"],["יִתֵּן","נתן","imperfekti","3ms","hän antaa","weakimpf"],["יִקַּח","לקח","imperfekti","3ms","hän ottaa","weakimpf"],["יֵשֵׁב","ישׁב","imperfekti","3ms","hän istuu","weakimpf"],["יֵדַע","ידע","imperfekti","3ms","hän tietää","weakimpf"],
+ ["יֵלֵךְ","הלך","imperfekti","3ms","hän menee","weakimpf"],["אֵלֵךְ","הלך","imperfekti","1cs","minä menen","weakimpf"],["יֹאמַר","אמר","imperfekti","3ms","hän sanoo","weakimpf"],["יֹאכַל","אכל","imperfekti","3ms","hän syö","weakimpf"],["יֵצֵא","יצא","imperfekti","3ms","hän lähtee","weakimpf"],
+ ["וַיֹּאמֶר","אמר","wayyiqtol","3ms","ja hän sanoi","wayyiqtol"],["וַיֹּאמְרוּ","אמר","wayyiqtol","3mp","ja he sanoivat","wayyiqtol"],["וָאֹמַר","אמר","wayyiqtol","1cs","ja minä sanoin","wayyiqtol"],["וַיֵּלֶךְ","הלך","wayyiqtol","3ms","ja hän meni","wayyiqtol"],["וַיֵּלְכוּ","הלך","wayyiqtol","3mp","ja he menivät","wayyiqtol"],
+ ["וַיַּעַשׂ","עשׂה","wayyiqtol","3ms","ja hän teki","wayyiqtol"],["וַיָּבֹא","בוא","wayyiqtol","3ms","ja hän tuli","wayyiqtol"],["וַיַּרְא","ראה","wayyiqtol","3ms","ja hän näki","wayyiqtol"],["וַיְהִי","היה","wayyiqtol","3ms","ja tapahtui / ja oli","wayyiqtol"],["וַיִּקַּח","לקח","wayyiqtol","3ms","ja hän otti","wayyiqtol"],
+ ["וַיִּתֵּן","נתן","wayyiqtol","3ms","ja hän antoi","wayyiqtol"],["וַיֵּשֶׁב","ישׁב","wayyiqtol","3ms","ja hän istui / asui","wayyiqtol"],["וַיָּקָם","קום","wayyiqtol","3ms","ja hän nousi","wayyiqtol"],["וַיֵּצֵא","יצא","wayyiqtol","3ms","ja hän lähti ulos","wayyiqtol"],["וַיִּשְׁמַע","שׁמע","wayyiqtol","3ms","ja hän kuuli","wayyiqtol"],
+ ["וַיָּשָׁב","שׁוב","wayyiqtol","3ms","ja hän palasi","wayyiqtol"],["וַיִּבְרָא","ברא","wayyiqtol","3ms","ja hän loi","wayyiqtol"],["וַיִּקְרָא","קרא","wayyiqtol","3ms","ja hän kutsui / huusi","wayyiqtol"],["וַיַּעַן","ענה","wayyiqtol","3ms","ja hän vastasi","wayyiqtol"],["וַיֵּרֶד","ירד","wayyiqtol","3ms","ja hän laskeutui","wayyiqtol"],["וַיַּעַל","עלה","wayyiqtol","3ms","ja hän nousi ylös","wayyiqtol"],["וַנֵּלֶךְ","הלך","wayyiqtol","1cp","ja me menimme","wayyiqtol"]];
+/* objektisuffiksit */
+const OBJS=[["שְׁמָרַנִי","hän vartioi minut"],["שְׁמָרְךָ","hän vartioi sinut (m)"],["שְׁמָרוֹ","hän vartioi hänet (m)"],["שְׁמָרָהּ","hän vartioi hänet (f)"],["שְׁמָרָנוּ","hän vartioi meidät"],["שְׁמָרָם","hän vartioi heidät"],["יִשְׁמְרֵנִי","hän vartioi minua (impf.)"],["יִשְׁמְרֵהוּ","hän vartioi häntä (impf.)"]];
+/* uudet jakeet */
+TEXTS.push(
+{id:"gen1_5",t:"Päivä ja yö",ref:"1. Moos. 1:5",ch:13,fi:"Ja Jumala kutsui valoa päiväksi.",w:[
+ ["וַיִּקְרָא","ja (hän) kutsui","wayyiqtol yks. 3. m. קָרָא ’kutsua, huutaa’ (III-א)","wayyiqtol"],["אֱלֹהִים","Jumala","subst. mon. muoto, merkitys yksikkö","gender"],["לָאוֹר","valoa (kohti)","prep. לְ + art. + אוֹר ’valo’","preps"],["יוֹם","päiväksi","subst. יוֹם ’päivä’","gender"]]},
+{id:"gen12_1",t:"Lähde maastasi",ref:"1. Moos. 12:1",ch:13,fi:"Ja Herra sanoi Abramille: Lähde maastasi.",w:[
+ ["וַיֹּאמֶר","ja (hän) sanoi","wayyiqtol yks. 3. m. אָמַר ’sanoa’ (I-א)","wayyiqtol"],["יְהוָה","Herra","Jumalan nimi, luetaan ’ădōnāj’","qere"],["אֶל־אַבְרָם","Abramille","prep. אֶל ’luo, -lle’ + nimi","preps"],["לֶךְ־לְךָ","lähde (itsellesi)","imperatiivi הָלַךְ + לְ + suffiksi yks. 2. m.","suffp"],["מֵאַרְצְךָ","maastasi","prep. מִן + אֶרֶץ + suffiksi yks. 2. m.","prep2"]]},
+{id:"gen4_1",t:"Aadam tunsi Eevan",ref:"1. Moos. 4:1",ch:10,fi:"Ja ihminen (Aadam) tunsi Eevan, vaimonsa.",w:[
+ ["וְהָאָדָם","ja ihminen","konj. וְ + art. + אָדָם","article"],["יָדַע","tunsi","qal perf. yks. 3. m. יָדַע ’tietää, tuntea’","perfLar"],["אֶת־חַוָּה","Eevan","objektin merkki + nimi","verbal"],["אִשְׁתּוֹ","vaimonsa","אִשָּׁה (cstr. אֵשֶׁת) + suffiksi yks. 3. m.","suffn"]]},
+{id:"ps121",t:"Minä nostan silmäni",ref:"Ps. 121:1",ch:14,fi:"Minä nostan silmäni vuoria kohti.",w:[
+ ["אֶשָּׂא","minä nostan","qal impf. yks. 1. נָשָׂא ’nostaa’ (I-נ: נ sulautunut)","weakimpf"],["עֵינַי","silmäni","duaali עֵינַיִם + suffiksi yks. 1.","suffn"],["אֶל־הֶהָרִים","vuoria kohti","prep. אֶל + art. + הָרִים ’vuoret’","article"]]},
+{id:"sam3",t:"Puhu, palvelijasi kuulee",ref:"1. Sam. 3:10",ch:18,fi:"Puhu, sillä palvelijasi kuulee.",w:[
+ ["דַּבֵּר","puhu!","piʿʿel imperatiivi yks. 2. m. דִּבֶּר ’puhua’","imper"],["כִּי","sillä","konjunktio","conj"],["שֹׁמֵעַ","kuulee (on kuulemassa)","qal akt. partisiippi yks. m. שָׁמַע","partic"],["עַבְדֶּךָ","palvelijasi","עֶבֶד + suffiksi yks. 2. m. (pausa)","suffn"]]},
+{id:"lev19",t:"Rakasta lähimmäistäsi",ref:"3. Moos. 19:18",ch:13,fi:"Ja sinun tulee rakastaa lähimmäistäsi niin kuin itseäsi.",w:[
+ ["וְאָהַבְתָּ","ja sinun tulee rakastaa","weqatal yks. 2. m. אָהַב ’rakastaa’: käsky/tulevaisuus","weqatal"],["לְרֵעֲךָ","lähimmäistäsi","prep. לְ + רֵעַ ’toveri’ + suffiksi yks. 2. m.","suffn"],["כָּמוֹךָ","niin kuin itseäsi","prep. כְּמוֹ + suffiksi yks. 2. m.","suffp"]]}
+);
+/* Soferin lisärepliikit */
+MASCOT.ok.push("Kuningas Salomo kysyi juuri neuvoa sinulta.","Tuo vastaus oli niin puhdas, että se kelpaisi temppeliin.","Oikein! Jopa Bileamin aasi olisi vaikuttunut.","Halleluja! Se on muuten piʿʿel-imperatiivi. Sinun kunniaksesi.","Tämä vastaus lisätään kaanoniin.","Oikein! Voit nyt kutsua itseäsi rabbiharjoittelijaksi.","Seitsemän lihavaa vuotta osaamisellesi!","Kirjoitan tämän reunahuomautukseksi: ’täydellinen’.");
+MASCOT.bad.push("Ei hätää, Jaakobkin paini koko yön ja sai silti siunauksen.","Joonakin päätyi kalan vatsaan ennen kuin pääsi perille.","Tämä oli kuin Baabelin torni: hyvä yritys, sekava lopputulos.","Kirjoitetaan tämä ketiv-sarakkeeseen ja jatketaan.","Pietarikin kielsi kolmesti. Sinulla on vielä yrityksiä jäljellä.");
+MASCOT.feed=["Pyyhkäise ylös. Jokainen pyyhkäisy on askel kohti Siionin porttia.","TikTok ei opeta sinulle wayyiqtolia. Minä opetan.","Tämä syöte ei lopu koskaan. Kuin Abrahamin jälkeläiset.","Doomscrollauksen sijaan doom-jäsennys!","Vielä yksi. Masoreetit kopioivat tuhat vuotta, sinä selaat viisi minuuttia.","Jos jäät koukkuun, jää ainakin hepreaan."];
+MASCOT.tap=["Älä kutita, olen pergamenttia!","Psst: wayyiqtol = ’ja hän teki’. Ota talteen.","Kerro tentissä terveisiä. Siellä on muuten aina joku, joka unohti kynän.","Olen kirjuri. Kirjoitan ylös jokaisen oikean vastauksesi. Ja väärät myös, mutta pienellä.","Jos minulla olisi kädet, taputtaisin. Minulla on kääreet.","Muistisääntö: ʾ-j-t-n = imperfektin etuliitteet."];
+
 /* ================= Maso(kisti)reetti – sovellus ================= */
 const $=s=>document.querySelector(s);
 const app=$("#app");
@@ -1363,6 +1495,7 @@ function clean(f){return f.replace(/^\((fem\.|mask\.)[^)]*\)\s*/,"").split(";")[
 function bankItems(tp){const out=[];MC.forEach(m=>{if(m[0]===tp)out.push({t:"mc",tp,q:m[1],heb:m[2]||null,a:m[3],w:m[4],x:m[5],hebOpts:/[֐-׿]/.test(m[3])&&!/[a-zäö]/i.test(m[3])})});
   if(S.set.kb)TY.forEach(m=>{if(m[0]===tp)out.push({t:"ty",tp,q:m[1],a:m[2],niq:m[3],x:m[4],alts:m[5]})});return out}
 function itemBase(tp){
+  {const bb=bankItems(tp);if(GEN[tp]&&bb.length&&Math.random()<.35)return rnd(bb)}
   if(GEN[tp]){const g=GEN[tp]();if(g)return g}
   const b=bankItems(tp);if(b.length)return rnd(b);
   if(GEN[tp])return GEN[tp]()||rnd(bankItems("article"));
@@ -2189,10 +2322,300 @@ function vMe(){const v=h("div",{class:"view"});v.append(topbar("Osaaminen"));
 /* ---------- käynnistys ---------- */
 const _go=go;go=function(v,a){clearToast();_go(v,a)};
 VIEWS.koti=vHome;VIEWS.opi=vLearn;VIEWS.pelaa=vPlay;VIEWS.sanasto=vVocab;VIEWS.mina=vMe;
-(function boot(){const start=(location.hash||"#koti").slice(1);
-  if(S.cur&&S.cur.t&&Date.now()-S.cur.t<12*36e5&&!S.cur.paused){go("koti");setTimeout(()=>{resumeSession();soferSay("Jatketaan siitä mihin jäit. Kääre muistaa kaiken.","happy")},50);return}
-  go(VIEWS[start]?start:"koti")})();
+
 if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropic/.test(location.host)){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
+
+/* ================= MASOREETTI v3 ================= */
+S.my=S.my||[];S.col=S.col||{l:[],b:[]};S.dp=S.dp||{};S.set=Object.assign({snd:true,talk:"lots"},S.set);S.stats=S.stats||{ok:0,combo:0,parse:0};
+
+/* ---------- uudet generaattorit ---------- */
+const sp3=r=>letters(r).map(c=>c[0]).join("־");
+GEN.status=function(){const hd=rnd(CS_HEAD);let ow=rnd(CS_OWN);while(ow[2]===hd[2])ow=rnd(CS_OWN);const ph=hd[0]+" "+ow[0];const fi=`${ow[1]} ${hd[2]}`;
+  const k=Math.random();
+  if(k<.5){const w=[`${hd[3]} ${ow[2]}`,`${hd[2]} ja ${ow[2]}`,ow[3]?`(erään) ${ow[1]} ${hd[2]}`:`${ow[1].replace("(erään) ","")} ${hd[2]} (määräinen)`];return {t:"mc",tp:"status",q:"Mitä tarkoittaa?",heb:ph,a:fi,w,x:`Omistettava (${hd[0]}) ensin constructus-muodossa, omistaja (${ow[0]}) perässä. ${ow[3]?"Omistaja on määräinen, joten koko rakenne on määräinen.":"Omistaja on epämääräinen, joten koko rakenne on epämääräinen."}`}}
+  const w=new Set();if(hd[1]!==hd[0])w.add(hd[1]+" "+ow[0]);if(ow[3])w.add("הַ"+hd[0]+" "+ow[0]);w.add(ow[0]+" "+hd[0]);if(w.size<3)w.add(hd[0]+" הַ"+ow[0]);
+  if(S.set.diff==="hard"||(S.set.kb&&Math.random()<.2))return {t:"ty",tp:"status",q:`Kirjoita: ’${fi}’`,a:ph,niq:false,x:`${ph}: ${hd[0]} on sanan ${hd[1]} constructus-muoto.`};
+  return {t:"mc",tp:"status",q:`Valitse: ’${fi}’`,a:ph,w:[...w].slice(0,3),hebOpts:true,x:`${ph}: ensimmäinen sana constructus-muodossa (${hd[1]} → ${hd[0]}) eikä koskaan artikkelia.`}};
+GEN.cstrforms=function(){const hs=CS_HEAD.filter(x=>x[0]!==x[1]);const hd=rnd(hs);
+  if(Math.random()<.5)return {t:"mc",tp:"cstrforms",q:`Mikä on sanan ’${hd[2]}’ constructus-muoto?`,heb:hd[1],a:hd[0],w:shuffle(hs.filter(x=>x!==hd).map(x=>x[0])).slice(0,2).concat(["הַ"+hd[1]]),hebOpts:true,x:`${hd[1]} → ${hd[0]}. ${HINTS.cstrforms[1]}`};
+  return {t:"mc",tp:"cstrforms",q:"Kumpi muoto tämä on?",heb:hd[0],a:"constructus (omistettava)",w:["absolutus (perusmuoto)","monikko + artikkeli","suffiksimuoto"],x:`${hd[0]} on constructus-muoto sanasta ${hd[1]}.`}};
+GEN.preps=function(){const n=rnd(PREP_N);const p=n[4];const pc=p[0];const dl=pc==="ב"?"ּ":"";const def=pc+dl+n[0].normalize("NFC").slice(1);const ind=p+n[1];const otherP=pc==="ל"?"בַּ":"לַ";
+  const defly=Math.random()<.6;const a=defly?def:ind;const fi=defly?n[2]:n[3];
+  const w=[defly?ind:def,p+n[0],otherP+n[0].normalize("NFC").slice(2)];
+  return {t:"mc",tp:"preps",q:`Valitse: ’${fi}’`,a,w,hebOpts:true,x:defly?`Prepositio + artikkeli: ה katoaa ja ${p} saa artikkelin vokaalin: ${def}.`:`Ilman artikkelia prepositio liittyy suoraan sanaan: ${ind}.`}};
+GEN.attr=function(){const n=rnd(AN_N),ad=rnd(AN_A);const f=n[2];const art=ad[f?3:2],bare=ad[f?1:0];const attr=n[0]+" "+art,pred=n[0]+" "+bare;
+  const pick=Math.random()<.5;const ph=pick?attr:pred;const fi=pick?`${ad[4]} ${n[1]}`:`${n[1]} on ${ad[4]}`;
+  if(Math.random()<.5)return {t:"mc",tp:pick?"attr":"nominal",q:"Mitä tarkoittaa?",heb:ph,a:fi,w:[pick?`${n[1]} on ${ad[4]}`:`${ad[4]} ${n[1]}`,`${ad[4]} ${n[1]} on täällä`,`${n[1]}, joka on ${ad[4]}?`],x:pick?"Adjektiivilla on artikkeli kuten substantiivilla → attribuutti.":"Adjektiivilta puuttuu artikkeli → nominaalilause, suomeksi ’on’."};
+  const wrongG=n[0]+" "+ad[f?2:3];return {t:"mc",tp:"attr",q:`Valitse: ’${fi}’`,a:ph,w:[pick?pred:attr,wrongG,(pick?ad[f?1:0]:art)+" "+n[0]],hebOpts:true,x:`${n[1]} on ${f?"feminiini":"maskuliini"}, joten adjektiivi on ${f?"feminiinimuodossa":"maskuliinimuodossa"}. ${pick?"Attribuutti saa artikkelin.":"Predikatiivi on ilman artikkelia."}`}};
+GEN.nominal=GEN.attr;
+GEN.demo=function(){const d=rnd(DEMO);return {t:"mc",tp:"demo",q:"Mitä tarkoittaa?",heb:d[0],a:d[1],w:d[2],x:"Demonstratiivi artikkelin kanssa substantiivin perässä = ’tämä X’. Ilman artikkelia lauseen alussa = ’tämä on X’."}};
+function wayyFromImpf(f){const N=f.normalize("NFC");if(N.startsWith("יִ"))return "וַיִּ"+N.slice(2);if(N.startsWith("תִּ"))return "וַתִּ"+N.slice(3);if(N.startsWith("נִ"))return "וַנִּ"+N.slice(2);if(N.startsWith("אֶ"))return "וָאֶ"+N.slice(2);return null}
+function weqFromPerf(f){const N=f.normalize("NFD");const c=N[0];let rest=N.slice(1);if("בגדכפת".includes(c))rest=rest.replace("ּ","");if(rest[0]==="ְ"||rest.startsWith("ְּ"))return "וּ"+c+rest;return ("במפ".includes(c)?"וּ":"וְ")+c+rest}
+const ROOTS_ALL=()=>[...new Set(strong.slice(0,11).concat(WEAKF.map(w=>w[1])))];
+function parseItem(kind){const r=Math.random();
+  if(kind==="weak"||(!kind&&r<.45)){const pool=WEAKF.filter(w=>unlocked(TOP[w[5]].ch)||w[5]==="weakperf");const w=rnd(pool.length?pool:WEAKF);return {t:"parse",tp:w[5],heb:w[0],root:w[1],muoto:w[2],pgn:w[3],fi:w[4]}}
+  const root=rnd(strong.slice(0,11));const m=rnd(["perfekti","imperfekti","wayyiqtol","weqatal"].filter(x=>x==="perfekti"||unlocked(x==="imperfekti"?12:13)));
+  if(m==="perfekti"){const f=perfA(root);const k=rnd(Object.keys(f));return {t:"parse",tp:"perfA",heb:f[k],root,muoto:m,pgn:k,mean:RMEAN[root]}}
+  if(m==="imperfekti"){const f=impf(root);const k=rnd(["3ms","1cs","1cp","2fs","3mp","2mp"]);return {t:"parse",tp:"impf",heb:f[k],root,muoto:m,pgn:k,mean:RMEAN[root]}}
+  if(m==="wayyiqtol"){const f=impf(root);const k=rnd(["3ms","1cs","1cp","3mp"]);return {t:"parse",tp:"wayyiqtol",heb:wayyFromImpf(f[k]),root,muoto:m,pgn:k,mean:RMEAN[root]}}
+  const f=perfA(root);const k=rnd(["2ms","1cs","3cp","2mp","1cp"]);return {t:"parse",tp:"weqatal",heb:weqFromPerf(f[k]),root,muoto:m,pgn:k,mean:RMEAN[root]}}
+GEN.wayyiqtol=()=>Math.random()<.6?parseItem(Math.random()<.5?"weak":null):(()=>{const w=rnd(WEAKF.filter(x=>x[2]==="wayyiqtol"));return {t:"mc",tp:"wayyiqtol",q:"Mitä tarkoittaa?",heb:w[0],a:w[4],w:shuffle(WEAKF.filter(x=>x[4]!==w[4]).map(x=>x[4])).slice(0,3),x:`${w[0]} = ${w[4]} (juuri ${sp3(w[1])}). וַ + kahdennus = wayyiqtol, kerronnan ’ja hän teki’.`}})();
+GEN.weqatal=()=>{const root=rnd(strong.slice(0,11));const f=perfA(root);const k=rnd(["2ms","1cs","3cp","2mp"]);const form=weqFromPerf(f[k]);return {t:"mc",tp:"weqatal",q:"Mikä muoto?",heb:form,a:"weqatal: ja (tulevaisuudessa) "+P[k],w:["perfekti: "+P[k],"wayyiqtol: ja "+P[k]+" (mennyt)","imperfekti: "+P[k]],x:`וְ + perfekti = weqatal. Se jatkaa imperfektiä tai käskyä ja viittaa tulevaan: ${form}.`}};
+GEN.weakperf=()=>{const w=rnd(WEAKF.filter(x=>x[5]==="weakperf"));return Math.random()<.5?{t:"mc",tp:"weakperf",q:"Mikä on juuri?",heb:w[0],a:sp3(w[1]),w:shuffle(ROOTS_ALL().filter(r=>r!==w[1])).slice(0,3).map(sp3),hebOpts:true,x:`${w[0]} = ${w[4]}. Juuri ${sp3(w[1])}.`}:{t:"mc",tp:"weakperf",q:"Mitä tarkoittaa?",heb:w[0],a:w[4],w:shuffle(WEAKF.filter(x=>x[4]!==w[4]&&x[5]==="weakperf").map(x=>x[4])).slice(0,3),x:`Juuri ${sp3(w[1])}, ${w[2]}, ${P[w[3]]||w[3]}.`}};
+GEN.weakimpf=()=>{const w=rnd(WEAKF.filter(x=>x[5]==="weakimpf"));return Math.random()<.5?{t:"mc",tp:"weakimpf",q:"Mikä on juuri?",heb:w[0],a:sp3(w[1]),w:shuffle(ROOTS_ALL().filter(r=>r!==w[1])).slice(0,3).map(sp3),hebOpts:true,x:`${w[0]} = ${w[4]}. Juuri ${sp3(w[1])}. ${HINTS.weakimpf[1]}`}:{t:"mc",tp:"weakimpf",q:"Mitä tarkoittaa?",heb:w[0],a:w[4],w:shuffle(WEAKF.filter(x=>x[4]!==w[4]&&x[5]==="weakimpf").map(x=>x[4])).slice(0,3),x:`Juuri ${sp3(w[1])}.`}};
+GEN.objsuf=()=>{const o=rnd(OBJS);return {t:"mc",tp:"objsuf",q:"Mitä tarkoittaa?",heb:o[0],a:o[1],w:shuffle(OBJS.filter(x=>x!==o).map(x=>x[1])).slice(0,3),x:"Objektisuffiksi liittyy verbiin ja kertoo kohteen: -נִי minut, -ְךָ sinut, -וֹ hänet, -ָהּ hänet (f), -ָנוּ meidät, -ָם heidät."}};
+GEN.root=()=>{const w=rnd(WEAKF.concat(strong.slice(0,11).map(r=>[perfA(r)["1cs"],r])));return {t:"mc",tp:"root",q:"Mikä on juuri?",heb:w[0],a:sp3(w[1]),w:shuffle(ROOTS_ALL().filter(r=>r!==w[1])).slice(0,3).map(sp3),hebOpts:true,x:`Juuri ${sp3(w[1])}. Poista ensin etu- ja jälkiliitteet.`}};
+GEN.aspect=()=>{const p=parseItem();return {t:"mc",tp:"aspect",q:"Mikä aikamuoto?",heb:p.heb,a:p.muoto,w:["perfekti","imperfekti","wayyiqtol","weqatal"].filter(x=>x!==p.muoto),x:"Perfekti: päätteet lopussa. Imperfekti: etuliite alussa. Wayyiqtol: וַ + kahdennus + imperfekti. Weqatal: וְ + perfekti."}};
+
+/* ---------- jäsennys-tehtävä renderItemissä ---------- */
+const _renderItem2=renderItem;
+renderItem=function(st,it,done,o){if(it.t==="parse")return renderParse(st,it,done,o||{});return _renderItem2(st,it,done,o)};
+function renderParse(st,it,done,{noFb}={}){st.innerHTML="";let ok=true;const steps=[];
+  const PL=it.muoto==="imperfekti"||it.muoto==="wayyiqtol"?IMPF_P:P;
+  steps.push({q:"1. Mikä on juuri?",a:sp3(it.root),w:shuffle(ROOTS_ALL().filter(r=>r!==it.root)).slice(0,3).map(sp3),he:true,tp:"root"});
+  steps.push({q:"2. Mikä aikamuoto?",a:it.muoto,w:["perfekti","imperfekti","wayyiqtol","weqatal"].filter(x=>x!==it.muoto),tp:it.tp});
+  const pk=Object.keys(PL).filter(k=>PL[k]!==PL[it.pgn]);steps.push({q:"3. Mikä persoona?",a:PL[it.pgn]||it.pgn,w:shuffle([...new Set(pk.map(k=>PL[k]))]).slice(0,3),tp:it.tp});
+  if(it.fi)steps.push({q:"4. Mitä se tarkoittaa?",a:it.fi,w:shuffle(WEAKF.filter(x=>x[4]!==it.fi).map(x=>x[4])).slice(0,3),tp:"commonverbs"});
+  st.append(h("div",{class:"qtag"},"Jäsennys · "+(TOP[it.tp]?TOP[it.tp].t:"verbi")),h("div",{class:"bighe"},it.heb));if(it.mean)st.append(h("p",{class:"small muted",style:"text-align:center;margin-top:-6px"},`(juuren merkitys: ${it.mean})`));
+  const body=h("div",{class:"pbody"});st.append(body);let i=0;const res=h("div",{class:"psum"});st.insertBefore(res,body);
+  function step(){if(i>=steps.length){S.stats.parse++;dp("parse",1);
+      score(ok,14);
+      if(noFb){done(ok,"");return}
+      const fb=h("div",{class:"fb "+(ok?"ok":"no")},h("b",{class:"t"},ok?"Täydellinen jäsennys!":"Jäsennys valmis"),h("p",{html:heWrap(`${it.heb} = juuri ${sp3(it.root)}, ${it.muoto}, ${PL[it.pgn]||it.pgn}${it.fi?" → ’"+it.fi+"’":""}.`)}),HINTS[it.tp]?h("p",{class:"small",html:heWrap(HINTS[it.tp][1]||HINTS[it.tp][0])}):null);
+      body.append(fb,h("button",{class:"btn primary wide",onclick:()=>done(ok,"")},"Jatka"));checkAwards();return}
+    const s=steps[i];body.innerHTML="";body.append(h("div",{class:"q",style:"font-size:17px"},s.q));
+    const box=h("div",{class:s.he?"grid2":"opts"});shuffle([s.a,...s.w]).forEach(o=>{const b=h("button",{class:"opt"+(s.he?" he":"")},o);b.onclick=()=>{box.querySelectorAll("button").forEach(x=>{x.disabled=true;if(!noFb&&x.textContent===s.a)x.classList.add("ok")});const good=o===s.a;if(!good){ok=false;if(!noFb)b.classList.add("no","shake")}else if(noFb)b.classList.add("sel");record(s.tp,good);
+      res.append(h("span",{class:"pchip "+(noFb?"":good?"ok":"no")},s.a));i++;setTimeout(step,noFb?100:good?350:900)};box.append(b)});body.append(box)}
+  step()}
+
+/* ---------- päivän 40 min ---------- */
+function dp(f,n){const k=dayKey();const d=S.dp[k]||(S.dp[k]={feed:0,lesson:0,parse:0,words:0});d[f]=(d[f]||0)+n;save()}
+const DPT={feed:30,lesson:1,parse:10,words:20};
+function today(){return S.dp[dayKey()]||{feed:0,lesson:0,parse:0,words:0}}
+function planBlocks(){const t=today();return [
+  {k:"feed",t:"Syöte",d:"30 tehtävää pyyhkäisemällä",min:10,v:t.feed,go:()=>{if(feedEl&&document.body.classList.contains("onfeed")&&feedEl.children[1])feedEl.scrollTo({top:feedEl.children[1].offsetTop,behavior:"smooth"});else go("koti")}},
+  {k:"lesson",t:"Päivän oppitunti",d:"Polun seuraava aihe",min:10,v:t.lesson,go:()=>{const p=planTopics();lesson((p.today[0]||pickTopics(1)[0]),0)}},
+  {k:"parse",t:"Jäsennys",d:"10 verbimuotoa",min:10,v:t.parse,go:()=>gParse()},
+  {k:"words",t:"Sanat",d:"20 korttia toistovälillä",min:10,v:t.words,go:()=>{const p=VOC().filter(v=>isDue(v.h));gCards(p.length>=6?p:VOC())}}]}
+function coach(){if(S.cur)return {t:"Jatka kesken jäänyttä",why:"Sinulla on kierros kesken.",go:resumeSession};
+  const b=planBlocks().find(x=>x.v<DPT[x.k]);
+  const weak=openTopics().filter(t=>S.m[t.id]&&mastery(t.id)<.45).sort((a,b)=>mastery(a.id)-mastery(b.id))[0];
+  if(weak&&Math.random()<.4)return {t:"Mikro-oppitunti: "+weak.t,why:`Osaat tämän nyt ${Math.round(mastery(weak.id)*100)} %. Kolme minuuttia nostaa sitä eniten.`,go:()=>lesson(weak.id)};
+  if(b)return {t:b.t,why:`Päivän 40 minuutista on vielä tekemättä: ${b.d}.`,go:b.go};
+  const due=VOC().filter(v=>isDue(v.h)).length;if(due>8)return {t:"Sanakortit",why:`${due} sanaa odottaa kertausta.`,go:()=>gCards(VOC().filter(v=>isDue(v.h)))};
+  return {t:"Tenttisimulaatio",why:"Päivän suunnitelma on tehty. Testaa, miltä tentti näyttäisi nyt.",go:()=>startExam()}}
+function planCard(){const bl=planBlocks();const done=bl.filter(b=>b.v>=DPT[b.k]).length;
+  const c=h("div",{class:"card plan"},h("div",{class:"phead"},h("div",null,h("div",{class:"eyebrow"},"Päivän 40 min"),h("h3",null,done===4?"Kaikki tehty! 🎉":`${done}/4 tehty`)),ring(done/4)));
+  bl.forEach(b=>{const p=Math.min(1,b.v/DPT[b.k]);c.append(h("button",{class:"rec",onclick:b.go},h("span",{class:"pn"+(p>=1?" done":"")},p>=1?"✓":String(b.min)),h("span",{class:"tx"},h("b",null,b.t),h("span",null,`${b.d} · ${Math.min(b.v,DPT[b.k])}/${DPT[b.k]}`),h("div",{class:"mbar",style:"margin-top:4px"},h("i",{style:`width:${p*100}%`}))),h("span",{class:"lock"},"›")))});
+  const co=coach();c.append(h("div",{class:"coach"},h("div",{class:"small"},h("b",null,"Valmentaja suosittelee: "),co.t),h("div",{class:"small muted"},co.why),h("button",{class:"btn gold wide",onclick:co.go},"Tee se nyt")));
+  return c}
+function ring(p){return h("div",{class:"ring",html:`<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#E9EFF9" stroke-width="5"/><circle cx="20" cy="20" r="16" fill="none" stroke="#C9A24A" stroke-width="5" stroke-linecap="round" stroke-dasharray="${(p*100.5).toFixed(1)} 100.5" transform="rotate(-90 20 20)"/></svg>`})}
+
+/* ---------- sanan napautus ---------- */
+function wordSpans(text,big){const out=[];text.split(/(\s+|־)/).forEach(p=>{if(!p)return;if(/^\s+$|^־$/.test(p)){out.push(p);return}out.push(h("span",{class:"hw",role:"button",tabindex:"0","data-w":p},p))});return h("span",{class:"hws",lang:"he",dir:"rtl"},out)}
+const PREF=["וְ","וּ","וַ","הַ","הָ","הֶ","בְּ","בַּ","בָּ","לְ","לַ","לָ","כְּ","כַּ","מִ","מֵ","שֶׁ"];
+const SUFF=["ֵיהֶם","ֵיכֶם","ֵינוּ","ֶיהָ","ֶיךָ","ָיו","ַי","ְכֶם","ָם","ֵנוּ","ָהּ","וֹ","ְךָ","ֵךְ","ִי","ִים","וֹת","ָה","ֶת"];
+function lookup(word){const nf=s=>s.normalize("NFD").replace(ACC,"").replace(/͏/g,"");const nc=s=>normCons(s).replace(/[ךםןףץ]/g,c=>({"ך":"כ","ם":"מ","ן":"נ","ף":"פ","ץ":"צ"}[c]));
+  const W=nf(word);const out=[];const seen=new Set();const add=(v,how)=>{if(!seen.has(v.h)){seen.add(v.h);out.push({v,how})}};
+  VOCAB.forEach(v=>{v.h.split(/[\s\/,]+/).forEach(x=>{if(nf(x)===W)add(v,"")})});
+  TEXTS.forEach(t=>t.w.forEach(w=>{if(nf(w[0])===W&&!out.length)out.push({tx:w,how:t.ref})}));
+  WEAKF.forEach(w=>{if(nf(w[0])===W)out.push({wf:w})});
+  if(!out.length){const C=nc(word);VOCAB.forEach(v=>{if(nc(v.h)===C)add(v,"samat konsonantit")})}
+  if(!out.length){let cands=[nc(word)];PREF.forEach(p=>{if(W.startsWith(nf(p)))cands.push(nc(word).slice(1))});
+    const more=[];cands.forEach(c=>{for(let k=1;k<=3;k++)more.push(c.slice(0,c.length-k));});cands=cands.concat(more).filter(x=>x.length>=2);
+    for(const c of cands){VOCAB.forEach(v=>{if(nc(v.h)===c)add(v,"perusmuoto (etu- tai jälkiliite poistettu)")});if(out.length)break}}
+  if(!out.length){const C=nc(word);strong.forEach(r=>{const rc=nc(r);if(C.includes(rc[0])&&C.includes(rc[1])&&C.includes(rc[2])&&C.length<=rc.length+4)out.push({root:r})})}
+  return out}
+let lookedUp=null;
+function lookupSheet(word,ctx){const res=lookup(word);
+  if(ctx&&ctx.it){ctx.it.looked=(ctx.it.looked||0)+1}
+  const addMy=v=>{if(!S.my.includes(v.h)){S.my.unshift(v.h);S.my=S.my.slice(0,200)}const w=vw(v.h);w.due=Date.now()+6e5;if(lookedUp)lookedUp.add(v.h);save()};
+  sheet(sh=>{const items=res.slice(0,4).map(r=>{
+      if(r.v){addMy(r.v);return h("div",{class:"lk"},h("div",null,HE(r.v.h,"lkh")," ",h("span",{class:"small muted"},r.v.tr)),h("b",null,r.v.f),h("span",{class:"small muted"},`${r.v.c?"Luku "+r.v.c:"Kirjan sanasto"}, s. ${r.v.p}${r.how?" · "+r.how:""}${r.v.x?" · "+r.v.x:""}`))}
+      if(r.tx)return h("div",{class:"lk"},h("div",null,HE(r.tx[0],"lkh")),h("b",null,r.tx[1]),h("span",{class:"small muted",html:heWrap(fixAbbr(r.tx[2]))}),h("span",{class:"small muted"},r.how));
+      if(r.wf)return h("div",{class:"lk"},h("div",null,HE(r.wf[0],"lkh")),h("b",null,r.wf[4]),h("span",{class:"small muted"},`Juuri ${sp3(r.wf[1])} · ${r.wf[2]}`));
+      if(r.root)return h("div",{class:"lk"},h("div",null,HE(sp3(r.root),"lkh")),h("b",null,"Juuri: "+RMEAN[r.root]),h("span",{class:"small muted"},"Sana näyttää tämän juuren taivutusmuodolta."))});
+    return [h("div",{class:"eyebrow"},"Sanakirja"),h("div",{class:"lkw",lang:"he"},word),
+      items.length?items:h("p",{class:"muted"},"Tätä ei löytynyt sanastosta. Se voi olla nimi tai taivutettu muoto. Etsi juuri: poista etuliitteet (ו ה ב ל כ מ) ja päätteet."),
+      items.length&&res.some(r=>r.v)?h("p",{class:"small",style:"color:var(--ok)"},"✓ Lisätty omaan sanapakkaasi. Kysyn tämän uudestaan pian."):null,
+      h("button",{class:"btn primary",onclick:sh.close},"Takaisin tehtävään")].flat()})}
+document.addEventListener("click",e=>{const w=e.target.closest(".hw");if(!w||w.classList.contains("learn"))return;e.preventDefault();e.stopPropagation();const st=w.closest(".stage,.fc");lookupSheet(w.dataset.w,{it:st&&st._it})},true);
+document.addEventListener("keydown",e=>{const w=e.target.closest&&e.target.closest(".hw");if(w&&(e.key==="Enter"||e.key===" ")){e.preventDefault();w.click()}});
+
+/* ---------- renderItem: napautettavat sanat, sanasto & teoria päälle ---------- */
+const _renderItemP=renderItem;
+renderItem=function(st,it,done,o){o=o||{};st._it=it;
+  if(it.tp==="vocab"&&it.heb&&!o.noFb){it._learn=true}
+  _renderItemP(st,it,(ok,g)=>{if(it.looked&&ok)G.pts=Math.max(0,G.pts-4);done(ok,g)},o);
+  const big=st.querySelector(".bighe");
+  if(big&&it.heb&&!o.noFb&&it.t!=="parse"){const tr=big.querySelector(".tr");big.innerHTML="";
+    if(it.tp==="vocab"){const sp=h("span",{class:"hw learn",role:"button",tabindex:"0"},it.heb);sp.onclick=e=>{e.stopPropagation();learnWord(st,it,done)};big.append(sp)}
+    else big.append(wordSpans(it.heb));if(tr)big.append(tr);
+    big.append(h("span",{class:"tapnote"},it.tp==="vocab"?"En tunne sanaa? Napauta sitä.":"Napauta sanaa, jos et tunne sitä."))}
+  const tools=st.querySelector(".tools");
+  if(tools){tools.append(h("button",{class:"chip",onclick:()=>vocabSheet()},"📖 Sanasto"));if(TOP[it.tp])tools.append(h("button",{class:"chip",onclick:()=>theorySheet(it.tp)},"Teoria"))}};
+function learnWord(st,it,done){const v=VOCAB.find(x=>x.h===it.word)||{h:it.heb,tr:TR.text(it.heb),f:it.a,c:0,p:"?"};
+  st.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(b.textContent===it.a)b.classList.add("ok")});const tl=st.querySelector(".tools");if(tl)tl.remove();
+  recordWord(v.h,false);if(!S.my.includes(v.h))S.my.unshift(v.h);if(lookedUp)lookedUp.add(v.h);save();G.streak=0;upd();dp("words",1);
+  st.append(h("div",{class:"fb learncard"},h("b",{class:"t"},"Uusi sana omaan pakkaan"),h("div",null,HE(v.h)," ",h("span",{class:"small muted"},v.tr)),h("b",null,v.f),h("p",{class:"small muted"},`${v.c?"Luku "+v.c:"Kirjan sanasto"}, s. ${v.p}. Kysyn tämän uudestaan tämän kierroksen lopussa.`)),
+    h("button",{class:"btn primary wide",onclick:()=>done(false,"__learn")},"Selvä, jatketaan"));soferSay(rnd(["Hyvä! Tuntemattoman sanan katsominen on oppimista, ei luovuttamista.","Sana kääreeseen talteen. Kysyn sitä pian, ole valmiina!","Nyt tunnet sen. Tai tunnet pian, kun kysyn uudestaan."]),"happy")}
+function theorySheet(tp){const t=TOP[tp];sheet(sh=>[h("div",{class:"eyebrow"},`Luku ${t.ch} · s. ${t.pg}`),h("h3",null,t.t),h("ul",{class:"list"},t.sum.map(s=>h("li",{html:heWrap(s)}))),t.ex&&t.ex.length?h("div",{class:"ex card",style:"background:var(--card2);box-shadow:none"},t.ex.map(([a,b])=>h("div",null,HE(a)," ",h("span",{class:"small"},b)))):null,h("button",{class:"btn primary",onclick:sh.close},"Takaisin tehtävään")])}
+function vocabSheet(){sheet(sh=>{const s=h("input",{class:"search",type:"search",placeholder:"Hae suomeksi tai hepreaksi"});const out=h("div",{class:"vlist"});
+  const fold=x=>x.toLowerCase().normalize("NFD").replace(/[̀-֑ͯ-ׇ]/g,"").replace(/[ʾʿ]/g,"");
+  const draw=()=>{const q=fold(s.value.trim());out.innerHTML="";let l=VOCAB.filter(x=>unlocked(x.c)||x.c===0);if(q)l=l.filter(x=>fold(x.f).includes(q)||fold(x.h).includes(q)||fold(x.tr).includes(q));else l=S.my.map(hh=>VOCAB.find(v=>v.h===hh)).filter(Boolean);
+    if(!q&&!l.length)out.append(h("p",{class:"small muted"},"Kirjoita hakusana. Napauttamasi sanat näkyvät tässä."));
+    l.slice(0,40).forEach(x=>out.append(h("div",{class:"vrow"},HE(x.h),h("span",{class:"t"},h("b",null,x.f),h("span",null,`${x.tr} · ${x.c?"luku "+x.c:"kirjan sanasto"}, s. ${x.p}`)))))};
+  s.oninput=draw;setTimeout(()=>{draw();s.focus()},30);return [h("div",{class:"eyebrow"},"Sanasto"),h("p",{class:"small muted"},"Tehtävä odottaa taustalla, mikään ei katoa."),s,out,h("button",{class:"btn primary",onclick:sh.close},"Takaisin tehtävään")]})}
+
+/* ---------- sessio: opitut sanat kysytään lopussa ---------- */
+const _startSession2=startSession;
+startSession=function(o){lookedUp=new Set();const items=o.items;const orig=items.length;let added=0;
+  const wrapDone=()=>{};_startSession2(Object.assign({},o,{items}));
+  const iv=setInterval(()=>{if(!document.getElementById("stage")){clearInterval(iv);return}if(lookedUp&&lookedUp.size&&added<6){[...lookedUp].forEach(hh=>{const v=VOCAB.find(x=>x.h===hh);if(v&&!items.some(x=>x.word===hh&&x._again)){const it=vocabItem([v].concat(shuffle(VOC()).slice(0,5)),"he");it.word=hh;it.heb=v.h;it.a=clean(v.f);it.x=`${v.h} (${v.tr}) = ${v.f}. Napautit tätä aiemmin.`;it.w=shuffle(VOC().filter(x=>clean(x.f)!==it.a)).slice(0,3).map(x=>clean(x.f));it._again=true;items.push(it);added++}});lookedUp.clear()}},500)};
+
+/* ---------- efektit & äänet ---------- */
+let AC=null;function tone(fs,d=.09,type="sine",vol=.06){if(!S.set.snd)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();let t=AC.currentTime;fs.forEach(f=>{const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0001,t+d*1.8);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d*2);t+=d})}catch(e){}}
+const buzz=n=>{try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}};
+function burst(n,cols){const c=h("div",{class:"burst"});for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,r=60+Math.random()*90;c.append(h("i",{style:`--x:${Math.cos(a)*r}px;--y:${Math.sin(a)*r-40}px;background:${rnd(cols||["#C9A24A","#1E4FA3","#3A6FD0","#D8B75F"])};animation-delay:${Math.random()*.08}s`}))}document.body.append(c);setTimeout(()=>c.remove(),900)}
+function comboBadge(n){const b=h("div",{class:"combo"},`×${n} KOMBO`);document.body.append(b);setTimeout(()=>b.remove(),1000)}
+function fxOk(){S.stats.ok++;const s=G.streak;tone(s>=5?[660,880,1320]:[660,990],.07);buzz(12);if(s>0&&s%5===0){comboBadge(s);burst(26)}else burst(8);dropLetter()}
+function fxBad(){tone([196,147],.11,"triangle",.05);buzz([30,40,30])}
+const _score2=score;score=function(ok,base){_score2(ok,base);if(G.streak>(S.stats.combo||0))S.stats.combo=G.streak;const c=$("#cmb");if(c){c.textContent=G.streak>=2?`×${G.streak}`:"";c.classList.remove("pop");void c.offsetWidth;c.classList.add("pop")}};
+const _record2=record;record=function(tp,ok){_record2(tp,ok)};
+/* liitä efektit vastauksiin: renderItem kutsuu score:a → käytetään finish-hookia DOM-muutoksen kautta */
+document.addEventListener("click",e=>{const b=e.target.closest(".opt,.bucket");if(!b)return;setTimeout(()=>{if(b.classList.contains("ok"))return fxOk();if(b.classList.contains("no"))fxBad()},0)});
+
+/* ---------- kokoelmat ---------- */
+function dropLetter(){if(S.stats.ok%8!==0)return;const left=LETTERS.filter(l=>!S.col.l.includes(l.l));if(!left.length)return;const L=rnd(left);S.col.l.push(L.l);save();
+  setTimeout(()=>collectFx(L.l,`Löysit kirjaimen ${L.n}!`,`${S.col.l.length}/22 kirjainta kerätty.`),500);checkAwards()}
+function collectFx(icon,t,s){tone([784,988,1175,1568],.08,"sine",.05);burst(30);const c=h("div",{class:"collect"},h("div",{class:"cic",lang:"he"},icon),h("b",null,t),h("span",null,s));c.onclick=()=>c.remove();document.querySelectorAll(".collect").forEach(x=>x.remove());document.body.append(c);setTimeout(()=>c.remove(),2200)}
+const BADGES=[["first","Ensiaskel","Ensimmäinen oikea vastaus","✦",()=>S.stats.ok>=1],["ok100","Sata oikein","100 oikeaa vastausta","💯",()=>S.stats.ok>=100],["ok500","Kirjuri","500 oikeaa vastausta","✒",()=>S.stats.ok>=500],
+ ["c10","Dekalogi","10 oikein putkeen","⑩",()=>S.stats.combo>=10],["c22","Alef–Tav","22 oikein putkeen","א",()=>S.stats.combo>=22],["s3","Kolme päivää","Päiväputki 3","🔥",()=>dayStreak()>=3],["s7","Sapattiviikko","Päiväputki 7","🕯",()=>dayStreak()>=7],
+ ["p1","Jäsentäjä","Ensimmäinen jäsennys","⚙",()=>S.stats.parse>=1],["p50","Konejäsentäjä","50 jäsennystä","⚙⚙",()=>S.stats.parse>=50],["letters","Aakkosto","Kaikki 22 kirjainta","✡",()=>S.col.l.length>=22],
+ ["plan","Täysi päivä","Päivän 40 min tehty","☀",()=>planBlocks().every(b=>b.v>=DPT[b.k])],["my20","Sanankeräilijä","20 sanaa omassa pakassa","📖",()=>S.my.length>=20],["night","Yökirjuri","Harjoittelit klo 23 jälkeen","🌙",()=>new Date().getHours()>=23],["exam4","Tenttivalmis","Tenttisimulaatio ≥ 76 %","🎓",()=>(S.best.exam||0)>=76]];
+function checkAwards(){BADGES.forEach(([id,n,d,ic,f])=>{if(!S.col.b.includes(id)){let ok=false;try{ok=f()}catch(e){}if(ok){S.col.b.push(id);save();setTimeout(()=>collectFx(ic,"Merkki: "+n,d),900)}}});
+  CHAPTERS.forEach(c=>{const k="ch"+c.n;if(!S.col.b.includes(k)&&unlocked(c.n)&&TOPICS.some(t=>t.ch===c.n)&&(chapterScore(c.n)||0)>=.75){S.col.b.push(k);save();setTimeout(()=>collectFx("📜",`Kääre ${c.n}: ${c.t}`,"Luku hallussa!"),1100)}})}
+function collectionCard(){const c=h("div",{class:"card"},h("div",{class:"eyebrow"},"Kokoelma"));
+  const lg=h("div",{class:"lgrid"});LETTERS.forEach(l=>lg.append(h("span",{class:"lt2"+(S.col.l.includes(l.l)?" on":""),title:l.n,lang:"he"},l.l)));
+  c.append(h("div",{class:"small muted"},`Kirjaimet ${S.col.l.length}/22 · yksi putoaa joka 8. oikeasta vastauksesta`),lg);
+  const sg=h("div",{class:"sgrid"});CHAPTERS.forEach(ch=>sg.append(h("span",{class:"scr"+(S.col.b.includes("ch"+ch.n)?" on":""),title:ch.t},"📜",h("i",null,ch.n))));
+  c.append(h("div",{class:"small muted",style:"margin-top:6px"},"Kääröt: luku hallussa (≥ 75 %)"),sg);
+  const bg=h("div",{class:"bgrid"});BADGES.forEach(([id,n,d,ic])=>bg.append(h("div",{class:"bdg"+(S.col.b.includes(id)?" on":"")},h("span",null,ic),h("b",null,n),h("i",null,d))));
+  c.append(h("div",{class:"small muted",style:"margin-top:6px"},"Merkit"),bg);return c}
+
+/* ---------- Sofer yläpalkissa ---------- */
+function topbar(t,back){const av=h("button",{class:"tav","aria-label":"Sofer",html:soferSVG("happy"),onclick:()=>soferSay(rnd(MASCOT.tap.concat(MASCOT.cheer)),"wow")});
+  return h("div",{class:"top"},back?h("button",{class:"back",onclick:back},"‹"):null,h("h2",null,t),h("span",{id:"cmb",class:"cmb"}),av)}
+soferSay=function(text,mood,btn){const old=document.querySelector(".mtoast");if(old)old.remove();clearTimeout(toastT);
+  const t=h("div",{class:"mtoast",role:"status"},h("div",{class:"bubble"},h("span",{html:heWrap(text)}),btn||null),h("div",{class:"mface",html:soferSVG(mood)}));
+  t.onclick=e=>{if(e.target.tagName!=="BUTTON")t.remove()};document.body.append(t);toastT=setTimeout(()=>{t.classList.add("out");setTimeout(()=>t.remove(),250)},btn?6000:3200)};
+/* puhuu paljon: lisää satunnaisia kommentteja */
+const _fxOk3=fxOk;fxOk=function(){_fxOk3();if(S.set.talk==="lots"&&Math.random()<.18&&!document.querySelector(".mtoast"))soferSay(rnd(MASCOT.ok),"happy")};
+
+/* ---------- jatka-palkki ---------- */
+function resumeBar(){const old=document.querySelector(".rbar");if(old)old.remove();document.body.classList.remove("hasbar");if(!S.cur||document.getElementById("stage"))return;document.body.classList.add("hasbar");const c=S.cur;
+  const b=h("button",{class:"rbar",onclick:()=>{b.remove();resumeSession()}},h("span",{class:"rp"},"▶"),h("span",null,h("b",null,"Jatka: "),c.kind==="lesson"?c.title:`${c.title} ${c.i+1}/${c.items.length}`),h("span",{class:"rx",onclick:e=>{e.stopPropagation();S.cur=null;save();b.remove()}},"✕"));document.body.append(b)}
+
+/* ---------- SYÖTE ---------- */
+let feedEl=null;
+function vFeed(){const v=h("div",{class:"feed",id:"feed"});feedEl=v;
+  const t=today();const head=h("div",{class:"fhead"},h("div",{class:"fst"},h("b",null,"🔥 "+dayStreak()),h("span",null,"päivää")),h("div",{class:"fmid"},h("b",null,"MASOREETTI"),h("span",{id:"fcount"},`${t.feed}/${DPT.feed} tänään`)),h("button",{class:"tav","aria-label":"Sofer",html:soferSVG("happy"),onclick:()=>soferSay(rnd(MASCOT.feed.concat(MASCOT.tap)),"wow")}));
+  app.append(head,v);v.append(greetCard());appendFeed(6);v.scrollTop=0;
+  v.addEventListener("scroll",()=>{if(v.scrollTop+v.clientHeight*2.2>v.scrollHeight)appendFeed(6)},{passive:true})}
+function fc(cls,...kids){return h("section",{class:"fc "+(cls||"")},h("div",{class:"fin"},...kids))}
+function nextCard(el){const n=el.closest(".fc").nextElementSibling;if(n)feedEl.scrollTo({top:n.offsetTop,behavior:"smooth"})}
+function greetCard(){const y=new Date();y.setDate(y.getDate()-1);const yd=S.dp[dayKey(y)];const t=today();let msg;
+  if(S.cur)msg="Sinulla on kierros kesken. Jatketaanko vai pyyhkäisetkö syötteeseen?";
+  else if(dayStreak()>0&&!(S.days[dayKey()]>=DAY_GOAL))msg=`Putkesi on ${dayStreak()} päivää. Se katkeaa keskiyöllä, ellei tänään kerry ${DAY_GOAL} tehtävää. Pyyhkäise!`;
+  else if(yd&&yd.parse<DPT.parse)msg="Eilen jäsennys jäi kesken. Tänään syöte tarjoaa niitä vähän enemmän.";
+  else msg=rnd(MASCOT.feed.concat(MASCOT.start));
+  const co=coach();
+  return fc("greet",mascot(msg,"wow"),planMini(),
+    S.cur?h("button",{class:"btn primary wide",onclick:resumeSession},"Jatka kesken jäänyttä"):null,
+    h("div",{class:"coach"},h("div",{class:"small"},h("b",null,"Valmentaja: "),co.t),h("div",{class:"small muted"},co.why),h("button",{class:"btn sec wide",onclick:co.go},"Tee tämä")),
+    h("div",{class:"swipe"},"↑ Pyyhkäise ylös"))}
+function planMini(){const bl=planBlocks();return h("div",{class:"pmini"},bl.map(b=>{const p=Math.min(1,b.v/DPT[b.k]);return h("button",{class:"pm",onclick:b.go},ring(p),h("span",null,b.t))}))}
+function appendFeed(n){const exam=examWeek();const weakT=pickTopics(4);
+  for(let i=0;i<n;i++){const r=Math.random();let card=null;
+    try{
+    if(r<.46){const tp=rnd(weakT);const it=itemFor(tp,"easy");if(it)card=taskCard(it)}
+    else if(r<.62)card=taskCard(parseItem());
+    else if(r<.76){const due=VOC().filter(v=>isDue(v.h));const pool=(S.my.length&&Math.random()<.5)?S.my.map(x=>VOCAB.find(v=>v.h===x)).filter(Boolean):due.length?due:VOC();card=taskCard(vocabItem(pool,"he"))}
+    else if(r<.84)card=lessonBit(rnd(weakT));
+    else if(r<.9)card=wordFlip();
+    else if(r<.95)card=coachCard();
+    else card=funCard();
+    }catch(e){card=null}
+    if(card)feedEl.append(card)}}
+function taskCard(it){const st=h("div",{class:"stage fstage"});const c=fc("task",st);let counted=false;
+  const mo=new MutationObserver(()=>{const fb=st.querySelector(".fb");if(fb&&!counted){counted=true;dp("feed",1);const fcn=$("#fcount");if(fcn)fcn.textContent=`${today().feed}/${DPT.feed} tänään`;
+    if(today().feed===DPT.feed){soferSay("30 tehtävää syötteestä! Päivän syöteosuus on tehty. Kokeile seuraavaksi jäsennystä.","wow");burst(40)}
+    if(fb.classList.contains("ok")&&!fb.classList.contains("learncard"))setTimeout(()=>{if(feedEl&&Math.abs(feedEl.scrollTop-c.offsetTop)<40)nextCard(st)},1300)}});
+  mo.observe(st,{childList:true,subtree:true});
+  renderItem(st,it,(ok,g)=>{if(g==="__learn"){const v=VOCAB.find(x=>x.h===it.word);if(v){const again=taskCard(Object.assign(vocabItem([v],"he"),{w:shuffle(VOC().filter(x=>clean(x.f)!==clean(v.f))).slice(0,3).map(x=>clean(x.f))}));const after=c.nextElementSibling&&c.nextElementSibling.nextElementSibling;feedEl.insertBefore(again,after||null)}}
+    nextCard(st)},{});
+  return c}
+function lessonBit(tp){const t=TOP[tp];if(!t)return null;const i=Math.floor(Math.random()*t.sum.length);
+  return fc("lessonbit",h("div",{class:"eyebrow"},`Minioppitunti · ${t.t}`),h("p",{class:"lp",html:heWrap(t.sum[i])}),HINTS[tp]&&HINTS[tp][i]?h("div",{class:"hint"},h("b",null,"Muistisääntö: "),h("span",{html:heWrap(HINTS[tp][i])})):null,
+    h("div",{class:"row"},h("button",{class:"btn sec",onclick:()=>theorySheet(tp)},"Koko tiivistelmä"),h("button",{class:"btn primary",onclick:()=>lesson(tp)},"Oppitunti 3 min")),h("p",{class:"small muted"},`Kirjassa luku ${t.ch}, s. ${t.pg}`))}
+function wordFlip(){const pool=VOC().filter(v=>isDue(v.h));const v=rnd(pool.length?pool:VOC());const f=h("div",{class:"flip",role:"button",tabindex:"0"},h("div",{class:"flip-in"},h("div",{class:"face"},HE(v.h),h("div",{class:"hint"},"Muistatko? Napauta.")),h("div",{class:"face back"},h("div",{class:"fi"},clean(v.f)),h("div",{class:"hint"},v.tr),h("div",{class:"hint"},v.c?`Luku ${v.c}, s. ${v.p}`:`s. ${v.p}`))));
+  f.onclick=()=>f.classList.toggle("on");const row=h("div",{class:"row"},h("button",{class:"btn sec",onclick:e=>{recordWord(v.h,false);dp("words",1);row.replaceWith(h("p",{class:"small muted"},"Kertaan tämän pian uudestaan."));nextCard(f)}},"En muistanut"),h("button",{class:"btn primary",onclick:()=>{recordWord(v.h,true);dp("words",1);fxOk();row.replaceWith(h("p",{class:"small",style:"color:var(--ok)"},"✓ Seuraava kertaus myöhemmin."));nextCard(f)}},"Muistin"));
+  return fc("word",h("div",{class:"eyebrow"},"Sanakortti"),f,row)}
+function coachCard(){const co=coach();return fc("coachc",mascot("Valmentajan vinkki: "+co.why,"happy"),h("button",{class:"btn gold wide",onclick:co.go},co.t),h("p",{class:"small muted"},"Tai jatka pyyhkimistä, minä pidän kirjaa."))}
+function funCard(){if(Math.random()<.5){const l=rnd(LIBRARY);return fc("fun",h("div",{class:"eyebrow"},"Tiesitkö? · "+l.tag),h("h3",null,l.t),h("p",{class:"small",html:heWrap(l.body)}))}
+  const ts=TEXTS.filter(t=>unlocked(t.ch));const t=rnd(ts.length?ts:TEXTS);return fc("fun",h("div",{class:"eyebrow"},"Jae · "+t.ref),h("div",{class:"bighe mid"},wordSpans(t.w.map(w=>w[0]).join(" "))),h("details",null,h("summary",{class:"small"},"Näytä käännös"),h("p",{class:"small"},t.fi)),h("button",{class:"btn primary wide",onclick:()=>gVerse(t)},"Käännä palasina"))}
+
+/* ---------- Jäsennyspeli & jae palasina ---------- */
+function gParse(){const items=Array.from({length:10},()=>parseItem());startSession({title:"Jäsennys",items,key:"parse"})}
+function gVerse(t){const items=t.w.map((w,k)=>{const others=shuffle(TEXTS.flatMap(x=>x.w).filter(x=>x[1]!==w[1]).map(x=>x[1])).filter((x,i,a)=>a.indexOf(x)===i).slice(0,3);
+  return {t:"mc",tp:w[3],q:`${t.ref} · sana ${k+1}/${t.w.length}: mitä tarkoittaa?`,heb:w[0],ctx:t.w.map(x=>x[0]).join(" "),a:w[1],w:others,x:fixAbbr(w[2])}});
+  startSession({title:"Käännä: "+t.ref,items,key:"verse",verse:t.id})}
+const _endScreen3=endScreen2;endScreen2=function(st,o){_endScreen3(st,o);const vs=o.title&&o.title.startsWith("Käännä: ")?TEXTS.find(t=>"Käännä: "+t.ref===o.title):null;
+  if(vs){const e=st.querySelector(".end");e.insertBefore(h("div",{class:"card",style:"width:100%;text-align:left"},h("div",{class:"eyebrow"},"Koko jae"),h("div",{class:"he",style:"font-size:26px;text-align:right"},vs.w.map(w=>w[0]).join(" ")),h("b",null,vs.fi)),e.children[2])}
+  checkAwards()};
+function pickVerse(){const st=screen("Käännä jae palasina",{noDiff:true});$("#prg").hidden=true;st.append(h("p",{class:"small muted"},"Sana kerrallaan: merkitys ja muoto, lopuksi koko jae. Lukitut luvut näkyvät himmeinä."));
+  TEXTS.slice().sort((a,b)=>a.ch-b.ch).forEach(t=>{const lk=!unlocked(t.ch);st.append(h("button",{class:"chap"+(lk?" locked":""),onclick:()=>gVerse(t)},h("span",{class:"n"},String(t.ch)),h("span",{class:"tt"},h("b",null,t.ref),h("span",null,t.fi)),h("span",{class:"lock"},"›")))})}
+
+/* ---------- tentti (aito muoto) ---------- */
+startExam=function(){const items=[];const vs=TEXTS.filter(t=>unlocked(t.ch));const v=rnd(vs.length?vs:TEXTS);
+  for(let j=0;j<10;j++)items.push(vocabItem(VOC(),"he"));
+  for(let j=0;j<6;j++)items.push(parseItem());
+  v.w.forEach((w,k)=>items.push({t:"mc",tp:w[3],q:`Käännös ${v.ref} · sana ${k+1}: mitä tarkoittaa?`,heb:w[0],a:w[1],w:shuffle(TEXTS.flatMap(x=>x.w).filter(x=>x[1]!==w[1]).map(x=>x[1])).slice(0,3),x:w[2]}));
+  const ts=openTopics();for(let j=0;j<4;j++){const it=itemFor(rnd(ts).id,"mid");if(it)items.push(it)}
+  const prev=S.set.prac;S.set.prac=false;startSession({title:"Tenttisimulaatio",items,key:"exam_",noFb:true,end:"exam"});S.set.prac=prev};
+
+/* ---------- POLKU-välilehti ---------- */
+function vPath(){const v=h("div",{class:"view"});v.append(topbar("Polku"));
+  if(saveFail)v.append(h("div",{class:"card",style:"background:var(--badbg)"},h("b",null,"Tallennus ei toimi tässä näkymässä."),h("p",{class:"small"},"Asenna peli kotivalikkoon tai ota varmuuskopiokoodi talteen.")));
+  if(!S.placed)v.append(h("div",{class:"card",style:"background:var(--goldsoft)"},h("div",{class:"eyebrow"},"Aloita tästä"),h("h3",null,"Tasotesti, noin 5 minuuttia"),h("p",{class:"small muted"},"Kartoittaa avoimet luvut ja rakentaa paluupolun tenttiin."),h("div",{class:"row"},h("button",{class:"btn gold",onclick:()=>startPlacement()},"Aloita"),h("button",{class:"btn sec",onclick:()=>{S.placed=true;save();go("polku")}},"Ohita"))));
+  v.append(planCard(),streakCard(),examWeek()?examCard():pathCard());
+  const vc=verseCard();if(vc)v.append(vc);v.append(gradeCard(),recCard());
+  if(S.miss.length)v.append(h("button",{class:"chap",onclick:()=>startMiss()},h("span",{class:"n"},String(S.miss.length)),h("span",{class:"tt"},h("b",null,"Virhepakka"),h("span",null,"Kysymykset, joihin vastasit väärin.")),h("span",{class:"lock"},"›")));
+  if(S.my.length)v.append(h("button",{class:"chap",onclick:()=>{const p=S.my.map(x=>VOCAB.find(v=>v.h===x)).filter(Boolean);gCards(p.length>=2?p:VOC())}},h("span",{class:"n"},String(S.my.length)),h("span",{class:"tt"},h("b",null,"Oma sanapakka"),h("span",null,"Sanat, jotka napautit tehtävissä.")),h("span",{class:"lock"},"›")));
+  app.append(v)}
+const _vPlay2=vPlay;vPlay=function(){_vPlay2();const gm=document.querySelector(".gm");if(!gm)return;
+  gm.insertBefore(h("button",{class:"wide",onclick:()=>gParse()},h("span",{class:"ic",style:"background:#9C7A2C"},"⚙"),h("div",null,h("b",null,"Jäsennys"),h("span",null,"Juuri → aikamuoto → persoona → merkitys. Tentin ydintaito.")),S.best.parse!=null?h("span",{class:"best"},`Paras ${S.best.parse}`):null),gm.children[1]);
+  gm.insertBefore(h("button",{class:"wide",onclick:()=>pickVerse()},h("span",{class:"ic",style:"background:#3A6FD0"},"ס"),h("div",null,h("b",null,"Käännä jae palasina"),h("span",null,TEXTS.length+" jaetta sana kerrallaan."))),gm.children[2])};
+const _vMe2=vMe;vMe=function(){_vMe2();const v=app.querySelector(".view");const cards=v.querySelectorAll(".card");v.insertBefore(collectionCard(),cards[2]||null);
+  const set=[...v.querySelectorAll(".card")].find(c=>c.textContent.startsWith("Asetukset"));if(set){const tog=(label,desc,get,setv)=>{const b=h("button",{class:"sw",role:"switch","aria-checked":String(get()),onclick:()=>{setv(!get());save();b.setAttribute("aria-checked",String(get()))}});return h("div",{class:"toggle"},h("div",null,h("b",null,label),h("div",{class:"small muted"},desc)),b)};
+    set.insertBefore(tog("Äänet ja värinä","Oikein, väärin ja kombo",()=>!!S.set.snd,x=>S.set.snd=x),set.children[1]);
+    set.insertBefore(tog("Sofer puhuu paljon","Pois = vain tärkeät kommentit",()=>S.set.talk==="lots",x=>S.set.talk=x?"lots":"few"),set.children[2])}
+  const vb=h("button",{class:"btn sec wide",onclick:()=>go("sanasto")},"Avaa koko sanasto");v.insertBefore(vb,v.children[1])};
+
+/* ---------- reititys v3 ---------- */
+VIEWS.koti=vFeed;VIEWS.polku=vPath;
+const _go3=go;go=function(v,a){_go3(v,a);document.body.classList.toggle("onfeed",v==="koti");setTimeout(resumeBar,30)};
+/* screen() piilottaa jatkopalkin */
+const _screen3=screen;screen=function(t,o){const r=_screen3(t,o);const rb=document.querySelector(".rbar");if(rb)rb.remove();document.body.classList.remove("onfeed");return r};
+
+/* ---------- avausanimaatio ---------- */
+function splash(){const sp=h("div",{class:"splash",html:`<svg class="sstar" viewBox="0 0 100 100"><path d="M50 8 L86.4 71 L13.6 71 Z"/><path d="M50 92 L13.6 29 L86.4 29 Z"/></svg><div class="sword">${"MASOREETTI".split("").map((c,i)=>`<span style="animation-delay:${.55+i*.05}s">${c}</span>`).join("")}</div><div class="ssub">Raamatun heprea · tentti ${fmtDate(EXAM.date)}</div>`});
+  document.body.append(sp);const close=()=>{sp.classList.add("out");setTimeout(()=>sp.remove(),600)};sp.onclick=close;setTimeout(close,matchMedia("(prefers-reduced-motion:reduce)").matches?200:2100)}
+try{history.scrollRestoration="manual"}catch(e){}
+splash();
+(function(){const start=(location.hash||"#koti").slice(1);go(VIEWS[start]?start:"koti")})();
+if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropic/.test(location.host)){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+setTimeout(checkAwards,2500);
 
 </script>
 </body></html>
