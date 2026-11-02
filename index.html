@@ -613,6 +613,12 @@ details.card summary{cursor:pointer}
 .mtoast.rabbi .mname,.mascot.rabbi .mname{color:var(--ink)}
 .hef{unicode-bidi:isolate;direction:rtl;white-space:nowrap}
 .acell.hef2{direction:rtl}
+/* opas */
+.ostart{padding-left:20px;margin:0;display:flex;flex-direction:column;gap:8px}
+.ostep{display:grid;grid-template-columns:36px minmax(0,1fr);gap:8px 12px;align-items:start}
+.onum{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800}
+.otx h3{margin:4px 0 4px}.otx p{margin:0}
+.oimg{grid-column:1/-1;width:100%;max-width:340px;justify-self:center;border-radius:22px;box-shadow:0 0 0 6px var(--card),0 14px 34px -14px rgba(19,32,58,.45)}
 
 </style>
 </head><body style="margin:0"><div class="app" id="app"></div>
@@ -2844,7 +2850,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.6";
+const V4="4.7";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -3008,7 +3014,7 @@ function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:
   "Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
-  "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","<b>4.3:</b> Jerusalemin tori (Koti ja Pelaa): kymmenen ohikulkijaa, sana sanalta sekeleitä, fariseukset ja vartijat kiirehtivät, oma klezmer-musiikki kiihtyy combosta.","<b>4.4:</b> HEMO-tila läppärille (asetukset → Käyttötapa) ja lunttilappu tenttiin (Opi-sivu).","<b>4.5:</b> Hakuteos (Opi-sivu): oppitunnit kaikille luvuille 1–23 omin sanoin, taulukot, esimerkit ja yleisin virhe. Uusi aihe alkaa oppitunnilla.","<b>4.6:</b> Rabbi (tiukka) ja Sofer (lempeä) vuorottelevat, kertaus 1–3–7–14–30 päivän välein kaikille hallituille aiheille, viikon minitesti, yksi päivätavoite ja päivän yhteenveto, kodeksin sivut Minä-sivulla, siirto toiselle laitteelle linkillä (asetukset)."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
+  "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","<b>4.3:</b> Jerusalemin tori (Koti ja Pelaa): kymmenen ohikulkijaa, sana sanalta sekeleitä, fariseukset ja vartijat kiirehtivät, oma klezmer-musiikki kiihtyy combosta.","<b>4.4:</b> HEMO-tila läppärille (asetukset → Käyttötapa) ja lunttilappu tenttiin (Opi-sivu).","<b>4.5:</b> Hakuteos (Opi-sivu): oppitunnit kaikille luvuille 1–23 omin sanoin, taulukot, esimerkit ja yleisin virhe. Uusi aihe alkaa oppitunnilla.","<b>4.6:</b> Rabbi (tiukka) ja Sofer (lempeä) vuorottelevat, kertaus 1–3–7–14–30 päivän välein kaikille hallituille aiheille, viikon minitesti, yksi päivätavoite ja päivän yhteenveto, kodeksin sivut Minä-sivulla, siirto toiselle laitteelle linkillä (asetukset).","<b>4.7:</b> Kuvallinen opas: Minä → Miten sovellusta käytetään."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
 
 /* ---------- ensimmäinen avaus ---------- */
 function onboard4(){if(S.onb4)return false;sheet(sh=>{const name=h("input",{class:"search",placeholder:"Etunimesi",value:S.name||"",id:"onb-name"});let track=S.track||(Object.keys(S.m).length?"kurssi":null);
@@ -3752,6 +3758,34 @@ if(cur==="koti"||cur==="mina")go(cur);
 /* ---------- heprean kaavat oikealta vasemmalle ---------- */
 const _heWrap10=heWrap;const HFRM=/([\u0590-\u05FF][\u0590-\u05FF\u05BE]*(?:\s*[+=→←]\s*[\u0590-\u05FF][\u0590-\u05FF\u05BE]*)+)/g;
 heWrap=function(s){s=String(s==null?"":s);let out="",last=0;s.replace(HFRM,(m,_,i)=>{out+=_heWrap10(s.slice(last,i))+`<span class="he hef" dir="rtl" lang="he">${m.replace(/→/g,"←")}</span>`;last=i+m.length;return m});return out+_heWrap10(s.slice(last))};
+
+/* ================= v4.7: Miten sovellusta käytetään ================= */
+const OPAS=[
+ ["1-koti","Aloita Kodista","Ylimpänä on aina <b>pakko osata</b> -aihe. Paina <b>Aloita</b>: uusi aihe alkaa oppitunnilla, tuttu harjoituksilla. Aihe on hallussa, kun vastaat oikein kolmena eri päivänä (●●●). Alempana ovat arvosana-arvio, tenttilaskuri, tasokoe lukujen avaamiseen ja kertaus."],
+ ["2-oppitunti","Lue oppitunti","Jokaisessa oppitunnissa on tiivistelmä, selitys, taulukko, esimerkit ja yleisin virhe. Lopuksi <b>Harjoittele</b>. Kaikki oppitunnit löytyvät myös Opi-sivun <b>Hakuteoksesta</b>."],
+ ["3-foryou","Pyyhi For youta tauoilla","<b>For you</b> (öljylamppu) on syöte, joka on tehty osaamisesi mukaan. Joka kolmas kortti on pakko osata -aihetta, välissä kertausta ja pikaoppitunteja. Hyvä 2–5 minuutin tauoille."],
+ ["4-opi","Opi: polut ja hakuteos","<b>Opi</b> (käärö): Hakuteos, Alkeispolku (heprea nollasta), Patriarkkojen tarina, lunttilappu ja kirjan luvut kartalla. Luvut avautuvat osaamalla tai tasokokeella."],
+ ["5-patriarkat","Patriarkkojen tarina","Kurssin kuusi tekstiä jae kerrallaan: napauta verbiä, valitse juuri ja muoto, paina <b>Varma</b> tai <b>Arvaus</b>. Sitten käännös. Lopuksi pomo ilman apuja."],
+ ["6-tori","Pelaa: Jerusalemin tori","<b>Pelaa</b> (noppa): peleistä saa <b>sekeleitä</b>. Torilla käännät ohikulkijoiden lauseita, ja joka oikeasta sanasta saa sekelin. Fariseukset kysyvät vaikeimmat."],
+ ["7-mina","Minä: hahmo ja edistyminen","<b>Minä</b> (oma hahmo): asetukset ylimpänä, taso, kodeksin sivut (luvut kullattuna), suositellut aiheet ja virheprofiili."],
+ ["8-kauppa","Jewlando","Sekeleillä ja kultatalenteilla ostetaan vaatteita, lemmikkejä, aarteita ja profiilin taustoja. Osa legendaarisista aukeaa vain osaamalla."]];
+function vOpas(){const v=h("div",{class:"view opasv"});v.append(topbar("Miten käytän",()=>go(S.mode==="hemo"?"hemo":"mina")));
+  v.append(h("div",{class:"card"},h("div",{class:"eyebrow"},"Mistä aloitan?"),h("ol",{class:"list ostart"},
+    h("li",{html:"<b>Kurssilla?</b> Tee Kodissa <b>tasokoe</b>, niin jo opitut luvut aukeavat. Sitten paina pakko osata -kortin <b>Aloita</b>."}),
+    h("li",{html:"<b>Alusta?</b> Aloita Opi-sivun <b>Alkeispolulta</b>: kirjaimet, vokaalit, lukeminen ja oma nimesi."}),
+    h("li",{html:"<b>Joka päivä:</b> tee päivän tavoite (10 tehtävää). Kertaus ja minitesti ilmestyvät Kotiin itsestään."}),
+    h("li",{html:"<b>Läppärillä?</b> Asetuksista voi vaihtaa <b>HEMO-tilaan</b>: pelkät harjoitukset, näppäimet 1–4 ja Enter."}))));
+  OPAS.forEach(([img,t,txt],i)=>v.append(h("div",{class:"ostep"},h("div",{class:"onum"},String(i+1)),h("div",{class:"otx"},h("h3",null,t),h("p",{html:txt})),h("img",{class:"oimg",src:`opas/${img}.jpg`,alt:`Kuvakaappaus: ${t}`,loading:"lazy"}))));
+  v.append(h("div",{class:"card"},h("div",{class:"eyebrow"},"Pisteet lyhyesti"),h("p",{class:"small",html:"<b>XP</b> kaikista oikeista vastauksista → taso (א → ת). <b>Sekelit</b> peleistä → Jewlando. <b>Kultatalentit</b> pomoista ja joka 5. tasolta. <b>Arvosana-arvio</b> vain osaamisesta."})));
+  v.append(h("button",{class:"btn primary wide",onclick:()=>go(S.mode==="hemo"?"hemo":"koti")},"Aloitetaan"));app.append(v)}
+VIEWS.opas=vOpas;
+const _settings11=settingsSheet;settingsSheet=function(){_settings11();const s=document.querySelector(".sheet .in");if(!s)return;const b=[...s.querySelectorAll("button")].find(x=>x.textContent==="Ohjeet");
+  if(b)b.after(h("button",{class:"btn primary",onclick:()=>{document.querySelectorAll(".sheet,.sheet-bg").forEach(e=>e.remove());go("opas")}},"Miten sovellusta käytetään"))};
+const _guide11=guideSheet;guideSheet=function(){_guide11();setTimeout(()=>{const s=document.querySelector(".sheet .in");if(s)s.insertBefore(h("button",{class:"btn sec wide",onclick:()=>{document.querySelectorAll(".sheet,.sheet-bg").forEach(e=>e.remove());go("opas")}},"Kuvallinen opas: miten sovellusta käytetään"),s.children[2]||null)},0)};
+const _vFeed11=vFeed;vFeed=function(){_vFeed11();const c=document.getElementById("fcount");if(c)c.textContent=`${Math.min(S.days[dayKey()]||0,DAY_GOAL)}/${DAY_GOAL} tänään`};VIEWS.foryou=vFeed;
+const _vMe11=vMe;vMe=function(){_vMe11();const sc=app.querySelector(".setc");if(sc)sc.after(h("button",{class:"card setc",onclick:()=>go("opas")},h("span",{class:"tkn"},"?"),h("span",{class:"tx"},h("b",null,"Miten sovellusta käytetään"),h("span",{class:"small muted"},"Kuvallinen opas ja mistä aloittaa")),h("span",{class:"muted"},"›")))};VIEWS.mina=vMe;
+HEMO[0][1].unshift(["Miten sovellusta käytetään",()=>go("opas")]);
+if(cur==="mina")go(cur);
 
 </script>
 </body></html>
