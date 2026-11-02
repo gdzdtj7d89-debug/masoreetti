@@ -3014,7 +3014,7 @@ function vHome4(){const v=h("div",{class:"view home4"});v.append(topbar("Koti"))
     h("button",{onclick:startPlacement},h("b",null,"Laaja tasotesti"),h("span",null,"kartoittaa osaamisen")),
     h("button",{onclick:notesSheet},h("b",null,"Muistiinpanot"),h("span",null,`${S.notes.length} merkintää · läksyt`))));
   v.append(h("div",{class:"card exinfo"},h("div",{class:"eyebrow"},"Tentti"),h("p",{class:"small"},"to 26.11. klo 8.15–11, Metsätalo B212 (sali 2). Sisään viimeistään 8.45. Ei ilmoittautumista."),h("p",{class:"small muted"},"Apuna saa olla yksi käsin kirjoitettu A4 (molemmat puolet): kielioppisäännöt, verbitaulukot, unohtuvat sanat, prepositiot, suffiksit.")));
-  app.append(v);if(!onboard4()&&S.seen4!==V4)newsSheet()}
+  app.append(v);if(!document.querySelector(".sheet")&&S.mode!=="hemo"){if(!onboard4()&&S.seen4!==V4)newsSheet()}}
 VIEWS.koti=vHome4;VIEWS.foryou=vFeed;
 
 /* For you: otsikko + pakko osata joka kolmas kortti */
