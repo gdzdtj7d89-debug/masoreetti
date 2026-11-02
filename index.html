@@ -504,7 +504,7 @@ body.hasbar .app{padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0p
 .apath{display:flex;flex-direction:column;gap:10px}
 .anode{display:flex;align-items:center;gap:12px;background:var(--card);border:0;border-radius:18px;padding:12px 14px;box-shadow:var(--shadow);text-align:left;cursor:pointer;color:var(--ink)}
 .anode .tx{flex:1;min-width:0;display:flex;flex-direction:column}
-.anode .tx .muted{font-family:var(--he),var(--ui);letter-spacing:.06em}
+.anode .tx .alL{font-family:var(--he),var(--ui);letter-spacing:.06em}
 .anum{width:40px;height:40px;flex:none;border-radius:50%;background:var(--bluesoft);color:var(--blue);display:grid;place-items:center;font-weight:800}
 .anode.done .anum{background:var(--lvgold);color:#2A1E00}
 .anode.lock{opacity:.5;cursor:default}
@@ -524,6 +524,27 @@ body.hasbar .app{padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0p
 .nmtile{font-family:var(--he);font-size:34px;min-width:64px;padding:8px 12px;border-radius:16px;border:0;background:var(--card);box-shadow:0 3px 0 var(--line),var(--shadow);cursor:pointer;color:var(--ink)}
 .nmtile:disabled{opacity:.25}
 .phe{font-family:var(--he);font-size:24px;color:var(--goldink);direction:rtl}
+/* patriarkat */
+.pstop{display:flex;flex-direction:column;gap:6px}.pstop.lock{opacity:.55}.pstop.won .anum{background:var(--lvgold);color:#2A1E00}
+.bossb{align-self:flex-start;margin-left:52px}
+.pvhead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pdots{display:flex;gap:3px;flex-wrap:wrap;max-width:65%;justify-content:flex-end}.pdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}.pdots i.d{background:var(--blue)}.pdots i.c{box-shadow:0 0 0 2px var(--gold)}
+.pverse{font-family:var(--he);font-size:30px;line-height:1.9;background:var(--card);border-radius:22px;padding:16px 18px;box-shadow:var(--shadow);text-align:right}
+.pw{cursor:pointer;border-radius:6px;padding:0 2px}.pw.vb{border-bottom:2px dotted var(--gold)}.pw.on{background:#FDE68A;color:#13203A;box-shadow:0 0 0 2px #E2B43F}
+.ptr{background:var(--card2);border-radius:14px;padding:10px 12px;margin:0}
+.pbox{display:flex;flex-direction:column;gap:10px}
+.pq{display:flex;flex-direction:column;gap:8px}
+.prow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.popt{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 6px;font:700 13px var(--ui);color:var(--ink);cursor:pointer;min-height:44px}
+.popt.he{font-family:var(--he);font-size:20px}
+.popt[aria-pressed="true"]{border:2px solid var(--blue);background:var(--bluesoft)}
+.pout{min-height:48px;border-bottom:2px dashed var(--line);padding:6px 0;font-weight:700}
+.ppool{display:flex;flex-wrap:wrap;gap:8px}.ppool .chip.bad{background:var(--badbg);color:var(--bad)}
+.wex{background:var(--card2);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}.wex .big{font-size:28px}
+.bosslives{color:#C2413A;font-size:20px;letter-spacing:2px}
+.opt.ok{background:var(--okbg)}.opt.no{background:var(--badbg)}
+
+.top.v4 h2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 </style>
 </head><body style="margin:0"><div class="app" id="app"></div>
@@ -2755,7 +2776,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.1";
+const V4="4.2";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -2919,7 +2940,7 @@ function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:
   "Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
-  "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","Tulossa seuraavaksi: Patriarkkojen tarina -tila, Jerusalemin tori, HEMO-tila ja lunttilappu-rakentaja."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
+  "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","Tulossa seuraavaksi:, Jerusalemin tori, HEMO-tila ja lunttilappu-rakentaja."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
 
 /* ---------- ensimmäinen avaus ---------- */
 function onboard4(){if(S.onb4)return false;sheet(sh=>{const name=h("input",{class:"search",placeholder:"Etunimesi",value:S.name||"",id:"onb-name"});let track=S.track||(Object.keys(S.m).length?"kurssi":null);
@@ -3046,7 +3067,7 @@ function vAlkeet(){const v=h("div",{class:"view"});v.append(topbar("Alkeispolku"
   const path=h("div",{class:"apath"});
   ALK.forEach((a,i)=>{const done=alkDone(a.id),open=alkOpen(i);const lock=!open||(a.id==="name"&&!alkDone("read"));
     path.append(h("button",{class:"anode"+(done?" done":"")+(lock?" lock":""),disabled:lock,onclick:()=>a.id==="name"?nameGame():alkIntro(i)},
-      h("span",{class:"anum"},done?"✓":lock?"🔒":String(i+1)),h("span",{class:"tx"},h("b",null,a.t),h("span",{class:"small muted"},a.L?a.L.join(" "):a.d)),h("span",{class:"small"},S.alk[a.id]!=null?S.alk[a.id]+" %":"")))});
+      h("span",{class:"anum"},done?"✓":lock?"🔒":String(i+1)),h("span",{class:"tx"},h("b",null,a.t),h("span",{class:"small muted"+(a.L?" alL":"")},a.L?a.L.join(" "):a.d)),h("span",{class:"small"},S.alk[a.id]!=null?S.alk[a.id]+" %":"")))});
   v.append(path);
   if(S.heName)v.append(h("div",{class:"card"},h("div",{class:"eyebrow"},"Nimesi hepreaksi"),h("div",{class:"bighe",lang:"he"},S.heName)));
   app.append(v)}
@@ -3099,6 +3120,235 @@ VIEWS.koti=vHome4;
 const _vMe5=vMe;vMe=function(){_vMe5();if(!S.heName)return;const n=app.querySelector(".pname");if(n)n.after(h("span",{class:"phe",lang:"he"},S.heName))};
 VIEWS.mina=vMe;
 if(cur==="koti"||cur==="opi"||cur==="mina")go(cur);
+
+/* ===== Patriarkkojen tarina (kurssin harjoitustekstit, lukuihin 10–15) ===== */
+const PATR=[
+{id:"abram",t:"Abramin kutsu ja liitto",g:"Qalin perfekti – vahvat verbit",ch:10,
+ v:[["וּבָחַר יהוה אֱלֹהִים בְּאַבְרָם וְאָמַר אֵלָיו","Herra Jumala valitsi Abramin ja sanoi hänelle:"],
+ ["עֲזֹב† אֶת־אַרְצְךָ וְאֶת־בֵּית אָבִיךָ","”Jätä maasi ja isäsi koti.”"],
+ ["וְאַבְרָם שָׁמַע אֶת־קוֹל יהוה וְשָׁמַר אֶת־דְּבָרָיו","Abram totteli Herran ääntä ja noudatti hänen sanaansa."],
+ ["וְלָקַח אַבְרָם אֶת־שָׂרַי אִשְׁתּוֹ וְאֶת־לוֹט בֶּן אָחִיו וְאֶת־כָּל־רְכוּשָׁם","Abram otti mukaansa vaimonsa Sarain, veljenpoikansa Lootin ja kaiken omaisuutensa."],
+ ["וְעָזְבוּ אֶת־אֶרֶץ כַּשְׂדִּים וְעָבְרוּ אֶל־אֶרֶץ כְּנָעַן","He jättivät Kaldean maan ja kulkivat Kanaanin maahan."],
+ ["וְשָׁלַח יהוה אֱלֹהִים אֶת־אַבְרָם אֶל־שְׁכֶם וְאַבְרָם הָלַךְ שָׁם","Herra Jumala lähetti Abramin Sikemiin, ja Abram meni sinne."],
+ ["וְאָמַר יהוה לְאַבְרָם","Sitten Herra sanoi Abramille:"],
+ ["לְזַרְעֲךָ נָתַתִּי אֶת־הָאָרֶץ הַזֹּאת","”Siemenellesi olen antanut tämän maan.”"],
+ ["וְשָׁמַע אַבְרָם אֶת־אֲשֶׁר אָמַר יהוה וְכָרַע אַבְרָם לִפְנֵי יהוה","Abram kuuli, mitä Herra sanoi, ja polvistui Herran eteen."],
+ ["אַחַר כֵּן כָּרַת יהוה אֱלֹהִים בְּרִית עִם אַבְרָם","Sen jälkeen Herra Jumala teki liiton Abramin kanssa."],
+ ["וְאָמַר אֶל־אַבְרָם אֲנִי אֱלֹהֶיךָ וֵאלֹהֵי זַרְעֶךָ","Hän sanoi Abramille: ”Minä olen sinun Jumalasi ja siemenesi Jumala.”"],
+ ["וְעָבַד אַבְרָם אֶת־יהוה וְזָכַר אֵת בְּרִית יהוה כָּל־יָמָיו","Abram palveli Herraa ja muisti Herran liiton koko elämänsä ajan."],
+ ["וְשָׁמַר יהוה אֱלֹהִים אֶת־אַבְרָם וְאֶת־כָּל־בֵּיתוֹ כָּל־יָמָיו","Herra Jumala varjeli Abramia ja koko hänen perhettään koko hänen elämänsä ajan."]],
+ n:{"עֲזֹב":"’jätä’, imperatiivi (luku 16)"},
+ tab:[["בָּחַר","בחר","perf. yks. 3. m.","valita (+ בְּ)"],["אָמַר","אמר","perf. yks. 3. m.","sanoa, puhua"],["עֲזֹב","עזב","imperat. yks. m.","jättää, hylätä"],["שָׁמַע","שמע","perf. yks. 3. m.","kuulla, kuunnella, totella"],["שָׁמַר","שמר","perf. yks. 3. m.","vartioida, varjella, noudattaa"],["לָקַח","לקח","perf. yks. 3. m.","ottaa"],["עָזְבוּ","עזב","perf. mon. 3.","jättää, hylätä"],["עָבְרוּ","עבר","perf. mon. 3.","kulkea (yli/ohi), ylittää"],["שָׁלַח","שלח","perf. yks. 3. m.","lähettää"],["הָלַךְ","הלך","perf. yks. 3. m.","mennä, kulkea"],["נָתַתִּי","נתן","perf. yks. 1.","antaa"],["כָּרַע","כרע","perf. yks. 3. m.","polvistua, kumartua"],["כָּרַת","כרת","perf. yks. 3. m.","leikata, katkaista; (בְּרִית) tehdä liitto"],["עָבַד","עבד","perf. yks. 3. m.","palvella, tehdä työtä, palvoa"],["זָכַר","זכר","perf. yks. 3. m.","muistaa"]]},
+{id:"iisak",t:"Iisakin syntymä ja Abrahamin uhri",g:"Qalin perfekti (vahvat ja heikot)",ch:11,
+ v:[["וְנָתַן אֱלֹהִים בֵּן לְאַבְרָהָם וּלְשָׂרָה וְיָלְדָה שָׂרָה אֶת־יִצְחָק","Jumala antoi Abrahamille ja Saaralle pojan, ja Saara synnytti Iisakin."],
+ ["זֶה הָיָה יוֹם שִׂמְחָה גָּדוֹל לְכָל־הַבָּיִת","Se oli suuren ilon päivä koko suvulle."],
+ ["וְקָרָא אַבְרָהָם אֶת־שֵׁם הַבֵּן יִצְחָק","Abraham antoi pojalle nimeksi Iisak."],
+ ["וְגָדַל יִצְחָק בְּבֵית אָבִיו","Iisak kasvoi isänsä kodissa."],
+ ["אַחַר כֵּן אָמַר אֱלֹהִים לְאַבְרָהָם","Sen jälkeen Jumala sanoi Abrahamille:"],
+ ["קַח† אֶת־בִּנְךָ אֶת־יִצְחָק וְלֵךְ‡ אֶל־הַר אֶחָד אֲשֶׁר בַּמִּדְבָּר","”Ota poikasi Iisak ja mene yhdelle vuorelle, joka on autiomaassa.”"],
+ ["וְשָׁמַע אַבְרָהָם אֶת־קוֹל אֱלֹהִים וְשָׁמַר אֶת־מִצְוָתוֹ","Abraham totteli Jumalaa ja noudatti hänen käskyään."],
+ ["אַבְרָהָם וְיִצְחָק הָלְכוּ אֶל־הָהָר וְעָלוּ אֶל־רֹאשׁוֹ","Abraham ja Iisak menivät vuorelle ja nousivat sen huipulle."],
+ ["וּבָנָה אַבְרָהָם מִזְבֵּחַ בְּרֹאשׁ הָהָר","Abraham rakensi alttarin vuoren huipulle."],
+ ["וְשָׂם אַבְרָהָם אֶת־יִצְחָק עַל הַמִּזְבֵּחַ וְלָקַח אֶת־הַמַּאֲכֶלֶת בְּיָדוֹ","Abraham pani Iisakin alttarille ja otti veitsen käteensä."],
+ ["וּמַלְאַךְ יהוה בָּא אֵלָיו וְקָרָא","Herran enkeli tuli hänen luokseen ja huusi:"],
+ ["אַל†† תִּשְׁלַח אֶת־יָדְךָ אֶל־הַנַּעַר","”Älä ojenna kättäsi poikaan.”"],
+ ["עַתָּה יָדַעְתִּי כִּי יָרֵאתָ אֶת־הָאֱלֹהִים","”Nyt tiedän, että sinä pelkäät Jumalaa.”"],
+ ["וְרָאָה אַבְרָהָם אַיִל וְלָקַח אֹתוֹ וְשָׂם עַל הַמִּזְבֵּחַ","Abraham näki pässin, otti sen ja asetti alttarille."],
+ ["וְשָׁמַר אֱלֹהִים אֶת־יִצְחָק וְהָיְתָה זֹאת יְשׁוּעָה לְיִצְחָק","Siten Jumala varjeli Iisakia, ja se koitui pelastukseksi Iisakille."]],
+ n:{"קַח":"’ota’, imperatiivi (myöhemmin)","לֵךְ":"’ja mene’, imperatiivi (myöhemmin)","תִּשְׁלַח":"’älä ojenna’, kieltosana + jussiivi (myöhemmin)"},
+ tab:[["נָתַן","נתן","perf. yks. 3. m.","antaa"],["יָלְדָה","ילד","perf. yks. 3. f.","synnyttää, saada lapsi"],["הָיָה","היה","perf. yks. 3. m.","olla, tulla joksikin, tapahtua"],["קָרָא","קרא","perf. yks. 3. m.","kutsua, nimetä, huutaa, lukea"],["גָּדַל","גדל","perf. yks. 3. m.","kasvaa, olla suuri, tulla suureksi"],["אָמַר","אמר","perf. yks. 3. m.","sanoa, puhua"],["קַח","לקח","imperat. yks. m.","ottaa"],["לֵךְ","הלך","imperat. yks. m.","mennä, kulkea"],["שָׁמַע","שמע","perf. yks. 3. m.","kuulla, kuunnella, totella"],["שָׁמַר","שמר","perf. yks. 3. m.","vartioida, varjella, noudattaa"],["הָלְכוּ","הלך","perf. mon. 3.","mennä, kulkea"],["עָלוּ","עלה","perf. mon. 3.","nousta, mennä ylös"],["בָּנָה","בנה","perf. yks. 3. m.","rakentaa"],["שָׂם","שים","perf. yks. 3. m.","panna, asettaa"],["לָקַח","לקח","perf. yks. 3. m.","ottaa"],["בָּא","בוא","perf. yks. 3. m.","tulla, mennä (sisään)"],["תִּשְׁלַח","שלח","impf. yks. 2. m.","lähettää; (יָד) ojentaa käsi"],["יָדַעְתִּי","ידע","perf. yks. 1.","tietää, tuntea"],["יָרֵאתָ","ירא","perf. yks. 2. m.","pelätä, kunnioittaa"],["רָאָה","ראה","perf. yks. 3. m.","nähdä"],["הָיְתָה","היה","perf. yks. 3. f.","olla, tulla joksikin, tapahtua"]]},
+{id:"rebekka",t:"Iisak ja Rebekka",g:"Qal-imperfekti, vahvat verbit",ch:12,
+ v:[["אַבְרָהָם זָקֵן מְאֹד וְאֵין אִשָּׁה לְיִצְחָק בְּנוֹ","Abraham oli hyvin vanha, eikä hänen pojallaan Iisakilla ollut vaimoa."],
+ ["וְאַבְרָהָם קָרָא לְעַבְדּוֹ וְאָמַר לוֹ","Abraham kutsui palvelijansa ja sanoi hänelle:"],
+ ["יהוה אֱלֹהֵי הַשָּׁמַיִם יִשְׁלַח מַלְאָכוֹ לְפָנֶיךָ","”Herra, taivaan Jumala, lähettää enkelinsä sinun edelläsi."],
+ ["תִּשְׁמַע* לְקוֹלִי וְתִשְׁמֹר* אֶת־דְּבָרַי","Kuuntele minua ja pidä se, mitä sanon:"],
+ ["לֵךְ† אֶל־עִיר אֲבוֹתַי וְתִדְרֹשׁ* אִשָּׁה לִבְנִי יִצְחָק","mene isieni kaupunkiin ja etsi sieltä vaimo pojalleni Iisakille.”"],
+ ["וְהָלַךְ הָעֶבֶד וּבָא אֶל־הָעִיר וְעָמַד עַל בְּאֵר אֲשֶׁר בָּעִיר","Palvelija meni ja saapui kaupunkiin, ja hän asettui seisomaan kaivolle, joka oli kaupungissa."],
+ ["וְאָמַר הָעֶבֶד לֵאלֹהִים","Palvelija sanoi Jumalalle:"],
+ ["תִּשְׁמַע* אֱלֹהִים אֶת־תְּפִלָּתִי וְתִשְׁלַח* אוֹת הַיּוֹם","”Jumala, kuule rukoukseni ja lähetä merkki tänään.”"],
+ ["וְרִבְקָה יָצְאָה מִן הָעִיר וְהָלְכָה אֶל־הַבְּאֵר","Rebekka tuli ulos kaupungista ja meni kaivolle."],
+ ["וְשָׁאַל הָעֶבֶד אֹתָהּ מִי אַתְּ","Palvelija kysyi häneltä: ”Kuka olet?”"],
+ ["וְאָמְרָה רִבְקָה","Rebekka sanoi:"],
+ ["בַּת בְּתוּאֵל אֲנִי רִבְקָה","”Olen Rebekka, Betuelin tytär.”"],
+ ["הָעֶבֶד שָׁמַע זֹאת וְכָרַע לִפְנֵי יהוה","Palvelija kuuli tämän ja polvistui Herran eteen."],
+ ["וְאָמַר הָעֶבֶד לֵאמֹר‡ אֱלֹהִים יִשְׁמַע תְּפִלָּה","Palvelija sanoi: ”Jumala kuulee rukouksen.”"],
+ ["שָׁמְעוּ בְּתוּאֵל וְלָבָן אֶת־הַדְּבָרִים הָאֵלֶּה וְאָמְרוּ","Betuel ja Laaban kuulivat nämä sanat ja sanoivat:"],
+ ["יהוה יִפְקֹד אֶת־הַדָּבָר הַזֶּה וְהָעֶבֶד יִשְׁמֹר אֶת־רִבְקָה בַּדֶּרֶךְ","”Herra järjestää tämän asian, ja palvelija varjelee Rebekkaa matkalla.”"],
+ ["וְהָלְכָה רִבְקָה עִם הָעֶבֶד אֶל־אֶרֶץ כְּנָעַן","Rebekka meni palvelijan kanssa Kanaanin maahan."],
+ ["וְרָאָה יִצְחָק אֶת־רִבְקָה מֵרָחוֹק וְהָלַךְ אֵלֶיהָ","Iisak näki Rebekan kaukaa ja meni häntä kohti."],
+ ["וְלָקַח אֹתָהּ לְאִשָּׁה וְאָהַב אֹתָהּ","Hän otti hänet vaimokseen ja rakasti häntä."]],
+ n:{"תִּשְׁמַע":"impf./jussiivi voidaan ymmärtää kehotuksena tai käskynä","תִשְׁמֹר":"impf./jussiivi kehotuksena","תִדְרֹשׁ":"impf./jussiivi kehotuksena","תִשְׁלַח":"impf./jussiivi kehotuksena","לֵךְ":"’mene’, imperatiivi (myöhemmin)","לֵאמֹר":"’sanoen’ (infinitiivi), vastaa yleensä kaksoispistettä, jota seuraa repliikki"},
+ tab:[["זָקֵן","זקן","perf. yks. 3. m.","olla vanha, vanheta"],["קָרָא","קרא","perf. yks. 3. m.","kutsua, huutaa, nimetä, lukea"],["אָמַר","אמר","perf. yks. 3. m.","sanoa, puhua"],["יִשְׁלַח","שלח","impf. yks. 3. m.","lähettää"],["תִּשְׁמַע","שמע","impf. yks. 2. m.","kuulla, kuunnella, totella"],["תִּשְׁמֹר","שמר","impf. yks. 2. m.","vartioida, varjella, noudattaa"],["לֵךְ","הלך","imperat. yks. m.","mennä, kulkea"],["תִּדְרֹשׁ","דרש","impf. yks. 2. m.","etsiä, tiedustella, kysyä"],["הָלַךְ","הלך","perf. yks. 3. m.","mennä, kulkea"],["בָּא","בוא","perf. yks. 3. m.","tulla, mennä (sisään)"],["עָמַד","עמד","perf. yks. 3. m.","seistä, asettua, pysähtyä"],["תִּשְׁלַח","שלח","impf. yks. 2. m.","lähettää"],["יָצְאָה","יצא","perf. yks. 3. f.","lähteä, mennä ulos"],["הָלְכָה","הלך","perf. yks. 3. f.","mennä, kulkea"],["שָׁאַל","שאל","perf. yks. 3. m.","kysyä, pyytää"],["אָמְרָה","אמר","perf. yks. 3. f.","sanoa, puhua"],["שָׁמַע","שמע","perf. yks. 3. m.","kuulla, kuunnella, totella"],["כָּרַע","כרע","perf. yks. 3. m.","polvistua, kumartua"],["לֵאמֹר","אמר","inf. cstr.","sanoa; (johdantona) näin, sanoen"],["יִשְׁמַע","שמע","impf. yks. 3. m.","kuulla, kuunnella, totella"],["שָׁמְעוּ","שמע","perf. mon. 3.","kuulla, kuunnella, totella"],["אָמְרוּ","אמר","perf. mon. 3.","sanoa, puhua"],["יִפְקֹד","פקד","impf. yks. 3. m.","käydä katsomassa, pitää huolta, tarkastaa, määrätä"],["יִשְׁמֹר","שמר","impf. yks. 3. m.","vartioida, varjella, noudattaa"],["רָאָה","ראה","perf. yks. 3. m.","nähdä"],["לָקַח","לקח","perf. yks. 3. m.","ottaa"],["אָהַב","אהב","perf. yks. 3. m.","rakastaa"]]},
+{id:"jaakob",t:"Jaakobin pako",g:"Konsekutiivimuodot (ja yleisiä heikkoja verbejä)",ch:13,
+ v:[["יִצְחָק זָקֵן וְעֵינָיו לֹא רָאוּ","Iisak oli tullut vanhaksi, eivätkä hänen silmänsä nähneet."],
+ ["וּלְיִצְחָק שְׁנֵי בָנִים יַעֲקֹב וְעֵשָׂו","Iisakilla oli kaksi poikaa, Jaakob ja Esau."],
+ ["וַיָּבֹא יַעֲקֹב אֶל־אָבִיו וַיֹּאמֶר","Jaakob tuli isänsä luo ja sanoi:"],
+ ["אָנֹכִי עֵשָׂו בְּכֹרֶךָ","”Minä olen Esau, esikoisesi.”"],
+ ["וַיִּשְׁמַע יִצְחָק אֶת־קוֹלוֹ וְלֹא יָדַע כִּי הָיָה יַעֲקֹב","Iisak kuuli hänen äänensä, mutta ei tiennyt, että se oli Jaakob."],
+ ["וַיֹּאמֶר יִצְחָק","Iisak sanoi:"],
+ ["בֹּא† נָא אֵלַי","”Tule nyt luokseni.”"],
+ ["וַיָּבֹא יַעֲקֹב אֵלָיו וַיֹּאמֶר לוֹ יִצְחָק","Jaakob tuli hänen luokseen, ja Iisak sanoi hänelle:"],
+ ["בָּרוּךְ‡ אַתָּה לִפְנֵי יהוה","”Sinä olet siunattu Herran edessä."],
+ ["וְיִשְׁמֹר אֶת־זַרְעֶךָ","Jumala varjelkoon siementäsi.”"],
+ ["וַיִּשְׁמַע עֵשָׂו אֶת־הַדְּבָרִים הָאֵלֶּה וַיִּקְרָא בְּקוֹל גָּדוֹל וַיֹּאמֶר לְאָבִיו","Esau kuuli nämä sanat, huusi suurella äänellä ja sanoi isälleen:"],
+ ["בָּרַכְתָּ אֹתוֹ וְלֹא אֹתִי","”Olet siunannut hänet etkä minua!”"],
+ ["וְעֵשָׂו שָׂנֵא אֶת־יַעֲקֹב","Esau vihasi Jaakobia."],
+ ["וְרִבְקָה שָׁמְעָה זֹאת וַתֹּאמֶר לְיַעֲקֹב","Rebekka kuuli tämän ja sanoi Jaakobille:"],
+ ["בְּרַח†† מִזֶּה וְהָלַכְתָּ אֶל־חָרָן","”Pakene täältä ja mene Harraniin.”"],
+ ["וְיַעֲקֹב יָרֵא וַיִּבְרַח אֶל־חָרָן","Jaakob pelkäsi ja pakeni Harraniin."],
+ ["וּבַדֶּרֶךְ שָׁכַב יַעֲקֹב וַיַּחֲלֹם חֲלוֹם","Matkalla Jaakob kävi makuulle ja näki unen."],
+ ["וְיַעֲקֹב רָאָה סֻלָּם וּמַלְאָכִים עָלוּ וְיָרְדוּ עָלָיו","Jaakob näki tikkaat, ja enkelit nousivat ja laskeutuivat niitä pitkin."],
+ ["וַיֹּאמֶר יהוה","Herra sanoi:"],
+ ["אֲנִי יהוה אֱלֹהֵי אַבְרָהָם וְשָׁמַרְתִּי אֹתְךָ בְּכָל־אֲשֶׁר תֵּלֵךְ","”Minä olen Herra, Abrahamin Jumala, ja minä varjelen sinua kaikkialla, mihin menet.”"],
+ ["וְיַעֲקֹב לָקַח אֶבֶן וְשָׂם אֹתָהּ מַצֵּבָה","Jaakob otti kiven ja pani sen pystyyn patsaaksi."],
+ ["וַיֹּאמֶר זֶה בֵּית אֱלֹהִים","Hän sanoi: ”Tämä on Jumalan huone.”"],
+ ["וַיָּבֹא יַעֲקֹב חָרָנָה וַיֵּשֶׁב בְּחָרָן","Jaakob saapui Harraniin ja asui Harranissa."],
+ ["וַיַּעֲבֹד יַעֲקֹב אֶת־לָבָן שָׁנִים רַבּוֹת","Jaakob palveli Laabania monta vuotta."],
+ ["וַיִּקַּח יַעֲקֹב שְׁתֵּי נָשִׁים אֶת־לֵאָה וְאֶת־רָחֵל","Jaakob otti kaksi vaimoa, Leean ja Raakelin."],
+ ["וְהַנָּשִׁים יָלְדוּ לוֹ בָּנִים רַבִּים וְיַעֲקֹב גָּדַל מְאֹד","Vaimot synnyttivät hänelle monta poikaa, ja Jaakob tuli hyvin mahtavaksi."]],
+ n:{"בֹּא":"’tule’, imperatiivi (myöhemmin)","בָּרוּךְ":"’siunattu’, passiivin partisiippi (myöhemmin)","בְּרַח":"’pakene’, imperatiivi (myöhemmin)"},
+ tab:[["זָקֵן","זקן","perf. yks. 3. m.","olla vanha, vanheta"],["רָאוּ","ראה","perf. mon. 3.","nähdä"],["וַיָּבֹא","בוא","kons. impf. yks. 3. m.","tulla, mennä (sisään)"],["וַיֹּאמֶר","אמר","kons. impf. yks. 3. m.","sanoa, puhua"],["וַיִּשְׁמַע","שמע","kons. impf. yks. 3. m.","kuulla, kuunnella, totella"],["יָדַע","ידע","perf. yks. 3. m.","tietää, tuntea"],["הָיָה","היה","perf. yks. 3. m.","olla, tulla joksikin, tapahtua"],["בֹּא","בוא","imperat. yks. m.","tulla, mennä (sisään), saapua"],["בָּרוּךְ","ברך","pass. partisiippi yks. m.","siunata; (pass.) siunattu"],["יִשְׁמֹר","שמר","impf./juss. yks. 3. m.","vartioida, varjella, noudattaa"],["וַיִּקְרָא","קרא","kons. impf. yks. 3. m.","kutsua, huutaa, nimetä, lukea"],["בָּרַכְתָּ","ברך","perf. yks. 2. m.","siunata"],["שָׂנֵא","שנא","perf. yks. 3. m.","vihata"],["שָׁמְעָה","שמע","perf. yks. 3. f.","kuulla, kuunnella, totella"],["וַתֹּאמֶר","אמר","kons. impf. yks. 3. f.","sanoa, puhua"],["בְּרַח","ברח","imperat. yks. m.","paeta"],["וְהָלַכְתָּ","הלך","perf. (kons. perf.) yks. 2. m.","mennä, kulkea"],["יָרֵא","ירא","perf. yks. 3. m.","pelätä, kunnioittaa"],["וַיִּבְרַח","ברח","kons. impf. yks. 3. m.","paeta"],["שָׁכַב","שכב","perf. yks. 3. m.","maata, käydä makuulle"],["וַיַּחֲלֹם","חלם","kons. impf. yks. 3. m.","nähdä unta"],["רָאָה","ראה","perf. yks. 3. m.","nähdä"],["עָלוּ","עלה","perf. mon. 3.","nousta, mennä ylös"],["יָרְדוּ","ירד","perf. mon. 3.","laskeutua, mennä alas"],["וְשָׁמַרְתִּי","שמר","perf. (kons. perf.) yks. 1.","vartioida, varjella, noudattaa"],["תֵּלֵךְ","הלך","impf. yks. 2. m.","mennä, kulkea"],["לָקַח","לקח","perf. yks. 3. m.","ottaa"],["שָׂם","שים","perf. yks. 3. m.","panna, asettaa"],["וַיֵּשֶׁב","ישב","kons. impf. yks. 3. m.","istua, asua"],["וַיַּעֲבֹד","עבד","kons. impf. yks. 3. m.","palvella, tehdä työtä"],["וַיִּקַּח","לקח","kons. impf. yks. 3. m.","ottaa"],["יָלְדוּ","ילד","perf. mon. 3.","synnyttää, saada lapsi"],["גָּדַל","גדל","perf. yks. 3. m.","kasvaa, olla suuri"]]},
+{id:"joosef",t:"Joosefin myyminen",g:"Heikot qal-imperfektit ja heikkojen verbien konsekutiiviset muodot",ch:14,
+ v:[["וְהָיוּ לְיַעֲקֹב שְׁנֵים עָשָׂר בָּנִים","Jaakobilla oli kaksitoista poikaa."],
+ ["וַיֶּאֱהַב אֶת־יוֹסֵף מִכָּל־בָּנָיו","Hän rakasti Joosefia enemmän kuin muita poikiaan."],
+ ["וַיַּעַשׂ יַעֲקֹב לוֹ כְּתֹנֶת יָפָה","Jaakob teki hänelle kauniin kaavun."],
+ ["וַיִּרְאוּ אֶחָיו זֹאת וַיִּשְׂנְאוּ אֹתוֹ","Hänen veljensä näkivät sen ja vihasivat häntä."],
+ ["וְיוֹסֵף חָלַם חֲלוֹם וַיֹּאמֶר לְאֶחָיו","Joosef näki unen ja sanoi veljilleen:"],
+ ["אֲנַחְנוּ נַעֲשֶׂה אֲלֻמּוֹת בַּשָּׂדֶה וַאֲלֻמָּתִי תָקוּם וַאֲלֻמֹּתֵיכֶם תְּסֻבֶּינָה לָהּ","”Me teemme lyhteitä pellolla. Minun lyhteeni nousee pystyyn, ja teidän lyhteenne ympäröivät sitä.”"],
+ ["וַיִּשְׁמְעוּ אֶחָיו וַיֹּאמְרוּ","Hänen veljensä kuulivat ja sanoivat:"],
+ ["הַאַתָּה תִּמְלֹךְ עָלֵינוּ","”Sinäkö hallitset meitä?”"],
+ ["וַיִּשְׂנְאוּ אֹתוֹ עוֹד","He vihasivat häntä entistä enemmän."],
+ ["וַיֵּלֶךְ יוֹסֵף אֶל־אֶחָיו בַּשָּׂדֶה וַיִּרְאוּ אֹתוֹ מֵרָחוֹק","Joosef meni veljiensä luo niitylle, ja he näkivät hänet kaukaa."],
+ ["וַיֹּאמְרוּ אִישׁ אֶל־אָחִיו","He sanoivat toisilleen:"],
+ ["הִנֵּה בַּעַל הַחֲלֹמוֹת בָּא","”Katso, unien mestari tulee!”"],
+ ["וַיֹּאמְרוּ נִמְכֹּר אֶת־יוֹסֵף לַיִּשְׁמְעֵאלִים","He sanoivat: ”Myykäämme Joosef ismaelilaisille.”"],
+ ["וַיִּמְכְּרוּ אֶת־יוֹסֵף בְּעֶשְׂרִים כָּסֶף","He myivät Joosefin kahdellakymmenellä hopearahalla."],
+ ["וַיֵּלְכוּ הַיִּשְׁמְעֵאלִים מִצְרַיְמָה וְיוֹסֵף עִמָּהֶם","Ismaelilaiset menivät Egyptiin, ja Joosef oli heidän mukanaan."],
+ ["וַיִּקְחוּ אֶחָיו אֶת־כְּתֹנֶת יוֹסֵף","Hänen veljensä ottivat Joosefin kaavun."],
+ ["וַיָּבֹאוּ אֶל־יַעֲקֹב וַיִּתְּנוּ אֹתָהּ לְיַעֲקֹב","He tulivat Jaakobin luo ja antoivat sen Jaakobille."],
+ ["וַיִּקְרַע יַעֲקֹב אֶת־בְּגָדָיו וַיֵּבְךְּ יָמִים רַבִּים","Jaakob repäisi vaatteensa ja itki monta päivää."],
+ ["וַיֹּאמֶר יוֹסֵף אֵינֶנּוּ","Hän sanoi: ”Joosefia ei ole enää.”"]],
+ n:{},
+ tab:[["הָיוּ","היה","perf. mon. 3.","olla, tulla joksikin, tapahtua"],["וַיֶּאֱהַב","אהב","kons. impf. yks. 3. m.","rakastaa"],["וַיַּעַשׂ","עשה","kons. impf. yks. 3. m.","tehdä, valmistaa"],["וַיִּרְאוּ","ראה","kons. impf. mon. 3. m.","nähdä"],["וַיִּשְׂנְאוּ","שנא","kons. impf. mon. 3. m.","vihata"],["חָלַם","חלם","perf. yks. 3. m.","nähdä unta"],["וַיֹּאמֶר","אמר","kons. impf. yks. 3. m.","sanoa, puhua"],["נַעֲשֶׂה","עשה","impf. mon. 1.","tehdä, valmistaa"],["תָקוּם","קום","impf. yks. 3. f.","nousta, nousta pystyyn"],["תְּסֻבֶּינָה","סבב","impf. mon. 3. f.","kiertää, ympäröidä"],["וַיִּשְׁמְעוּ","שמע","kons. impf. mon. 3. m.","kuulla, kuunnella, totella"],["וַיֹּאמְרוּ","אמר","kons. impf. mon. 3. m.","sanoa, puhua"],["תִּמְלֹךְ","מלך","impf. yks. 2. m.","hallita, olla kuninkaana"],["וַיֵּלֶךְ","הלך","kons. impf. yks. 3. m.","mennä, kulkea"],["בָּא","בוא","akt. pts. yks. m.","tulla, mennä (sisään)"],["נִמְכֹּר","מכר","impf./koh. mon. 1.","myydä"],["וַיִּמְכְּרוּ","מכר","kons. impf. mon. 3. m.","myydä"],["וַיֵּלְכוּ","הלך","kons. impf. mon. 3. m.","mennä, kulkea"],["וַיִּקְחוּ","לקח","kons. impf. mon. 3. m.","ottaa"],["וַיָּבֹאוּ","בוא","kons. impf. mon. 3. m.","tulla, mennä (sisään)"],["וַיִּתְּנוּ","נתן","kons. impf. mon. 3. m.","antaa"],["וַיִּקְרַע","קרע","kons. impf. yks. 3. m.","repiä"],["וַיֵּבְךְּ","בכה","kons. impf. yks. 3. m.","itkeä"]]},
+{id:"egypti",t:"Joosef Egyptissä",g:"Objektisuffiksit (+ kaikki aiemmat)",ch:15,
+ v:[["פַּרְעֹה חָלַם חֲלוֹם וַיִּקְרָא לְכָל־חַכְמֵי מִצְרָיִם","Farao näki unen ja kutsui kaikki Egyptin viisaat."],
+ ["וַיִּשְׁמְעוּ אֹתוֹ וְאִישׁ לֹא פְּתָרוֹ","He kuulivat sen, mutta kukaan ei osannut selittää sitä."],
+ ["וַיִּשְׁלַח פַּרְעֹה וַיִּקְרָא לְיוֹסֵף וַיִּשְׁאַל אֹתוֹ","Farao lähetti sanan, kutsui Joosefin ja kysyi häneltä."],
+ ["וַיֹּאמֶר פַּרְעֹה חָלַמְתִּי חֲלוֹם וְאֵין פֹּתֵר אֹתוֹ כִּי אִישׁ לֹא יְדָעוֹ","Farao sanoi: ”Näin unen, mutta ei ole ketään, joka selittäisi sen, sillä kukaan ei ymmärtänyt sitä.”"],
+ ["וַיִּשְׁמַע יוֹסֵף אֶת־הַחֲלוֹם וַיֹּאמֶר אֱלֹהִים יַעֲנֶה אֶת־פַּרְעֹה","Joosef kuuli unen ja sanoi: ”Jumala vastaa faraolle.”"],
+ ["וַיֹּאמֶר פַּרְעֹה אֶת־חֲלֹמוֹ לְיוֹסֵף","Farao kertoi unensa Joosefille."],
+ ["וַיִּשְׁמַע אֹתוֹ יוֹסֵף וַיִּפְתֹּר אֹתוֹ וַיֹּאמֶר","Joosef kuunteli ja selitti unen, ja sanoi:"],
+ ["שֶׁבַע שָׁנִים טוֹבוֹת תָּבֹאנָה וְאַחֲרֵיהֶן שֶׁבַע שָׁנִים רָעוֹת","”Tulee seitsemän hyvää vuotta, ja niiden jälkeen seitsemän huonoa vuotta.”"],
+ ["וַיִּשְׁמַע פַּרְעֹה וַיָּשֶׂם אֶת־יוֹסֵף עַל כָּל־אֶרֶץ מִצְרָיִם","Farao kuuli tämän ja asetti Joosefin koko Egyptin maan johtoon."],
+ ["וּבְשָׁנָה רָעָה בָּאוּ אֶחָיו מִצְרַיְמָה וַיַּעַמְדוּ לִפְנֵי יוֹסֵף","Huonona vuotena Joosefin veljet tulivat Egyptiin ja asettuivat seisomaan hänen eteensä."],
+ ["יוֹסֵף רָאָם וַיֵּדַע אֹתָם אַךְ הֵם לֹא יָדְעוּ אֹתוֹ","Joosef näki heidät ja tunsi heidät, mutta he eivät tunteneet häntä."],
+ ["וַיִּשְׁאָלֵם וַיֹּאמֶר מֵאַיִן בָּאתֶם","Hän kysyi heiltä: ”Mistä te tulette?”"],
+ ["הֵם עָנוּ אֹתוֹ וַיֹּאמְרוּ","He vastasivat hänelle:"],
+ ["מֵאֶרֶץ כְּנַעַן בָּאנוּ כִּי כָבֵד הָרָעָב שָׁם","”Tulemme Kanaanin maasta, sillä siellä on kova nälänhätä.”"],
+ ["יוֹסֵף שָׁמַע אֹתָם וַיֵּבְךְּ כִּי אָהַב אֹתָם וַיֹּאמֶר לָהֶם","Joosef kuuli heitä ja itki, sillä hän rakasti heitä, ja sanoi heille:"],
+ ["אֲנִי יוֹסֵף אֲחִיכֶם אֲשֶׁר מְכַרְתֶּם לַיִּשְׁמְעֵאלִים","”Minä olen Joosef, teidän veljenne, jonka te myitte ismaelilaisille.”"],
+ ["וַיִּשְׁמְעוּ וַיִּירְאוּ","He kuulivat sen ja pelästyivät."],
+ ["וַיֹּאמֶר אַל תִּירָאוּ†† כִּי אֱלֹהִים שְׁלָחַנִי לִפְנֵיכֶם לְחַיִּים","Mutta hän sanoi: ”Älkää pelätkö, sillä Jumala lähetti minut teidän edellänne pelastamaan henkemme.”"],
+ ["וַיִּשַּׁק לָהֶם וַיֹּאמֶר","Hän suuteli heitä ja sanoi:"],
+ ["שָׁמַר אֱלֹהִים אוֹתָנוּ","”Jumala on suojellut meitä.”"]],
+ n:{"תִּירָאוּ":"kielto: אַל + jussiivi"},
+ tab:[["חָלַם","חלם","perf. yks. 3. m.","nähdä unta"],["וַיִּקְרָא","קרא","kons. impf. yks. 3. m.","kutsua, huutaa, nimetä, lukea"],["וַיִּשְׁמְעוּ","שמע","kons. impf. mon. 3. m.","kuulla, kuunnella, totella"],["פְּתָרוֹ","פתר","perf. yks. 3. m. + suff. yks. 3. m.","selittää (unta), tulkita"],["וַיִּשְׁלַח","שלח","kons. impf. yks. 3. m.","lähettää"],["וַיִּשְׁאַל","שאל","kons. impf. yks. 3. m.","kysyä, pyytää"],["וַיֹּאמֶר","אמר","kons. impf. yks. 3. m.","sanoa, puhua"],["חָלַמְתִּי","חלם","perf. yks. 1.","nähdä unta"],["פֹּתֵר","פתר","akt. pts. yks. m.","selittää (unta), tulkita"],["יְדָעוֹ","ידע","perf. yks. 3. m. + suff. yks. 3. m.","tietää, tuntea"],["וַיִּשְׁמַע","שמע","kons. impf. yks. 3. m.","kuulla, kuunnella, totella"],["יַעֲנֶה","ענה","impf. yks. 3. m.","vastata"],["וַיִּפְתֹּר","פתר","kons. impf. yks. 3. m.","selittää (unta), tulkita"],["תָּבֹאנָה","בוא","impf. mon. 3. f.","tulla, mennä (sisään)"],["וַיָּשֶׂם","שים","kons. impf. yks. 3. m.","panna, asettaa"],["בָּאוּ","בוא","perf. mon. 3.","tulla, mennä (sisään)"],["וַיַּעַמְדוּ","עמד","kons. impf. mon. 3. m.","seistä, asettua"],["רָאָם","ראה","perf. yks. 3. m. + suff. mon. 3. m.","nähdä"],["וַיֵּדַע","ידע","kons. impf. yks. 3. m.","tietää, tuntea"],["יָדְעוּ","ידע","perf. mon. 3.","tietää, tuntea"],["וַיִּשְׁאָלֵם","שאל","kons. impf. yks. 3. m. + suff. mon. 3. m.","kysyä, pyytää"],["בָּאתֶם","בוא","perf. mon. 2. m.","tulla, mennä (sisään)"],["עָנוּ","ענה","perf. mon. 3.","vastata"],["בָּאנוּ","בוא","perf. mon. 1.","tulla, mennä (sisään)"],["כָּבֵד","כבד","perf. yks. 3. m. (stat.)","olla raskas, olla ankara"],["שָׁמַע","שמע","perf. yks. 3. m.","kuulla, kuunnella, totella"],["וַיֵּבְךְּ","בכה","kons. impf. yks. 3. m.","itkeä"],["אָהַב","אהב","perf. yks. 3. m.","rakastaa"],["מְכַרְתֶּם","מכר","perf. mon. 2. m.","myydä"],["וַיִּירְאוּ","ירא","kons. impf. mon. 3. m.","pelätä, kunnioittaa"],["תִּירָאוּ","ירא","juss. mon. 2. m. (kielto)","pelätä, kunnioittaa"],["שְׁלָחַנִי","שלח","perf. yks. 3. m. + suff. yks. 1.","lähettää"],["וַיִּשַּׁק","נשק","kons. impf. yks. 3. m.","suudella"]]}];
+
+/* ================= v4: PATRIARKKOJEN TARINA ================= */
+S.patr=S.patr||{};
+const PL=s=>(s||"").replace(/[^א-ת]/g,"").replace(/ך/g,"כ").replace(/ם/g,"מ").replace(/ן/g,"נ").replace(/ף/g,"פ").replace(/ץ/g,"צ");
+const PPRE="והבלמכש";
+function pst(id){return S.patr[id]||(S.patr[id]={v:{},done:false,boss:false,tr:0})}
+function patrOpen(i){const p=PATR[i];return unlocked(p.ch)&&(i===0||pst(PATR[i-1].id).done)}
+function verseTokens(p,vi){const raw=p.v[vi][0];const toks=[];raw.split(" ").forEach((w,wi)=>{w.split("־").forEach((part,k,arr)=>{const clean=part.replace(/[†‡*]/g,"");const lw=PL(clean);let best=null;
+    p.tab.forEach(r=>{const lf=PL(r[0]);if(!lf)return;if(lw===lf||(lw.endsWith(lf)&&lw.length-lf.length<=2&&[...lw.slice(0,lw.length-lf.length)].every(c=>PPRE.includes(c)))){if(!best||PL(best[0]).length<lf.length)best=r}});
+    toks.push({w:part+(k<arr.length-1?"־":""),clean,row:best,mark:/[†‡*]/.test(part)})})});return toks}
+const ALLROOTS=[...new Set(PATR.flatMap(p=>p.tab.map(r=>r[1])))];
+const ALLPARSE=[...new Set(PATR.flatMap(p=>p.tab.map(r=>r[2])))];
+function rootOpts(r){const share=ALLROOTS.filter(x=>x!==r&&[...x].filter(c=>r.includes(c)).length>=1);return shuffle([r,...shuffle(share.length>=2?share:ALLROOTS.filter(x=>x!==r)).slice(0,2)])}
+function parseOpts(pa){const fam=pa.split(" ")[0];const same=ALLPARSE.filter(x=>x!==pa&&x.split(" ")[0]===fam);const other=ALLPARSE.filter(x=>x!==pa&&!same.includes(x));return shuffle([pa,...shuffle(same).slice(0,1),...shuffle(other).slice(0,2-Math.min(1,same.length))]).slice(0,3)}
+function parseTopic(pa){if(/kons\. impf/.test(pa))return "wayyiqtol";if(/kons\. perf/.test(pa))return "weqatal";if(/suff/.test(pa))return "objsuf";if(/^impf|^juss/.test(pa))return "impf";if(/^perf/.test(pa))return "perfA";return null}
+function patrLevel(id){const s=pst(id);const n=Object.values(s.v).filter(x=>x.ok).length;return n<5?0:n<12?1:2}
+
+/* ---------- reitti ---------- */
+function vPatr(){const v=h("div",{class:"view"});v.append(topbar("Patriarkkojen tarina",()=>go("opi")));
+  v.append(h("p",{class:"small muted"},"Kuusi kurssin harjoitustekstiä 1. Mooseksen kirjasta. Jae kerrallaan: jäsennä verbit, käännä, ja lopuksi pomo ilman apuja. Jokainen teksti avautuu, kun sen kirjan luku on auki ja edellinen teksti on luettu."));
+  const path=h("div",{class:"apath"});
+  PATR.forEach((p,i)=>{const s=pst(p.id);const open=patrOpen(i);const n=Object.values(s.v).filter(x=>x.ok).length;
+    path.append(h("div",{class:"pstop"+(open?"":" lock")+(s.boss?" won":"")},
+      h("button",{class:"anode",disabled:!open,onclick:()=>patrVerse(i,firstOpenVerse(p))},h("span",{class:"anum"},s.boss?"★":s.done?"✓":open?String(i+1):"🔒"),h("span",{class:"tx"},h("b",null,p.t),h("span",{class:"small muted"},`Luku ${p.ch} · ${p.g}`)),h("span",{class:"small"},`${n}/${p.v.length}`)),
+      open&&s.done?h("button",{class:"btn "+(s.boss?"sec":"gold")+" small bossb",onclick:()=>patrBoss(i)},s.boss?"Pomo voitettu · pelaa uudestaan":"⚔ Pomotaistelu: koko teksti ilman apuja"):null))});
+  v.append(path);app.append(v)}
+VIEWS.patr=vPatr;
+function firstOpenVerse(p){const s=pst(p.id);for(let i=0;i<p.v.length;i++)if(!(s.v[i]&&s.v[i].ok))return i;return 0}
+
+/* ---------- jae ---------- */
+function patrVerse(pi,vi){const p=PATR[pi];const s=pst(p.id);const lvl=patrLevel(p.id);const st=screen(p.t);let shownTr=false;
+  const toks=verseTokens(p,vi);const verbs=toks.filter(t=>t.row);let qi=0,okAll=true;
+  const head=h("div",{class:"pvhead"},h("span",{class:"small muted"},`Jae ${vi+1}/${p.v.length}`),h("div",{class:"pdots"},p.v.map((_,k)=>h("i",{class:(s.v[k]&&s.v[k].ok?"d":"")+(k===vi?" c":"")}))));
+  const card=h("div",{class:"pverse",lang:"he",dir:"rtl"});
+  toks.forEach(t=>{const sp=h("span",{class:"pw"+(t.row&&lvl<2?" vb":"")},t.w);sp.onclick=()=>{if(t.row&&lvl===0)soferSay(`${t.clean}: ${t.row[3]}`,"happy");else if(p.n[t.clean])soferSay(p.n[t.clean],"wow");else if(typeof lookupSheet==="function")lookupSheet(t.clean)};card.append(sp,t.w.endsWith("־")?"":" ")});
+  const notes=toks.filter(t=>t.mark&&p.n[t.clean]).map(t=>h("div",{class:"small muted"},`${t.clean}: ${p.n[t.clean]}`));
+  const tools=h("div",{class:"row wrap"},h("button",{class:"chip",onclick:()=>{if(shownTr)return;if(!S.set.prac){S.xp=Math.max(0,S.xp-20);save();refreshTop()}shownTr=true;tools.after(h("p",{class:"ptr"},p.v[vi][1]))}},"Suomennos −20 XP"),
+    h("button",{class:"chip",onclick:()=>{const t=verbs[qi]||verbs[0];stuckSheet(t?t.row:null)}},"En osaa"));
+  const box=h("div",{class:"pbox"});st.append(head,card,...notes,tools,box);
+  function step(){box.innerHTML="";if(qi<verbs.length)return parseStep(verbs[qi]);return transStep()}
+  function parseStep(t){const r=t.row;[...card.children].forEach(c=>c.classList&&c.classList.remove("on"));const idx=toks.indexOf(t);const el=card.querySelectorAll(".pw")[idx];if(el)el.classList.add("on");
+    const ans={};let conf=null;
+    const q=h("div",{class:"pq"},h("div",{class:"eyebrow"},`Verbi ${qi+1}/${verbs.length}: `,HE(t.clean)),
+      h("div",{class:"small muted"},"Juuri"),optRow(rootOpts(r[1]),x=>ans.r=x,true),
+      h("div",{class:"small muted"},"Muoto ja persoona"),optRow(parseOpts(r[2]),x=>ans.p=x),
+      h("div",{class:"row"},h("button",{class:"btn sec",onclick:()=>{conf="arvaus";check()}},"Arvaus"),h("button",{class:"btn primary",onclick:()=>{conf="varma";check()}},"Varma")));
+    box.append(q);
+    function check(){if(!ans.r||!ans.p){soferSay("Valitse ensin juuri ja muoto.","wow");return}
+      const okR=ans.r===r[1],okP=ans.p===r[2];const ok=okR&&okP;const half=!ok&&(okR||okP);
+      const tp=parseTopic(r[2]);if(tp)record(tp,ok?true:half?0.5:false);if(ok)score(true,conf==="varma"?12:8);else{score(false);okAll=false;if(half&&typeof addXP==="function")addXP(4)}
+      if(!ok&&conf==="varma")soferSay("Olit varma, mutta meni ohi. Tämä tulee pian uudestaan.","sad");
+      box.innerHTML="";box.append(h("div",{class:"fb "+(ok?"ok":half?"half":"no")},h("b",{class:"t"},ok?"Oikein!":half?"½ – puoliksi oikein":"Ei aivan."),
+        h("div",null,HE(t.clean)," = ",h("b",null,r[1]),` · ${r[2]} · ’${r[3]}’`),
+        !ok?h("div",{class:"row wrap"},tp?h("button",{class:"chip",onclick:()=>theorySheet(tp)},"30 s pätkä"):null,h("button",{class:"chip",onclick:()=>workedSheet(r)},"Ratkaistu esimerkki"),tp?h("button",{class:"chip",onclick:()=>lesson(tp)},"Oppitunti"):null):null,
+        h("button",{class:"btn primary wide",onclick:()=>{qi++;step()}},"Jatka")))}}
+  function transStep(){const tr=p.v[vi][1];const n=(s.tr||0);
+    if(n<6||lvl===0){const ws=shuffle(p.v.filter((_,k)=>k!==vi)).slice(0,2).map(x=>x[1]);const opts=shuffle([tr,...ws]);
+      box.append(h("div",{class:"pq"},h("div",{class:"eyebrow"},"Käännä jae"),opts.map(o=>h("button",{class:"opt",onclick:e=>finishT(o===tr,e.currentTarget)},o))))}
+    else{const words=tr.replace(/[”“"]/g,"").split(" ");const chunks=[];for(let k=0;k<words.length;k+=2)chunks.push(words.slice(k,k+2).join(" "));const got=[];const out=h("div",{class:"pout"},"…");
+      const pool=h("div",{class:"ppool"});shuffle(chunks.map((c,k)=>({c,k}))).forEach(o=>{const b=h("button",{class:"chip",onclick:()=>{if(o.k===got.length){got.push(o.c);out.textContent=got.join(" ");b.disabled=true;if(got.length===chunks.length)finishT(true,null)}else{b.classList.add("bad");setTimeout(()=>b.classList.remove("bad"),400);okAll=false}}},o.c);pool.append(b)});
+      box.append(h("div",{class:"pq"},h("div",{class:"eyebrow"},"Rakenna käännös oikeaan järjestykseen"),out,pool,h("button",{class:"btn sec small",onclick:()=>finishT(false,null)},"En osaa")))}
+    function finishT(ok,btn){if(btn){box.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(b.textContent===tr)b.classList.add("ok")});if(!ok)btn.classList.add("no")}
+      score(ok,10);if(!ok)okAll=false;s.tr=(s.tr||0)+(ok?1:0);
+      const done=okAll||ok&&verbs.length===0;s.v[vi]={ok:(s.v[vi]&&s.v[vi].ok)||okAll,t:Date.now()};if(Object.keys(s.v).filter(k=>s.v[k].ok).length>=p.v.length&&!s.done){s.done=true;setTimeout(()=>soferSay("Koko teksti luettu! Pomotaistelu on nyt auki.","wow"),600)}save();
+      box.append(h("div",{class:"fb "+(ok?"ok":"no")},h("b",{class:"t"},ok?"Hienoa!":"Oikea käännös:"),h("p",null,tr),
+        h("div",{class:"row"},vi+1<p.v.length?h("button",{class:"btn primary",onclick:()=>patrVerse(pi,vi+1)},"Seuraava jae"):h("button",{class:"btn primary",onclick:()=>go("patr")},"Tekstin loppu"),h("button",{class:"btn sec",onclick:()=>patrVerse(pi,vi)},"Uudestaan"))))}}
+  step()}
+function optRow(opts,onPick,he){const w=h("div",{class:"prow"});opts.forEach(o=>{const b=h("button",{class:"popt"+(he?" he":""),onclick:()=>{w.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");onPick(o)}},o);w.append(b)});return w}
+function stuckSheet(r){const tp=r?parseTopic(r[2]):null;sheet(sh=>[h("h3",null,"Ei hätää, valitse apu"),r?h("p",{class:"small muted"},"Suosittelen: "+(tp?"30 s pätkä, koska kyse on muodosta "+r[2]+".":"ratkaistu esimerkki.")):null,
+  h("div",{class:"vlist"},tp?h("button",{class:"btn primary wide",onclick:()=>{sh.close();theorySheet(tp)}},"30 s pätkä"):null,r?h("button",{class:"btn sec wide",onclick:()=>{sh.close();workedSheet(r)}},"Ratkaistu esimerkki"):null,tp?h("button",{class:"btn sec wide",onclick:()=>{sh.close();lesson(tp)}},"Koko oppitunti"):null)])}
+function workedSheet(r){const ex=PATR.flatMap(p=>p.tab).filter(x=>x[2]===r[2]&&x[0]!==r[0]).slice(0,3);sheet(sh=>[h("h3",null,"Ratkaistu esimerkki"),h("p",{class:"small muted"},`Muoto: ${r[2]}`),
+  h("div",{class:"vlist"},(ex.length?ex:[r]).map(x=>h("div",{class:"wex"},HE(x[0],"big"),h("div",null,h("b",null,"Juuri: "),HE(x[1])),h("div",null,h("b",null,"Jäsennys: "),x[2]),h("div",{class:"small muted"},`’${x[3]}’`)))),
+  h("p",{class:"small"},"Etsi ensin juuren kolme konsonanttia, katso sitten etuliite (י ת א נ = imperfekti; וַ + kahdennus = kons. imperfekti) ja pääte (ּו, תִּי, תָּ = perfekti)."),h("button",{class:"btn primary wide",onclick:sh.close},"Selvä")])}
+
+/* ---------- pomo ---------- */
+function patrBoss(pi){const p=PATR[pi];let lives=3,vi=0,right=0;const st=screen("Pomo: "+p.t);
+  const draw=()=>{st.innerHTML="";if(lives<=0)return end(false);if(vi>=p.v.length)return end(true);
+    const tr=p.v[vi][1];const toks=verseTokens(p,vi).filter(t=>t.row);const t=toks.length?rnd(toks):null;
+    st.append(h("div",{class:"pvhead"},h("span",{class:"bosslives"},"♥".repeat(lives)+"♡".repeat(3-lives)),h("span",{class:"small muted"},`Jae ${vi+1}/${p.v.length}`)),h("div",{class:"pverse",lang:"he",dir:"rtl"},p.v[vi][0].replace(/[†‡*]/g,"")));
+    const ws=shuffle(p.v.filter((_,k)=>k!==vi)).slice(0,2).map(x=>x[1]);
+    let stage=0;const box=h("div",{class:"pbox"});st.append(box);
+    const ask=()=>{box.innerHTML="";if(stage===0){box.append(h("div",{class:"eyebrow"},"Mitä jae tarkoittaa?"),...shuffle([tr,...ws]).map(o=>h("button",{class:"opt",onclick:()=>res(o===tr)},o)))}
+      else if(t){const opts=shuffle([`${t.row[1]} · ${t.row[2]}`,...shuffle(PATR.flatMap(x=>x.tab).filter(r=>r[0]!==t.row[0])).slice(0,2).map(r=>`${r[1]} · ${r[2]}`)]);
+        box.append(h("div",{class:"eyebrow"},"Jäsennä: ",HE(t.clean)),...opts.map(o=>h("button",{class:"opt",onclick:()=>res(o===`${t.row[1]} · ${t.row[2]}`)},o)))}else{vi++;draw()}};
+    const res=ok=>{score(ok,12);if(ok)right++;else{lives--;try{navigator.vibrate&&navigator.vibrate(80)}catch(e){}}if(stage===0&&t){stage=1;ask()}else{vi++;draw()}};ask()};
+  const end=win=>{st.innerHTML="";const s=pst(p.id);if(win){const first=!s.boss;s.boss=true;save();if(first){S.tal++;save();addSek(40,"pomo")}tone4([523,659,784,1047,1319],.11);if(typeof burst==="function")burst(50)}
+    st.append(h("div",{class:"endc"},h("div",{class:"eyebrow"},"Pomotaistelu"),h("h2",null,win?"Voitit pomon!":"Elämät loppuivat"),h("p",null,win?`${right} oikein. Palkinto: 1 kultatalentti ja 40 sekeliä (ensimmäisellä voitolla). Talentilla saa legendaarisia Jewlandosta.`:`Pääsit jakeeseen ${vi+1}/${p.v.length}. Harjoittele vaikeat jakeet ja yritä uudelleen.`),
+      h("div",{class:"row"},h("button",{class:"btn primary",onclick:()=>patrBoss(pi)},"Uudestaan"),h("button",{class:"btn sec",onclick:()=>go("patr")},"Reitille"))))};
+  draw()}
+
+/* ---------- kytkökset ---------- */
+const _vLearn6=vLearn;vLearn=function(a){_vLearn6(a);const v=app.querySelector(".view");if(!v||a&&a.ch)return;const al=v.querySelector(".alkc");const won=PATR.filter(p=>pst(p.id).boss).length;
+  const c=h("button",{class:"card alkc",onclick:()=>go("patr")},h("span",{class:"tkn"},"ש"),h("span",{class:"tx"},h("b",null,"Patriarkkojen tarina"),h("span",{class:"small muted"},`6 tekstiä, jäsennys ja käännös · pomoja voitettu ${won}/6`)),h("span",{class:"muted"},"›"));
+  if(al)al.after(c);else{const top=v.querySelector(".top");if(top)top.after(c)}};
+VIEWS.opi=vLearn;
+if(cur==="opi")go("opi");
 
 </script>
 </body></html>
