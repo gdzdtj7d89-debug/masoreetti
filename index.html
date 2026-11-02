@@ -492,6 +492,10 @@ body.hasbar .app{padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0p
 .jcard b{font-size:14px}
 .jcard .btn{align-self:flex-start}
 .endc{display:flex;flex-direction:column;gap:12px;padding:20px 0}
+.tasok{border:2px solid var(--blue)}
+.tkrow{display:flex;gap:12px;align-items:center}.tkrow .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.tkn{width:48px;height:48px;flex:none;border-radius:14px;background:var(--bluesoft);color:var(--blue);display:grid;place-items:center;font-weight:800;font-size:22px}
+.emerg{border-top:1px solid var(--line);padding-top:8px}.emerg summary{font-weight:800;cursor:pointer;padding:6px 0}.emerg .chip{margin:3px}
 
 </style>
 </head><body style="margin:0"><div class="app" id="app"></div>
@@ -2867,6 +2871,8 @@ function settingsSheet(){sheet(sh=>{const name=h("input",{class:"search",value:S
   h("div",{class:"srow"},h("b",null,"Aloitussivu"),seg([["koti","Koti"],["foryou","For you"]],()=>S.set.home,x=>S.set.home=x)),
   h("div",{class:"srow"},h("b",null,"Äänet"),seg([["on","Päällä"],["off","Pois"]],()=>S.set.snd?"on":"off",x=>S.set.snd=x==="on")),
   h("div",{class:"srow"},h("b",null,"Torin musiikki"),seg([["on","Päällä"],["off","Pois"]],()=>S.set.music?"on":"off",x=>S.set.music=x==="on")),
+  h("details",{class:"emerg"},h("summary",null,"Hätäavaus: avaa lukuja ilman testiä"),h("p",{class:"small muted"},"Vain hätätapauksiin, esim. jos kurssi on jo pidemmällä kuin osaamisesi. Normaalisti luvut avataan osaamalla tai tasokokeella."),
+    h("div",{class:"chips",style:"flex-wrap:wrap;margin:0;padding:0"},CHAPTERS.filter(c=>c.n>2&&TOPICS.some(t=>t.ch===c.n)).map(c=>{const b=h("button",{class:"chip","aria-pressed":String(unlocked(c.n)),onclick:()=>{if(unlocked(c.n)&&S.unl[c.n]===true){delete S.unl[c.n]}else S.unl[c.n]=true;save();b.setAttribute("aria-pressed",String(unlocked(c.n)))}},"Luku "+c.n);return b}))),
   h("p",{class:"small muted"},"Sofer ja rabbi vuorottelevat itsestään: Sofer on lempeä ja auttaa kieliopissa, rabbi on tiukka ja kertoo tarinoita."),
   h("div",{class:"row"},h("button",{class:"btn sec",onclick:()=>{sh.close();guideSheet()}},"Ohjeet"),h("button",{class:"btn sec",onclick:()=>{sh.close();newsSheet()}},"Mitä uutta v4:ssä")),
   h("p",{class:"small muted"},`MASOREETTI ${V4} · Lisää asetuksia (translitteraatio, näppäimistö, varmuuskopio) löytyy Minä-sivun alaosasta.`),
@@ -2905,12 +2911,13 @@ function vHome4(){const v=h("div",{class:"view home4"});v.append(topbar("Koti"))
   v.append(h("div",{class:"stat3"},h("div",null,h("small",null,"ARVOSANA"),h("b",null,g==null?"–":String(g)),h("span",null,g==null?"pelaa vielä":"vain osaamisesta")),
     h("div",null,h("small",null,"TENTTI"),h("b",null,d>0?d+" pv":"tänään"),h("span",null,"26.11. klo 8.15")),
     h("div",null,h("small",null,"TÄNÄÄN"),h("b",null,`${Math.min(td,DAY_GOAL)}/${DAY_GOAL}`),h("span",null,"tehtävää"))));
+  const nl=nextLocked();if(nl){const c=CH[nl];v.append(h("div",{class:"card tasok"},h("div",{class:"tkrow"},h("span",{class:"tkn"},String(nl)),h("div",{class:"tx"},h("div",{class:"eyebrow"},"Tasokoe · avaa kirjan lukuja"),h("b",null,`Seuraava lukittu: ${nl}. ${c.t}`),h("span",{class:"small muted"},"6 kysymystä, 5 oikein avaa luvun. Läpäisy jatkaa suoraan seuraavaan."))),h("button",{class:"btn primary wide",onclick:unlockTest},`Tee tasokoe: luku ${nl}`)))}
   if(ms.length>1){const q=h("div",{class:"card"},h("div",{class:"eyebrow"},`Jonossa · ${ms.length-1} aihetta`));ms.slice(1,7).forEach(t=>q.append(h("button",{class:"rec",onclick:()=>startTopic(t.id)},h("span",{class:"tx"},h("b",null,t.t),h("span",null,`Luku ${t.ch}`)),h("span",{class:"mdots"},dots(t.id)))));
     if(ms.length>7)q.append(h("p",{class:"small muted"},`+ ${ms.length-7} muuta. Ne tulevat For youhun väkisin.`));v.append(q)}
   v.append(h("div",{class:"quick"},
     h("button",{onclick:()=>go("foryou")},h("b",null,"For you"),h("span",null,"syöte osaamisesi mukaan")),
     h("button",{onclick:vocabSheet},h("b",null,"Sanasto ja haku"),h("span",null,`${VOC().filter(x=>isDue(x.h)).length} kerrattavaa`)),
-    h("button",{onclick:unlockTest},h("b",null,"Avaa lukuja"),h("span",null,"tasotesti seuraavaan lukuun")),
+    h("button",{onclick:startPlacement},h("b",null,"Laaja tasotesti"),h("span",null,"kartoittaa osaamisen")),
     h("button",{onclick:notesSheet},h("b",null,"Muistiinpanot"),h("span",null,`${S.notes.length} merkintää · läksyt`))));
   v.append(h("div",{class:"card exinfo"},h("div",{class:"eyebrow"},"Tentti"),h("p",{class:"small"},"to 26.11. klo 8.15–11, Metsätalo B212 (sali 2). Sisään viimeistään 8.45. Ei ilmoittautumista."),h("p",{class:"small muted"},"Apuna saa olla yksi käsin kirjoitettu A4 (molemmat puolet): kielioppisäännöt, verbitaulukot, unohtuvat sanat, prepositiot, suffiksit.")));
   app.append(v);if(!onboard4()&&S.seen4!==V4)newsSheet()}
@@ -2928,7 +2935,7 @@ function unlockTest(){const n=nextLocked();if(!n){soferSay("Kaikki luvut ovat jo
   if(items.length<4){S.unl[n]=true;save();soferSay(`Luku ${n} avattu.`,"happy");return go("opi")}
   startSession({title:`Avaa luku ${n}`,items:shuffle(items).slice(0,6),key:"unlock",end:"unlock:"+n})}
 function unlockEnd(st,n,right,tot){const ok=right>=Math.ceil(tot*.8);if(ok){S.unl[n]=true;save()}
-  st.innerHTML="";st.append(h("div",{class:"endc"},h("div",{class:"eyebrow"},`Luku ${n}`),h("h2",null,ok?"Luku avattu!":"Ei vielä"),h("p",null,`${right}/${tot} oikein. ${ok?"Voit jatkaa suoraan seuraavaan lukuun.":`Tarvitaan ${Math.ceil(tot*.8)}. Opiskele luku ${n-1} ensin tai yritä uudelleen.`}`),
+  st.innerHTML="";st.append(h("div",{class:"endc"},h("div",{class:"eyebrow"},`Luku ${n}`),h("h2",null,ok?"Luku avattu!":"Ei vielä"),h("p",null,`${right}/${tot} oikein. ${ok?"Voit jatkaa suoraan seuraavaan lukuun.":`Tarvitaan ${Math.ceil(tot*.8)}. Opiskele luku ${n===3?1:n-1} ensin tai yritä uudelleen.`}`),
     h("div",{class:"row"},ok&&nextLocked()?h("button",{class:"btn primary",onclick:unlockTest},`Testaa luku ${nextLocked()}`):null,h("button",{class:"btn sec",onclick:()=>go(ok?"opi":"koti")},ok?"Opi-sivulle":"Takaisin"))))}
 
 /* ---------- muistiinpanot ---------- */
