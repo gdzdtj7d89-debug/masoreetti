@@ -496,6 +496,34 @@ body.hasbar .app{padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0p
 .tkrow{display:flex;gap:12px;align-items:center}.tkrow .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .tkn{width:48px;height:48px;flex:none;border-radius:14px;background:var(--bluesoft);color:var(--blue);display:grid;place-items:center;font-weight:800;font-size:22px}
 .emerg{border-top:1px solid var(--line);padding-top:8px}.emerg summary{font-weight:800;cursor:pointer;padding:6px 0}.emerg .chip{margin:3px}
+/* alkeispolku */
+.alkc{flex-direction:row;align-items:center;gap:12px;border:0;cursor:pointer;text-align:left;color:var(--ink)}
+.alkc .tx{flex:1;min-width:0;display:flex;flex-direction:column}
+.alkc.gold{box-shadow:0 0 0 2px #D4A21E,var(--shadow)}
+.alkc .tkn{font-family:var(--he)}
+.apath{display:flex;flex-direction:column;gap:10px}
+.anode{display:flex;align-items:center;gap:12px;background:var(--card);border:0;border-radius:18px;padding:12px 14px;box-shadow:var(--shadow);text-align:left;cursor:pointer;color:var(--ink)}
+.anode .tx{flex:1;min-width:0;display:flex;flex-direction:column}
+.anode .tx .muted{font-family:var(--he),var(--ui);letter-spacing:.06em}
+.anum{width:40px;height:40px;flex:none;border-radius:50%;background:var(--bluesoft);color:var(--blue);display:grid;place-items:center;font-weight:800}
+.anode.done .anum{background:var(--lvgold);color:#2A1E00}
+.anode.lock{opacity:.5;cursor:default}
+.aintro{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;padding:10px 0}
+.aintro .row{justify-content:center}
+.abig{font-family:var(--he);font-size:120px;line-height:1.3;direction:rtl}
+.abigs{font-size:40px}
+.aso{font-size:20px;font-weight:800;margin:0}
+.arow{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;direction:rtl}
+.acell{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card);border-radius:16px;padding:10px 12px;box-shadow:var(--shadow);direction:ltr}
+.acell small{font-size:12px;color:var(--muted)}
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%}
+.nmout{font-family:var(--he);font-size:54px;min-height:80px;line-height:1.4;padding:6px 16px;border-bottom:3px dashed var(--line);min-width:60%}
+.nmout.shake{animation:shk .35s}
+@keyframes shk{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.nmtiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;direction:rtl}
+.nmtile{font-family:var(--he);font-size:34px;min-width:64px;padding:8px 12px;border-radius:16px;border:0;background:var(--card);box-shadow:0 3px 0 var(--line),var(--shadow);cursor:pointer;color:var(--ink)}
+.nmtile:disabled{opacity:.25}
+.phe{font-family:var(--he);font-size:24px;color:var(--goldink);direction:rtl}
 
 </style>
 </head><body style="margin:0"><div class="app" id="app"></div>
@@ -2018,6 +2046,7 @@ function startSession(o){const {title,items,key,noFb,topic,end}=o;const st=scree
       if(end==="exam"){saveBest("exam",pct);return resultScreen(st,res.map(r=>({it:r,ok:r.ok})),pct,"Tenttisimulaatio")}
       if(end==="path"){S.path[dayKey()]=true;save()}
       if(typeof end==="string"&&end.indexOf("unlock:")===0&&typeof unlockEnd==="function")return unlockEnd(st,+end.slice(7),right,items.length);
+      if(typeof end==="string"&&typeof endHook==="function"){const hk=endHook(st,end,right,items.length,res);if(hk)return hk}
       return endScreen2(st,{right,n:items.length,pct,nb,res,again:topic?()=>drill(topic):()=>startSession({title,items:adaptiveItems(items.length),key}),title,isPath:end==="path"})}
     persist();
     const it=items[i];
@@ -2726,7 +2755,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.0";
+const V4="4.1";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -2890,7 +2919,7 @@ function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:
   "Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
-  "Tulossa seuraavaksi: Alkeispolku, Patriarkkojen tarina -tila, Jerusalemin tori, HEMO-tila ja lunttilappu-rakentaja."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
+  "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","Tulossa seuraavaksi: Patriarkkojen tarina -tila, Jerusalemin tori, HEMO-tila ja lunttilappu-rakentaja."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
 
 /* ---------- ensimmäinen avaus ---------- */
 function onboard4(){if(S.onb4)return false;sheet(sh=>{const name=h("input",{class:"search",placeholder:"Etunimesi",value:S.name||"",id:"onb-name"});let track=S.track||(Object.keys(S.m).length?"kurssi":null);
@@ -2968,6 +2997,108 @@ VIEWS.mina=vMe;
 
 /* ---------- käynnistys ---------- */
 (function(){const st=(location.hash||"").slice(1);const start=VIEWS[st]?st:(S.set.home==="foryou"?"foryou":"koti");go(start);mountNavAvatar()})();
+
+/* ================= v4: ALKEISPOLKU ================= */
+S.alk=S.alk||{};
+const LT=Object.fromEntries(LETTERS.map(x=>[x.l,x]));
+const ALK=[
+ {id:"g1",t:"Kirjaimet 1",L:["א","ב","ג","ד"],d:"Alef, bet, gimel ja dalet. Heprea luetaan oikealta vasemmalle."},
+ {id:"g2",t:"Kirjaimet 2",L:["ה","ו","ז","ח","ט"],d:"He, vav, zajin, het ja tet."},
+ {id:"g3",t:"Kirjaimet 3",L:["י","כ","ל","מ","נ"],d:"Jod, kaf, lamed, mem ja nun."},
+ {id:"g4",t:"Kirjaimet 4",L:["ס","ע","פ","צ","ק"],d:"Samek, ajin, pe, tsade ja qof."},
+ {id:"g5",t:"Kirjaimet 5",L:["ר","שׂ","שׁ","ת"],d:"Resh, sin, shin ja tav. Nyt osaat kaikki 22!"},
+ {id:"sim",t:"Samannäköiset",d:"Erot ovat pienissä yksityiskohdissa: kulmissa, nokissa ja pisteissä."},
+ {id:"fin",t:"Loppumuodot",d:"Viidellä kirjaimella on oma muoto sanan lopussa."},
+ {id:"vow",t:"Vokaalit",d:"Vokaalit ovat pisteitä ja viivoja konsonantin alla tai päällä."},
+ {id:"read",t:"Lukeminen",d:"Yhdistä konsonantit ja vokaalit sanoiksi."},
+ {id:"name",t:"Oma nimesi",d:"Kirjoita oma nimesi heprean kirjaimin."}];
+const SIM=[["ב","כ"],["ד","ר"],["ה","ח","ת"],["ו","ז","ן"],["ס","ם"],["ע","צ"],["ג","נ"],["כ","פ"]];
+const VOW=[{m:"ַ",n:"pataḥ",tr:"a"},{m:"ָ",n:"qāmɛṣ",tr:"ā"},{m:"ֶ",n:"sɛgōl",tr:"ɛ"},{m:"ֵ",n:"ṣērē",tr:"ē"},{m:"ִ",n:"ḥīrɛq",tr:"i"},{m:"ֹ",n:"ḥōlɛm",tr:"ō"},{m:"ֻ",n:"qibbūṣ",tr:"u"},{m:"וּ",n:"šūrɛq",tr:"ū",full:1},{m:"ְ",n:"šəwā",tr:"ə"}];
+const VCONS=["בּ","ד","ל","מ","נ","ק","ר","שׁ","ס","ט"];
+const RWORDS=[["אָב","isä"],["יָד","käsi"],["סוּס","hevonen"],["יוֹם","päivä"],["עִיר","kaupunki"],["אִישׁ","mies"],["בַּיִת","talo"],["דָּבָר","sana, asia"],["מֶלֶךְ","kuningas"],["שָׁלוֹם","rauha"],["לֶחֶם","leipä"],["אֶרֶץ","maa"],["אַבְרָהָם","Abraham"],["יִצְחָק","Iisak"],["אֱלֹהִים","Jumala"]];
+const alkDone=id=>(S.alk[id]||0)>=80;
+const alkOpen=i=>i===0||alkDone(ALK[i-1].id);
+const alkAll=()=>ALK.every(a=>alkDone(a.id));
+const lname=l=>`${LT[l].n} (${LT[l].s})`;
+
+/* ---------- tehtävät ---------- */
+function alkPool(i){let L=[];for(let k=0;k<=Math.min(i,4);k++)L=L.concat(ALK[k].L);return L}
+function letterItem(l,pool){const kind=rnd(["name","name","rev","sound"]);const others=shuffle(pool.filter(x=>x!==l));
+  const look=SIM.find(g=>g.includes(l));const tricky=look?look.filter(x=>x!==l&&LT[x]):[];const ds=[...new Set(tricky.concat(others))].slice(0,3);
+  if(ds.length<3)ds.push(...shuffle(LETTERS.map(x=>x.l).filter(x=>x!==l&&!ds.includes(x))).slice(0,3-ds.length));
+  if(kind==="rev")return {t:"mc",tp:"letters",q:`Mikä kirjain on ${LT[l].n}?`,a:l,w:ds,hebOpts:true,x:`${LT[l].n}: ${LT[l].d}.`};
+  if(kind==="sound")return {t:"mc",tp:"letters",q:"Mikä äänne?",heb:l,a:LT[l].s,w:[...new Set(ds.map(x=>LT[x].s))].filter(s=>s!==LT[l].s).slice(0,3),x:`${LT[l].n}: ${LT[l].d}.`};
+  return {t:"mc",tp:"letters",q:"Mikä kirjain tämä on?",heb:l,a:lname(l),w:ds.map(lname),x:`${LT[l].n}: ${LT[l].d}.`}}
+function alkItems(i){const a=ALK[i];const items=[];
+  if(i<=4){const pool=alkPool(i);for(let k=0;k<12;k++){const l=k<8||i===0?rnd(a.L):rnd(pool);items.push(letterItem(l,pool))}}
+  else if(a.id==="sim"){for(let k=0;k<12;k++){const g=rnd(SIM);const l=rnd(g);const ds=g.filter(x=>x!==l);while(ds.length<3){const r=rnd(LETTERS).l;if(r!==l&&!ds.includes(r))ds.push(r)}
+    items.push(k%2?{t:"mc",tp:"letters",q:"Mikä kirjain tämä on?",heb:l,a:LT[l]?lname(l):"loppu-nun (n)",w:ds.map(x=>LT[x]?lname(x):"loppu-nun (n)"),x:"Katso kulmat ja nokat."}:{t:"mc",tp:"letters",q:`Mikä näistä on ${LT[l]?LT[l].n:"loppu-nun"}?`,a:l,w:ds,hebOpts:true,x:"Samannäköiset kannattaa erottaa yksityiskohdista."})}}
+  else if(a.id==="fin"){const F=LETTERS.filter(x=>x.f);for(let k=0;k<10;k++){const f=rnd(F);items.push(k%2?{t:"mc",tp:"letters",q:`Mikä on kirjaimen ${f.n} loppumuoto?`,heb:f.l,a:f.f,w:shuffle(F.map(x=>x.f).filter(x=>x!==f.f)).slice(0,3),hebOpts:true,x:`${f.l} → ${f.f} sanan lopussa.`}:{t:"mc",tp:"letters",q:"Minkä kirjaimen loppumuoto tämä on?",heb:f.f,a:f.l,w:shuffle(F.map(x=>x.l).filter(x=>x!==f.l)).slice(0,3),hebOpts:true,x:`${f.f} on ${f.n}-kirjaimen loppumuoto.`})}}
+  else if(a.id==="vow"){for(let k=0;k<12;k++){const c=rnd(VCONS);const v=rnd(VOW.slice(0,8));const syl=v.full?c+"וּ":c+v.m;const ans=TR.word(syl);
+    const ds=[...new Set(shuffle(VOW.slice(0,8).filter(x=>x!==v)).map(x=>TR.word(x.full?c+"וּ":c+x.m)))].filter(x=>x!==ans).slice(0,3);
+    items.push(k%3===2?{t:"mc",tp:"vowels",q:`Mikä vokaalimerkki on ${v.n}?`,heb:syl,a:v.n,w:shuffle(VOW.filter(x=>x!==v).map(x=>x.n)).slice(0,3),x:`${v.n} = ${v.tr}`}:{t:"mc",tp:"vowels",q:"Lue tavu",heb:syl,a:ans,w:ds,x:`${v.n} = ${v.tr}`})}}
+  else if(a.id==="read"){const ws=shuffle(RWORDS);ws.slice(0,10).forEach(([w,f])=>{const ans=TR.word(w);const ds=shuffle(RWORDS.filter(x=>x[0]!==w)).map(x=>TR.word(x[0])).filter(x=>x!==ans).slice(0,3);items.push({t:"mc",tp:"vowels",q:"Lue sana: valitse oikea ääntämys",heb:w,a:ans,w:ds,x:`${ans} = ’${f}’`})})}
+  return items}
+
+/* ---------- näkymä ---------- */
+function vAlkeet(){const v=h("div",{class:"view"});v.append(topbar("Alkeispolku",()=>go("opi")));
+  v.append(h("p",{class:"small muted"},"Täältä opit lukemaan heprean nollasta. Jokainen vaihe avautuu, kun edellisestä on vähintään 80 % oikein."));
+  const path=h("div",{class:"apath"});
+  ALK.forEach((a,i)=>{const done=alkDone(a.id),open=alkOpen(i);const lock=!open||(a.id==="name"&&!alkDone("read"));
+    path.append(h("button",{class:"anode"+(done?" done":"")+(lock?" lock":""),disabled:lock,onclick:()=>a.id==="name"?nameGame():alkIntro(i)},
+      h("span",{class:"anum"},done?"✓":lock?"🔒":String(i+1)),h("span",{class:"tx"},h("b",null,a.t),h("span",{class:"small muted"},a.L?a.L.join(" "):a.d)),h("span",{class:"small"},S.alk[a.id]!=null?S.alk[a.id]+" %":"")))});
+  v.append(path);
+  if(S.heName)v.append(h("div",{class:"card"},h("div",{class:"eyebrow"},"Nimesi hepreaksi"),h("div",{class:"bighe",lang:"he"},S.heName)));
+  app.append(v)}
+VIEWS.alkeet=vAlkeet;
+function alkIntro(i){const a=ALK[i];const st=screen(a.t);const cards=[];
+  if(a.L)a.L.forEach(l=>cards.push(()=>[h("div",{class:"abig",lang:"he"},l),h("h2",null,LT[l].n),h("p",{class:"aso"},"Äänne: "+LT[l].s),h("p",{class:"muted"},LT[l].d+"."),LT[l].f?h("p",null,"Sanan lopussa: ",HE(LT[l].f,"abigs")):null]));
+  else if(a.id==="sim")SIM.forEach(g=>cards.push(()=>[h("div",{class:"arow"},g.map(l=>h("div",{class:"acell"},HE(l,"abigs"),h("small",null,LT[l]?LT[l].n:"loppu-nun")))),h("p",{class:"muted"},"Vertaa: kulmat, nokat ja pituus.")]));
+  else if(a.id==="fin")cards.push(()=>[h("div",{class:"arow"},LETTERS.filter(x=>x.f).map(x=>h("div",{class:"acell"},HE(x.l,"abigs"),"→",HE(x.f,"abigs"),h("small",null,x.n)))),h("p",{class:"muted"},"Loppumuoto tulee vain sanan viimeiseksi kirjaimeksi. Muistisana: kamnappats (כ מ נ פ צ).")]);
+  else if(a.id==="vow")cards.push(()=>[h("div",{class:"vgrid"},VOW.map(x=>h("div",{class:"acell"},HE("בּ"+(x.full?"וּ":x.m),"abigs"),h("b",null,x.tr),h("small",null,x.n)))),h("p",{class:"muted"},"Lue aina ensin konsonantti, sitten vokaali: בַּ = ba. Viivat ovat a-ääniä, pisteparit e-ääniä, yksi piste alla i, piste ylhäällä o."),h("p",{class:"muted"},"Šəwā (kaksi pistettä pystyssä) on joko lyhyt ə tai äänetön.")]);
+  else if(a.id==="read")cards.push(()=>[h("div",{class:"abig",lang:"he"},"שָׁלוֹם"),h("p",{class:"aso"},"šā-lōm"),h("p",{class:"muted"},"Lue tavu kerrallaan oikealta vasemmalle: שָׁ = šā, לוֹ = lō, ם = m. Samoin pian luet oman nimesi!")]);
+  let k=0;const box=h("div",{class:"aintro"});st.append(box);
+  const draw=()=>{box.innerHTML="";box.append(h("div",{class:"small muted"},`${k+1}/${cards.length}`),...cards[k]().filter(Boolean),h("div",{class:"row"},k>0?h("button",{class:"btn sec",onclick:()=>{k--;draw()}},"Edellinen"):null,
+    h("button",{class:"btn primary",onclick:()=>{if(k<cards.length-1){k++;draw()}else startSession({title:a.t,items:alkItems(i),key:"alk_"+a.id,end:"alk:"+i})}},k<cards.length-1?"Seuraava":"Testaa itsesi")))};draw()}
+function endHook(st,end,right,tot,res){if(end.indexOf("alk:")===0){const i=+end.slice(4);const a=ALK[i];const pct=Math.round(right/tot*100);S.alk[a.id]=Math.max(S.alk[a.id]||0,pct);save();const ok=pct>=80;
+  if(ok)tone4([660,880,1175],.09);
+  st.innerHTML="";st.append(h("div",{class:"endc"},h("div",{class:"eyebrow"},a.t),h("h2",null,ok?"Vaihe läpäisty!":"Melkein"),h("p",null,`${right}/${tot} oikein (${pct} %). ${ok?"":"80 % avaa seuraavan vaiheen."}`),
+    h("div",{class:"row"},ok&&ALK[i+1]?h("button",{class:"btn primary",onclick:()=>ALK[i+1].id==="name"?nameGame():alkIntro(i+1)},`Seuraava: ${ALK[i+1].t}`):h("button",{class:"btn primary",onclick:()=>startSession({title:a.t,items:alkItems(i),key:"alk_"+a.id,end:"alk:"+i})},"Uudestaan"),h("button",{class:"btn sec",onclick:()=>go("alkeet")},"Polulle"))));return true}
+  return false}
+
+/* ---------- oma nimi ---------- */
+function heName(n){n=(n||"").toLowerCase().normalize("NFC").replace(/[^a-zåäöü]/g,"").replace(/(.)\1+/g,"$1");
+  const C={b:"בּ",c:"ק",d:"ד",f:"פ",g:"ג",h:"ה",j:"י",k:"ק",l:"ל",m:"מ",n:"נ",p:"פּ",q:"ק",r:"ר",s:"ס",t:"ט",v:"ו",w:"ו",x:"קס",z:"ז"};
+  const V={a:["ַ",""],e:["ֶ",""],i:["ִ","י"],o:["","וֹ"],u:["","וּ"],y:["ִ","י"],ä:["ֶ",""],ö:["ֶ",""],å:["","וֹ"],ü:["ִ","י"]};const out=[];
+  for(let i=0;i<n.length;i++){const ch=n[i];const pv=out[out.length-1];if((ch==="i"||ch==="u"||ch==="y")&&pv&&(pv.v||pv.mat)&&i>0&&V[n[i-1]]){out.push({s:ch==="u"?"ו":"י",mat:1});continue}if(V[ch]){const [m,mat]=V[ch];const prev=out.length&&!out[out.length-1].v&&!out[out.length-1].mat?out[out.length-1]:null;
+      if(prev&&m){prev.s+=m;prev.v=1}else if(!prev){out.push({s:"א"+(m||""),v:1})}else prev.v=1;if(mat)out.push({s:mat,mat:1})}
+    else if(ch==="x"){out.push({s:"ק"});out.push({s:"ס"})}else if(C[ch])out.push({s:C[ch]})}
+  const FIN={"כ":"ך","מ":"ם","נ":"ן","פ":"ף","צ":"ץ"};const last=out[out.length-1];if(last&&!last.v&&!last.mat&&FIN[last.s[0]])last.s=FIN[last.s[0]]+last.s.slice(1);
+  return out.map(x=>x.s)}
+function nameGame(){if(!S.name){sheet(sh=>{const i=h("input",{class:"search",placeholder:"Etunimesi",id:"nm-in"});return [h("h3",null,"Mikä on nimesi?"),i,h("button",{class:"btn primary wide",onclick:()=>{S.name=i.value.trim();save();sh.close();if(S.name)nameGame()}},"Jatka")]});return}
+  const target=heName(S.name);const st=screen("Oma nimesi");let got=[];
+  const pool=shuffle(target.concat(shuffle(["ת","ש","בּ","ל","ד","ק","ר","מ"].filter(x=>!target.includes(x))).slice(0,3)));
+  const box=h("div",{class:"aintro"});st.append(box);
+  const draw=()=>{box.innerHTML="";box.append(h("p",null,`Kirjoita ${S.name} heprean kirjaimin. Muista: oikealta vasemmalle!`),h("p",{class:"small muted"},`Vihje: ${S.name.toLowerCase().split("").join("-")}`),
+    h("div",{class:"nmout",lang:"he",dir:"rtl"},got.join("")||"…"),
+    h("div",{class:"nmtiles"},pool.map((t,j)=>h("button",{class:"nmtile",lang:"he",disabled:got._u&&got._u.includes(j),onclick:()=>{const need=target[got.length];if(t===need){got.push(t);(got._u=got._u||[]).push(j);tone4([660],.06);if(got.length===target.length)return win();draw()}else{try{navigator.vibrate&&navigator.vibrate(60)}catch(e){}box.querySelector(".nmout").classList.add("shake");setTimeout(()=>box.querySelector(".nmout")&&box.querySelector(".nmout").classList.remove("shake"),400)}}},t))),
+    h("button",{class:"btn sec",onclick:()=>{got=[];draw()}},"Tyhjennä"))};
+  const win=()=>{const nm=target.join("");const first=!S.heName;S.heName=nm;record("letters",true);save();if(first)addSek(25,"oma nimi");tone4([523,659,784,1047],.1);if(typeof burst==="function")burst(40);
+    box.innerHTML="";box.append(h("div",{class:"eyebrow"},"Osaat kirjoittaa nimesi!"),h("div",{class:"abig",lang:"he"},nm),h("p",{class:"aso"},TR.word(nm)),h("p",{class:"muted"},"Nimesi näkyy nyt profiilissasi. Hepreassa vieraat nimet kirjoitetaan usein näin, mutta tapoja on monia."),
+      h("div",{class:"row"},h("button",{class:"btn primary",onclick:()=>go("mina")},"Profiiliin"),h("button",{class:"btn sec",onclick:()=>go("alkeet")},"Polulle")))};
+  draw()}
+
+/* ---------- kytkökset ---------- */
+const _vLearn5=vLearn;vLearn=function(a){_vLearn5(a);const v=app.querySelector(".view");if(!v||a&&a.ch)return;const top=v.querySelector(".top");
+  const n=ALK.filter(x=>alkDone(x.id)).length;const c=h("button",{class:"card alkc",onclick:()=>go("alkeet")},h("span",{class:"tkn"},"א"),h("span",{class:"tx"},h("b",null,"Alkeispolku"),h("span",{class:"small muted"},alkAll()?"Valmis! Kertaa milloin vain.":`Lue heprea nollasta · ${n}/${ALK.length} vaihetta`)),h("span",{class:"muted"},"›"));
+  if(top)top.after(c);else v.prepend(c)};
+VIEWS.opi=vLearn;
+const _vHome5=vHome4;vHome4=function(){_vHome5();if(S.track!=="alku"||alkAll())return;const v=app.querySelector(".view");const top=v&&v.querySelector(".top");if(!top)return;
+  const i=ALK.findIndex(a=>!alkDone(a.id));top.after(h("button",{class:"card alkc gold",onclick:()=>ALK[i].id==="name"?nameGame():alkIntro(i)},h("span",{class:"tkn"},String(i+1)),h("span",{class:"tx"},h("b",null,"Alkeispolku: "+ALK[i].t),h("span",{class:"small muted"},ALK[i].d)),h("span",{class:"muted"},"›")))};
+VIEWS.koti=vHome4;
+const _vMe5=vMe;vMe=function(){_vMe5();if(!S.heName)return;const n=app.querySelector(".pname");if(n)n.after(h("span",{class:"phe",lang:"he"},S.heName))};
+VIEWS.mina=vMe;
+if(cur==="koti"||cur==="opi"||cur==="mina")go(cur);
 
 </script>
 </body></html>
