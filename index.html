@@ -545,6 +545,33 @@ body.hasbar .app{padding-bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0p
 .opt.ok{background:var(--okbg)}.opt.no{background:var(--badbg)}
 
 .top.v4 h2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* tori */
+.toris{gap:10px}
+.thud{display:flex;align-items:center;gap:10px;font-weight:800;font-variant-numeric:tabular-nums}.thud .tn{flex:1}.thud .tl{color:#C2413A;letter-spacing:2px}.thud .ts{background:#13203A;color:#F2C14E;border-radius:99px;padding:4px 10px}
+.tscene{position:relative;height:270px;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#9CCBEA 0%,#D8ECF5 52%,#E9D2A6 52%,#DDBB86 100%)}
+.tstalls{position:absolute;left:0;top:66px;display:flex;gap:18px;width:200%}
+.tstall{width:96px;height:96px;flex:none;background:linear-gradient(180deg,var(--c) 0 26px,#B88A55 26px);border-radius:8px 8px 0 0;box-shadow:inset 0 26px 0 0 rgba(255,255,255,.0)}
+.tstall::before{content:"";display:block;height:26px;background:repeating-linear-gradient(90deg,var(--c) 0 16px,#FFF7E8 16px 32px);border-radius:8px 8px 0 0}
+.tscene.walk .tstalls{animation:walk 1.1s ease-out}
+@keyframes walk{from{transform:translateX(0)}to{transform:translateX(-114px)}}
+.tme{position:absolute;left:8px;bottom:6px;width:120px;height:120px;animation:bob 1.2s ease-in-out infinite}
+.tnpc{position:absolute;right:6px;bottom:6px;width:130px;height:130px}
+.tnpc.in{animation:npcin .8s ease-out}
+@keyframes npcin{from{transform:translateX(160px)}to{transform:none}}
+@keyframes bob{50%{transform:translateY(-3px)}}
+.tbub{position:absolute;left:104px;right:12px;top:12px;background:#fff;color:#13203A;border-radius:16px 16px 4px 16px;padding:8px 12px;box-shadow:0 6px 18px rgba(42,30,16,.18);display:flex;flex-direction:column;gap:2px}
+.tbub:empty{display:none}
+.tbub small{font-weight:800;font-size:11px;letter-spacing:.06em;color:#1E4FA3;text-transform:uppercase}
+.the{font-family:var(--he);font-size:24px;line-height:1.5;text-align:right}
+.tbar{height:5px;background:#EEE3CF;border-radius:3px;overflow:hidden}.tbar i{display:block;height:100%;width:100%;background:#C2410C}
+.tpanel{display:flex;flex-direction:column;gap:10px}
+.chip.big{font-size:16px;padding:10px 14px;background:var(--card);box-shadow:0 3px 0 var(--line)}
+.pout.hint{color:var(--muted)}
+.torc{flex-direction:row;align-items:center;gap:12px;border:0;cursor:pointer;text-align:left;color:var(--ink);background:linear-gradient(135deg,#FFF3D6,var(--card))}
+.torc .tx{flex:1;min-width:0;display:flex;flex-direction:column}.tcimg{width:64px;height:64px;flex:none;border-radius:16px;background:#CFE6F3;overflow:hidden}
+.quick .wide2{grid-column:1/-1;background:linear-gradient(135deg,#FFF3D6,var(--card))}
+:root[data-theme="dark"] .torc,:root[data-theme="dark"] .quick .wide2{background:linear-gradient(135deg,#3A2E12,var(--card))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .torc,:root:not([data-theme="light"]) .quick .wide2{background:linear-gradient(135deg,#3A2E12,var(--card))}}
 
 </style>
 </head><body style="margin:0"><div class="app" id="app"></div>
@@ -2776,7 +2803,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.2";
+const V4="4.3";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -2940,7 +2967,7 @@ function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:
   "Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
-  "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","Tulossa seuraavaksi:, Jerusalemin tori, HEMO-tila ja lunttilappu-rakentaja."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
+  "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","<b>4.3:</b> Jerusalemin tori (Koti ja Pelaa): kymmenen ohikulkijaa, sana sanalta sekeleitä, fariseukset ja vartijat kiirehtivät, oma klezmer-musiikki kiihtyy combosta.","Tulossa seuraavaksi:, Jerusalemin tori, HEMO-tila ja lunttilappu-rakentaja."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
 
 /* ---------- ensimmäinen avaus ---------- */
 function onboard4(){if(S.onb4)return false;sheet(sh=>{const name=h("input",{class:"search",placeholder:"Etunimesi",value:S.name||"",id:"onb-name"});let track=S.track||(Object.keys(S.m).length?"kurssi":null);
@@ -3349,6 +3376,98 @@ const _vLearn6=vLearn;vLearn=function(a){_vLearn6(a);const v=app.querySelector("
   if(al)al.after(c);else{const top=v.querySelector(".top");if(top)top.after(c)}};
 VIEWS.opi=vLearn;
 if(cur==="opi")go("opi");
+
+/* ================= v4: JERUSALEMIN TORI ================= */
+S.tori=S.tori||{best:0,plays:0,ok:0};
+/* lauseet: [heprea, suomi, luku] */
+const TSENT=[
+ ["הַמֶּלֶךְ הַטּוֹב","hyvä kuningas",3],["הָעִיר הַגְּדוֹלָה","suuri kaupunki",3],["הָאִישׁ הַזָּקֵן","vanha mies",3],["הַבַּיִת הֶחָדָשׁ","uusi talo",3],["הָאִשָּׁה הַטּוֹבָה","hyvä nainen",3],
+ ["הַמֶּלֶךְ טוֹב","kuningas on hyvä",4],["הָעִיר גְּדוֹלָה","kaupunki on suuri",4],["הָאִישׁ וְהָאִשָּׁה","mies ja nainen",4],["הַדָּבָר טוֹב","asia on hyvä",4],["הַלֶּחֶם טוֹב","leipä on hyvä",4],
+ ["הָאִישׁ בַּבַּיִת","mies on talossa",5],["הַמֶּלֶךְ בָּעִיר","kuningas on kaupungissa",5],["הַסּוּס בַּשָּׂדֶה","hevonen on pellolla",5],["הַלֶּחֶם לַמֶּלֶךְ","leipä on kuninkaalle",5],["הַכֶּסֶף לָאִישׁ","hopea on miehelle",5],
+ ["הַמֶּלֶךְ אָמַר","kuningas sanoi",6],["הָאִישׁ הָלַךְ אֶל־הָעִיר","mies meni kaupunkiin",6],["הַנָּבִיא בָּא אֶל־הַבַּיִת","profeetta tuli taloon",6],
+ ["מִי אַתָּה","kuka sinä olet",7],["אֲנִי הַמֶּלֶךְ","minä olen kuningas",7],["הֲטוֹב הַלֶּחֶם","onko leipä hyvä",7],["מָה זֶה","mikä tämä on",7],["זֶה הַבַּיִת","tämä on talo",7],
+ ["בֵּית הַמֶּלֶךְ","kuninkaan talo",8],["דְּבַר יהוה","Herran sana",8],["אֶרֶץ כְּנַעַן","Kanaanin maa",8],["סוּס הַמֶּלֶךְ","kuninkaan hevonen",8],
+ ["בֵּיתִי","minun taloni",9],["סוּסְךָ","sinun hevosesi",9],["דְּבָרוֹ טוֹב","hänen sanansa on hyvä",9],["אָבִי בַּבַּיִת","isäni on talossa",9],
+ ["שָׁמַעְתִּי אֶת־הַדָּבָר","kuulin asian",10],["כָּתַבְנוּ סֵפֶר","kirjoitimme kirjan",10],["זָכַרְתָּ אֶת־הַבְּרִית","muistit liiton",10],["הָאִשָּׁה לָקְחָה לֶחֶם","nainen otti leipää",10]];
+const TWORD=[["לֶחֶם","leipä"],["יַיִן","viini"],["מַיִם","vesi"],["כֶּסֶף","hopea"],["סוּס","hevonen"],["בַּיִת","talo"],["עִיר","kaupunki"],["מֶלֶךְ","kuningas"],["יָד","käsi"],["אָב","isä"],["יוֹם","päivä"],["אִישׁ","mies"],["שָׁלוֹם","rauha"]];
+const NPC=[
+ {k:"kauppias",n:"Kauppias",robe:"#C2410C",head:"#F2C14E",beard:1,acc:"kori",t:null,lv:[0,1]},
+ {k:"paimen",n:"Paimen",robe:"#8B6B3A",head:"#EDE6D6",beard:1,acc:"sauva",t:null,lv:[0,1]},
+ {k:"kalastaja",n:"Kalastaja",robe:"#2F6FE0",head:"#EDE6D6",beard:1,acc:"kala",t:null,lv:[0,1]},
+ {k:"lapsi",n:"Torin lapsi",robe:"#2F9E5B",head:null,beard:0,acc:null,t:null,lv:[0,0],small:1},
+ {k:"leski",n:"Leski",robe:"#3C4C6E",head:"#2B2B33",beard:0,acc:null,t:null,lv:[0,1]},
+ {k:"sotilas",n:"Vartija",robe:"#8C2F2F",head:"kypara",beard:0,acc:"keihas",t:22,lv:[1,2]},
+ {k:"fariseus",n:"Fariseus",robe:"#F5F5F4",head:"#1F2937",beard:1,acc:"tefillin",t:20,lv:[2,2],hard:1},
+ {k:"profeetta",n:"Profeetta",robe:"#6B4A2B",head:"#6B4A2B",beard:1,acc:"sauva",t:null,lv:[2,2],rare:1,x2:1},
+ {k:"mooses",n:"Mooses",robe:"#7A4E2A",head:"#EDE6D6",beard:2,acc:"taulut",t:null,lv:[1,2],rare:1,x2:1},
+ {k:"daavid",n:"Daavid",robe:"#8C2F6B",head:"kruunu",beard:1,acc:"harppu",t:null,lv:[1,2],rare:1,x2:1}];
+function npcSVG(c){const head=c.head==="kypara"?'<path d="M34 34 Q50 14 66 34Z" fill="#9CA3AF"/><rect x="47" y="12" width="6" height="10" fill="#C2413A"/>':c.head==="kruunu"?'<path d="M37 26 L40 16 L45 23 L50 14 L55 23 L60 16 L63 26Z" fill="#F2C14E"/>':c.head?`<path d="M34 42 Q34 22 50 22 Q66 22 66 42 L70 60 Q64 54 62 40 Q60 28 50 28 Q40 28 38 40 Q36 54 30 60Z" fill="${c.head}"/>`:'<path d="M37 34 Q50 20 63 34" stroke="#3A2A1A" stroke-width="6" fill="none"/>';
+  const beard=c.beard?`<path d="M38 44 Q50 ${c.beard===2?74:64} 62 44 Q56 50 50 50 Q44 50 38 44Z" fill="${c.beard===2?"#EDEDED":"#4A3322"}"/>`:"";
+  const acc={kori:'<g transform="translate(66 64)"><path d="M0 6 H18 L15 20 H3Z" fill="#B88A55"/><circle cx="5" cy="5" r="3" fill="#E2553D"/><circle cx="11" cy="4" r="3" fill="#8CC152"/></g>',sauva:'<path d="M78 34 Q84 28 78 24 M78 34 V98" stroke="#7A4E2A" stroke-width="3" fill="none"/>',kala:'<g transform="translate(66 66)"><ellipse cx="9" cy="6" rx="9" ry="4.5" fill="#7FB2D9"/><path d="M17 6 L23 1 L23 11Z" fill="#7FB2D9"/></g>',
+    keihas:'<path d="M80 18 V98" stroke="#6B4E2A" stroke-width="2.5"/><path d="M80 10 L84 20 H76Z" fill="#9CA3AF"/>',tefillin:'<rect x="46" y="23" width="8" height="7" fill="#111"/><path d="M30 100 V70 M70 100 V70" stroke="#1E4FA3" stroke-width="4"/>',taulut:'<g transform="translate(64 56)"><path d="M0 4 Q4 0 8 4 V24 H0Z M9 4 Q13 0 17 4 V24 H9Z" fill="#D6D3D1" stroke="#78716C"/></g>',harppu:'<g transform="translate(66 54)"><path d="M2 0 L18 6 L14 30 L2 30Z" fill="none" stroke="#C9952A" stroke-width="3"/></g>'}[c.acc]||"";
+  const s=c.small?' transform="translate(15 22) scale(.7)"':"";
+  return `<svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><g${s}><path d="M30 100 L34 62 Q50 54 66 62 L70 100Z" fill="${c.robe}" stroke="rgba(0,0,0,.12)"/><circle cx="50" cy="40" r="14" fill="#E2B98F"/>${beard}<circle cx="45" cy="39" r="1.8" fill="#2B1F14"/><circle cx="55" cy="39" r="1.8" fill="#2B1F14"/>${c.k==="fariseus"?'<path d="M44 34 l4 1.5 M56 34 l-4 1.5" stroke="#2B1F14" stroke-width="1.6"/>':""}${head}${acc}</g></svg>`}
+
+/* ---------- musiikki: oma klezmer freygish-asteikolla ---------- */
+const FRE=[293.66,311.13,369.99,392,440,466.16,523.25,587.33];
+const MEL=[0,1,2,3,4,3,2,1,2,3,4,5,4,3,2,0,4,4,5,4,3,2,1,2,3,2,1,0,1,2,1,0];
+let MUS=null;
+function musicStart(){if(!S.set.music||MUS)return;try{const c=window.__ac4||(window.__ac4=new (window.AudioContext||window.webkitAudioContext)());if(c.state==="suspended")c.resume();
+  MUS={c,i:0,tempo:118,next:c.currentTime+.05,t:null};const note=(f,t,d,type,vol)=>{const o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(c.destination);o.start(t);o.stop(t+d+.02)};
+  MUS.t=setInterval(()=>{if(!MUS)return;while(MUS.next<c.currentTime+.25){const st=60/MUS.tempo/2;const i=MUS.i%MEL.length;note(FRE[MEL[i]]*(i%16>11?2:1),MUS.next,st*.9,"square",.035);
+    if(i%2===0)note(i%4===0?146.83:110,MUS.next,st*.8,"triangle",.09);else note(i%4===1?293.66:220,MUS.next,st*.35,"triangle",.03);MUS.next+=st;MUS.i++}},60)}catch(e){MUS=null}}
+function musicTempo(combo){if(MUS)MUS.tempo=Math.min(196,118+combo*9)}
+function musicStop(){if(MUS){clearInterval(MUS.t);MUS=null}}
+const _go7=go;go=function(v,a){musicStop();_go7(v,a)};
+
+/* ---------- peli ---------- */
+function toriPool(){const maxCh=Math.max(2,...CHAPTERS.filter(c=>unlocked(c.n)).map(c=>c.n));const sent=TSENT.filter(s=>s[2]<=maxCh);
+  const verses=PATR.filter(p=>unlocked(p.ch)).flatMap(p=>p.v.map(v=>[v[0].replace(/[†‡*]/g,""),v[1].replace(/[”“]/g,""),p.ch,1]));
+  return {easy:sent.length?sent.filter(s=>s[0].split(" ").length<=2):TWORD.map(w=>[w[0],w[1],1]),mid:sent.length?sent:TWORD.map(w=>[w[0],w[1],1]),hard:verses.length?verses.filter(v=>v[0].split(" ").length<=6):sent}}
+function toriPick(pool,used){const tier=S.tori.ok<15?0:S.tori.ok<45?1:2;
+  const cand=NPC.filter(c=>!c.rare||Math.random()<.12).filter(c=>c.lv[0]<=tier);let c=rnd(cand);if(c.hard&&!pool.hard.length)c=NPC[0];
+  const src=c.hard||c.rare?pool.hard:c.lv[0]===0?pool.easy:pool.mid;let s=null;for(let k=0;k<12&&!s;k++){const x=rnd(src);if(!used.has(x[0]))s=x}s=s||rnd(src);used.add(s[0]);
+  const mode=tier===0?"choice":c.hard||tier===2?"tiles+":"tiles";return {c,s,mode}}
+function startTori(){const st=screen("Jerusalemin tori");st.classList.add("toris");const pool=toriPool();const used=new Set();let n=0,lives=3,sek=0,combo=0,timerI=null;
+  const hud=h("div",{class:"thud"},h("span",{class:"tn"},"Hahmo 1/10"),h("span",{class:"tl"},"♥♥♥"),h("span",{class:"ts"},"+0 ₪"),h("button",{class:"chip",onclick:()=>{S.set.music=!S.set.music;save();if(S.set.music)musicStart();else musicStop();mb.textContent=S.set.music?"♫ päällä":"♫ pois"}},"♫"));const mb=hud.lastChild;mb.textContent=S.set.music?"♫ päällä":"♫ pois";
+  const scene=h("div",{class:"tscene"},h("div",{class:"tstalls"},Array.from({length:8},(_,i)=>h("div",{class:"tstall",style:`--c:${["#C2413A","#1E4FA3","#2F9E5B","#C9952A"][i%4]}`}))),
+    h("div",{class:"tme",html:avatarSVG({bg:"none"},{nobg:true})}),h("div",{class:"tnpc"}),h("div",{class:"tbub"}));
+  const panel=h("div",{class:"tpanel"});st.append(hud,scene,panel);
+  const upd7=()=>{hud.querySelector(".tn").textContent=`Hahmo ${Math.min(n+1,10)}/10`;hud.querySelector(".tl").textContent="♥".repeat(lives)+"♡".repeat(3-lives);hud.querySelector(".ts").textContent=`+${sek} ₪`};
+  const intro=()=>{panel.innerHTML="";panel.append(h("h3",null,"Jerusalemin tori"),h("p",{class:"small muted"},"Torilla tulee vastaan kymmenen hahmoa. Käännä mitä he sanovat. Jokainen oikea sana antaa sekelin, koko lause oikein antaa bonuksen. Kolme virhettä ja päivä torilla päättyy. Fariseukset kysyvät vaikeimmat, ja vartijalla on kiire."),
+    h("button",{class:"btn gold wide",onclick:()=>{musicStart();next()}},"Astu torille"))};
+  const next=()=>{clearInterval(timerI);if(n>=10||lives<=0)return end();upd7();const {c,s,mode}=toriPick(pool,used);
+    scene.classList.remove("walk");void scene.offsetWidth;scene.classList.add("walk");
+    const npc=scene.querySelector(".tnpc");npc.innerHTML=npcSVG(c);npc.classList.remove("in");void npc.offsetWidth;npc.classList.add("in");
+    const bub=scene.querySelector(".tbub");bub.innerHTML="";bub.append(h("small",null,c.n+(c.x2?" · ×2":"")),h("div",{class:"the",lang:"he",dir:"rtl"},s[0]));
+    if(c.t){const bar=h("div",{class:"tbar"},h("i"));bub.append(bar);let left=c.t;timerI=setInterval(()=>{left-=.1;bar.firstChild.style.width=Math.max(0,left/c.t*100)+"%";if(left<=0){clearInterval(timerI);miss("Liian hidas! "+c.n+" käveli pois.",s)}},100)}
+    ask(c,s,mode)};
+  const ask=(c,s,mode)=>{panel.innerHTML="";const fi=s[1];const strip=x=>x.replace(/[.,:;!?”“"]/g,"");const words=strip(fi).split(" ").filter(Boolean);
+    if(mode==="choice"){const others=shuffle([...pool.mid,...pool.easy].filter(x=>x[1]!==fi)).slice(0,2).map(x=>x[1]);
+      panel.append(h("div",{class:"eyebrow"},"Mitä hän sanoi?"),...shuffle([fi,...others]).map(o=>h("button",{class:"opt",onclick:()=>o===fi?hit(c,words.length+3,s):miss("Oikein olisi: "+fi,s)},o)))}
+    else{const extra=mode==="tiles+"?shuffle([...pool.mid,...pool.easy].flatMap(x=>strip(x[1]).split(" ")).filter(w=>!words.includes(w))).slice(0,3):shuffle([...pool.mid,...pool.easy].flatMap(x=>strip(x[1]).split(" ")).filter(w=>!words.includes(w))).slice(0,1);
+      let got=0,clean=true,gotSek=0;const out=h("div",{class:"pout"},"…");const tiles=h("div",{class:"ppool"});
+      shuffle(words.map((w,k)=>({w,k})).concat(extra.map(w=>({w,k:-1})))).forEach(o=>{const b=h("button",{class:"chip big",onclick:()=>{if(o.k===got){got++;gotSek+=c.x2?2:1;out.textContent=words.slice(0,got).join(" ");b.disabled=true;tone4([660+got*40],.05);if(got===words.length)hit(c,gotSek+(clean?3:0)-0,s,true)}else{clean=false;b.classList.add("bad");setTimeout(()=>b.classList.remove("bad"),350);try{navigator.vibrate&&navigator.vibrate(40)}catch(e){}if(o.k<0)b.disabled=true}}},o.w);tiles.append(b)});
+      panel.append(h("div",{class:"eyebrow"},"Käännä: napauta sanat järjestyksessä"),out,tiles,h("div",{class:"row"},h("button",{class:"btn sec small",onclick:()=>{if(!S.set.prac){S.xp=Math.max(0,S.xp-10);save();refreshTop()}out.textContent=fi;out.classList.add("hint")}},"Vihje −10 XP"),h("button",{class:"btn sec small",onclick:()=>miss("Oikein olisi: "+fi,s)},"En osaa")))}};
+  const hit=(c,amount,s,already)=>{clearInterval(timerI);combo++;const a=Math.round(amount*(c.x2&&!already?2:1));sek+=a;score(true,10);musicTempo(combo);S.tori.ok++;save();upd7();
+    panel.innerHTML="";panel.append(h("div",{class:"fb ok"},h("b",{class:"t"},rnd(["Tov me'od!","Hienoa!","Kauppias nyökkää.","Kaupat syntyi!"])+` +${a} ₪`),h("div",{lang:"he",class:"he"},s[0]),h("div",null,s[1]),h("button",{class:"btn primary wide",onclick:()=>{n++;next()}},"Seuraava hahmo")));if(typeof burst==="function")burst(12)};
+  const miss=(msg,s)=>{clearInterval(timerI);combo=0;musicTempo(0);lives--;score(false);upd7();try{navigator.vibrate&&navigator.vibrate(90)}catch(e){}
+    panel.innerHTML="";panel.append(h("div",{class:"fb no"},h("b",{class:"t"},rnd(["Oi voi!","Kana karkasi!","Rabbi pudistaa päätään."])),h("div",{lang:"he",class:"he"},s[0]),h("div",null,msg),h("button",{class:"btn primary wide",onclick:()=>{n++;next()}},lives>0?"Seuraava hahmo":"Päivä päättyy")))};
+  const end=()=>{clearInterval(timerI);musicStop();S.tori.plays++;const best=sek>S.tori.best;if(best)S.tori.best=sek;save();if(sek)addSek(sek,"tori");
+    panel.innerHTML="";panel.append(h("div",{class:"endc"},h("div",{class:"eyebrow"},"Päivä torilla"),h("h2",null,`+${sek} sekeliä`),h("p",null,`${lives>0?"Selvisit kaikista kymmenestä hahmosta.":"Kolme virhettä, tori sulkeutuu tältä päivältä."}${best?" Uusi ennätys!":""} Sekelit voi käyttää Jewlandossa.`),
+      h("div",{class:"row"},h("button",{class:"btn gold",onclick:startTori},"Uusi päivä torilla"),h("button",{class:"btn sec",onclick:()=>go("kauppa")},"Jewlandoon"))))};
+  intro()}
+
+/* hahmon SVG ilman taustaa */
+const _avatarSVG7=avatarSVG;avatarSVG=function(eq,o){const s=_avatarSVG7(eq,o);return o&&o.nobg?s.replace(/<rect width="100" height="100" fill="url\(#[a-z0-9]+b\)"\/>/,""):s};
+
+/* ---------- kytkökset ---------- */
+const _vPlay7=vPlay;vPlay=function(){_vPlay7();const v=app.querySelector(".view");const top=v&&v.querySelector(".top");if(!top)return;
+  top.after(h("button",{class:"card torc",onclick:startTori},h("div",{class:"tcimg",html:npcSVG(NPC[0])}),h("span",{class:"tx"},h("b",null,"Jerusalemin tori"),h("span",{class:"small muted"},`Käännä ohikulkijat, ansaitse sekeleitä · ennätys ${S.tori.best} ₪`)),h("span",{class:"btn gold small"},"Pelaa")))};
+VIEWS.pelaa=vPlay;
+const _vHome7=vHome4;vHome4=function(){_vHome7();const q=app.querySelector(".home4 .quick");if(q)q.prepend(h("button",{class:"wide2",onclick:startTori},h("b",null,"Jerusalemin tori"),h("span",null,`käännä ohikulkijat · ansaitse sekeleitä · ennätys ${S.tori.best} ₪`)))};
+VIEWS.koti=vHome4;
+if(cur==="koti"||cur==="pelaa")go(cur);
 
 </script>
 </body></html>
