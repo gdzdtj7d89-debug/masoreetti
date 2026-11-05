@@ -2850,7 +2850,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.10";
+const V4="4.10.1";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -3011,7 +3011,7 @@ function guideSheet(){sheet(sh=>[h("h3",null,"Näin Masoreetti toimii"),h("ul",{
   "<b>Puolikas piste</b>: jos rakenne on oikein ja vain yksi merkki väärin (esim. vokaali), saat ½ pistettä ja näet eron korostettuna.",
   "<b>Tentti</b> 26.11. klo 8.15, Metsätalo B212. Viimeistään 8.45 sisään. Mukaan saa yhden käsin kirjoitetun A4-lapun (molemmat puolet)."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:sh.close},"Selvä")])}
 function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:"small muted"},"Verrattuna v3:een:"),h("ul",{class:"list"},[
-  "<b>v4.10:</b> Patriarkkojen tarina on nyt käännöstehtävä: käännä rivi kerrallaan omin sanoin, vertaa mallikäännökseen ja lue lopuksi koko teksti.","<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
+  "<b>v4.10.1:</b> HEMO-tilaan lisätty Hemmon puuttuvat verbiosiot: heikot verbit, imperatiivi/jussiivi, infinitiivit, partisiipit ja objektisuffiksit.","<b>v4.10:</b> Patriarkkojen tarina on nyt käännöstehtävä: käännä rivi kerrallaan omin sanoin, vertaa mallikäännökseen ja lue lopuksi koko teksti.","<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
   "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","<b>4.3:</b> Jerusalemin tori (Koti ja Pelaa): kymmenen ohikulkijaa, sana sanalta sekeleitä, fariseukset ja vartijat kiirehtivät, oma klezmer-musiikki kiihtyy combosta.","<b>4.4:</b> HEMO-tila läppärille (asetukset → Käyttötapa) ja lunttilappu tenttiin (Opi-sivu).","<b>4.5:</b> Hakuteos (Opi-sivu): oppitunnit kaikille luvuille 1–23 omin sanoin, taulukot, esimerkit ja yleisin virhe. Uusi aihe alkaa oppitunnilla.","<b>4.6:</b> Rabbi (tiukka) ja Sofer (lempeä) vuorottelevat, kertaus 1–3–7–14–30 päivän välein kaikille hallituille aiheille, viikon minitesti, yksi päivätavoite ja päivän yhteenveto, kodeksin sivut Minä-sivulla, siirto toiselle laitteelle linkillä (asetukset).","<b>4.7:</b> Kuvallinen opas: Minä → Miten sovellusta käytetään.","<b>4.8:</b> Asennusohjeet puhelimeen oppaassa."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
@@ -3977,6 +3977,9 @@ window.patrAll=function(pi){const p=PATR[pi];const s=pst(p.id);s.my=s.my||{};con
   h("div",{class:"pall"},p.v.map((v,k)=>{const r=h("div",{class:"row1",style:"cursor:pointer"},h("div",{class:"heb",lang:"he",dir:"rtl"},v[0].replace(/[†‡*]/g,"")),s.my[k]?h("div",{class:"my"},s.my[k]):h("div",{class:"my small muted"},"(ei omaa käännöstä)"),h("div",{class:"md"},v[1]));r.onclick=()=>patrVerse(pi,k);return r})),
   h("div",{class:"row",style:"margin-top:14px"},s.done?h("button",{class:"btn gold",onclick:()=>patrBoss(pi)},s.boss?"Pomotaistelu uudestaan":"⚔ Pomotaistelu"):null,h("button",{class:"btn sec",onclick:()=>go("patr")},"Takaisin tarinoihin")))};
 })();
+/* HEMO: puuttuvat verbiosiot Hemmon sisällysluettelon mukaan */
+(function(){const vb=HEMO.find(x=>x[0]==="Verbit");if(!vb)return;const L=vb[1];const at=L.findIndex(x=>x[0]==="Konsekutiivimuodot")+1;
+ L.splice(at,0,["Heikkojen verbien perfekti",()=>drill("weakperf")],["Heikkojen verbien imperfekti",()=>drill("weakimpf")],["Imperatiivi, jussiivi ja kohortatiivi",()=>drill("imper")],["Infinitiivit",()=>drill("infin")],["Partisiipit",()=>drill("partic")],["Objektisuffiksit verbeissä",()=>drill("objsuf")])})();
 
 </script>
 </body></html>
