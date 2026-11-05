@@ -2850,7 +2850,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.9.1";
+const V4="4.10";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -3011,7 +3011,7 @@ function guideSheet(){sheet(sh=>[h("h3",null,"Näin Masoreetti toimii"),h("ul",{
   "<b>Puolikas piste</b>: jos rakenne on oikein ja vain yksi merkki väärin (esim. vokaali), saat ½ pistettä ja näet eron korostettuna.",
   "<b>Tentti</b> 26.11. klo 8.15, Metsätalo B212. Viimeistään 8.45 sisään. Mukaan saa yhden käsin kirjoitetun A4-lapun (molemmat puolet)."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:sh.close},"Selvä")])}
 function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:"small muted"},"Verrattuna v3:een:"),h("ul",{class:"list"},[
-  "<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
+  "<b>v4.10:</b> Patriarkkojen tarina on nyt käännöstehtävä: käännä rivi kerrallaan omin sanoin, vertaa mallikäännökseen ja lue lopuksi koko teksti.","<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
   "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","<b>4.3:</b> Jerusalemin tori (Koti ja Pelaa): kymmenen ohikulkijaa, sana sanalta sekeleitä, fariseukset ja vartijat kiirehtivät, oma klezmer-musiikki kiihtyy combosta.","<b>4.4:</b> HEMO-tila läppärille (asetukset → Käyttötapa) ja lunttilappu tenttiin (Opi-sivu).","<b>4.5:</b> Hakuteos (Opi-sivu): oppitunnit kaikille luvuille 1–23 omin sanoin, taulukot, esimerkit ja yleisin virhe. Uusi aihe alkaa oppitunnilla.","<b>4.6:</b> Rabbi (tiukka) ja Sofer (lempeä) vuorottelevat, kertaus 1–3–7–14–30 päivän välein kaikille hallituille aiheille, viikon minitesti, yksi päivätavoite ja päivän yhteenveto, kodeksin sivut Minä-sivulla, siirto toiselle laitteelle linkillä (asetukset).","<b>4.7:</b> Kuvallinen opas: Minä → Miten sovellusta käytetään.","<b>4.8:</b> Asennusohjeet puhelimeen oppaassa."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
@@ -3346,7 +3346,7 @@ function patrLevel(id){const s=pst(id);const n=Object.values(s.v).filter(x=>x.ok
 
 /* ---------- reitti ---------- */
 function vPatr(){const v=h("div",{class:"view"});v.append(topbar("Patriarkkojen tarina",()=>go("opi")));
-  v.append(h("p",{class:"small muted"},"Kuusi kurssin harjoitustekstiä 1. Mooseksen kirjasta. Jae kerrallaan: jäsennä verbit, käännä, ja lopuksi pomo ilman apuja. Kaikki tekstit ovat auki heti, joten voit aloittaa mistä tahansa."));
+  v.append(h("p",{class:"small muted"},"Kuusi kurssin harjoitustekstiä 1. Mooseksen kirjasta. Käännä teksti rivi kerrallaan omin sanoin ja vertaa mallikäännökseen. Sanaa napauttamalla näet sen merkityksen, ja verbien jäsennys on apuna tarvittaessa. Lopuksi pomotaistelu ilman apuja. Kaikki tekstit ovat auki heti, joten voit aloittaa mistä tahansa."));
   const path=h("div",{class:"apath"});
   PATR.forEach((p,i)=>{const s=pst(p.id);const open=patrOpen(i);const n=Object.values(s.v).filter(x=>x.ok).length;
     path.append(h("div",{class:"pstop"+(open?"":" lock")+(s.boss?" won":"")},
@@ -3921,6 +3921,62 @@ try{const _vMe12=vMe;vMe=function(){_vMe12();const sc=app.querySelector(".setc")
 
 /* ===== v4.9.1: kaikki Patriarkkojen tarinat auki heti ===== */
 patrOpen=function(){return true};
+/* ===== v4.10: Patriarkkojen tarina = käännä rivi kerrallaan ===== */
+(function(){
+const st13=document.createElement("style");st13.textContent=`
+.ptx{width:100%;min-height:92px;font:16px/1.45 var(--ui,system-ui);border:1.5px solid var(--line);border-radius:14px;padding:12px;background:var(--card);color:var(--ink);resize:vertical}
+.ptx:focus{outline:none;border-color:var(--blue)}
+.pdots i{cursor:pointer}.pdots i.h{background:var(--gold)}
+.pv-hint{font-size:12px;color:var(--muted,#8a94a6);text-align:center;margin:-4px 0 10px}
+.pcmp{display:grid;gap:8px;margin-top:10px}
+.pcmp .lab{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--muted,#8a94a6);text-transform:uppercase}
+.pcmp .mine{background:var(--card2);border-radius:12px;padding:10px 12px;white-space:pre-wrap}
+.pcmp .model{background:var(--bluesoft,#e8efff);border-radius:12px;padding:10px 12px;font-weight:600}
+.pgrade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.pgrade .btn{min-height:52px;padding:6px}
+.pnav{display:flex;justify-content:space-between;gap:8px;margin-top:12px}.pnav .btn{flex:1;font-size:13px;white-space:nowrap;padding:8px 6px}
+.pall .row1{border-bottom:1px solid var(--line);padding:12px 0}
+.pall .heb{font-size:22px;line-height:1.7}
+.pall .my{white-space:pre-wrap;margin-top:4px}
+.pall .md{color:var(--muted,#8a94a6);font-size:14px;margin-top:2px}`;document.head.appendChild(st13);
+const _oldVerse=patrVerse;
+const lineOk=(s,k)=>s.v[k]&&s.v[k].ok;
+patrVerse=function(pi,vi){const p=PATR[pi];const s=pst(p.id);s.my=s.my||{};const st=screen(p.t);const tr=p.v[vi][1];
+ const toks=verseTokens(p,vi);const verbs=toks.filter(t=>t.row);
+ const dots=h("div",{class:"pdots"},p.v.map((_,k)=>{const d=h("i",{class:(lineOk(s,k)?"d":s.v[k]&&s.v[k].half?"h":"")+(k===vi?" c":""),title:"Rivi "+(k+1)});d.onclick=()=>patrVerse(pi,k);return d}));
+ const head=h("div",{class:"pvhead"},h("span",{class:"small muted"},`Rivi ${vi+1}/${p.v.length}`),dots);
+ const card=h("div",{class:"pverse",lang:"he",dir:"rtl"});
+ toks.forEach(t=>{const sp=h("span",{class:"pw"},t.w);sp.onclick=()=>{if(t.row)soferSay(`${t.clean}: ’${t.row[3]}’ · ${t.row[2]} · juuri ${t.row[1]}`,"happy");else if(p.n[t.clean])soferSay(`${t.clean}: ${p.n[t.clean]}`,"wow");else if(typeof lookupSheet==="function")lookupSheet(t.clean)};card.append(sp,t.w.endsWith("־")?"":" ")});
+ const ta=h("textarea",{class:"ptx",placeholder:"Kirjoita oma käännöksesi tästä rivistä…",rows:"3","aria-label":"Oma käännös"});ta.value=s.my[vi]||"";ta.oninput=()=>{s.my[vi]=ta.value;clearTimeout(ta._t);ta._t=setTimeout(save,500)};
+ const box=h("div",{class:"pbox"});
+ const tools=h("div",{class:"row wrap",style:"margin-top:8px"},
+  verbs.length?h("button",{class:"chip",onclick:()=>_oldVerse(pi,vi)},`Jäsennä verbit (${verbs.length})`):null,
+  h("button",{class:"chip",onclick:()=>chunks()},"Helpompi: rakenna palasista"));
+ const check=h("button",{class:"btn primary wide",style:"margin-top:10px",onclick:()=>{if(!ta.value.trim()){soferSay("Kirjoita ensin oma käännös, vaikka vain osa. Sanoja voi napauttaa.","wow");ta.focus();return}reveal()}},"Tarkista käännös");
+ const nav=h("div",{class:"pnav"},h("button",{class:"btn sec small",disabled:vi===0,onclick:()=>patrVerse(pi,vi-1)},"‹ Edellinen"),h("button",{class:"btn sec small",onclick:()=>reveal(true)},"Näytä malli"),h("button",{class:"btn sec small",disabled:vi+1>=p.v.length,onclick:()=>patrVerse(pi,vi+1)},"Seuraava ›"));
+ st.append(head,card,h("div",{class:"pv-hint"},"Napauta sanaa, niin näet sen merkityksen"),ta,tools,check,box,nav);
+ function reveal(peek){check.remove();tools.remove();ta.readOnly=true;box.innerHTML="";
+  const cmp=h("div",{class:"pcmp"},ta.value.trim()?h("div",null,h("div",{class:"lab"},"Sinun käännöksesi"),h("div",{class:"mine"},ta.value.trim())):null,h("div",null,h("div",{class:"lab"},"Mallikäännös"),h("div",{class:"model"},tr)));
+  box.append(cmp);
+  if(peek&&!ta.value.trim()){grade(0,true);return}
+  box.append(h("div",{class:"small muted",style:"margin-top:10px"},"Vertaa itse. Sanajärjestyksen ei tarvitse olla sama, kunhan merkitys on."),
+   h("div",{class:"pgrade"},h("button",{class:"btn sec",onclick:()=>grade(0)},"Meni ohi"),h("button",{class:"btn sec",onclick:()=>grade(.5)},"Melkein"),h("button",{class:"btn primary",onclick:()=>grade(1)},"Osuin")))}
+ function grade(v,silent){box.querySelectorAll(".pgrade").forEach(x=>x.remove());const ok=v===1;
+  if(!silent){score(v>0,v===1?14:7);if(v===.5&&typeof addXP==="function")addXP(3)}
+  s.v[vi]={ok:lineOk(s,vi)||ok,half:v===.5,t:Date.now()};s.tr=(s.tr||0)+(ok?1:0);
+  const all=p.v.every((_,k)=>lineOk(s,k));if(all&&!s.done){s.done=true;setTimeout(()=>soferSay("Koko teksti käännetty! Pomotaistelu on nyt auki.","wow"),500)}save();
+  dots.children[vi].className=(ok?"d":v?"h":"")+" c";
+  box.append(h("div",{class:"fb "+(ok?"ok":v?"half":"no"),style:"margin-top:10px"},h("b",{class:"t"},silent?"Mallikäännös näytetty":ok?"Hienoa!":v?"Melkein. Rivi tulee vielä uudestaan.":"Ei hätää, palataan tähän."),
+   h("div",{class:"row",style:"margin-top:8px"},vi+1<p.v.length?h("button",{class:"btn primary",onclick:()=>patrVerse(pi,vi+1)},"Seuraava rivi"):h("button",{class:"btn primary",onclick:()=>patrAll(pi)},"Koko teksti"),h("button",{class:"btn sec",onclick:()=>{delete s.my[vi];save();patrVerse(pi,vi)}},"Uudestaan"))))}
+ function chunks(){tools.remove();check.remove();box.innerHTML="";const words=tr.replace(/[”“"]/g,"").split(" ");const ch=[];for(let k=0;k<words.length;k+=2)ch.push(words.slice(k,k+2).join(" "));const got=[];let miss=0;const out=h("div",{class:"pout"},"…");const pool=h("div",{class:"ppool"});
+  shuffle(ch.map((c,k)=>({c,k}))).forEach(o=>{const b=h("button",{class:"chip",onclick:()=>{if(o.k===got.length){got.push(o.c);out.textContent=got.join(" ");b.disabled=true;if(got.length===ch.length){ta.value=got.join(" ");s.my[vi]=ta.value;grade(miss?.5:1)}}else{miss++;b.classList.add("bad");setTimeout(()=>b.classList.remove("bad"),400)}}},o.c);pool.append(b)});
+  box.append(h("div",{class:"pq"},h("div",{class:"eyebrow"},"Rakenna käännös oikeaan järjestykseen"),out,pool))}
+};
+window.patrAll=function(pi){const p=PATR[pi];const s=pst(p.id);s.my=s.my||{};const st=screen(p.t+" · koko teksti");
+ st.append(h("p",{class:"small muted"},"Koko teksti rivi riviltä: heprea, sinun käännöksesi ja mallikäännös. Napauta riviä, jos haluat kääntää sen uudestaan."),
+  h("div",{class:"pall"},p.v.map((v,k)=>{const r=h("div",{class:"row1",style:"cursor:pointer"},h("div",{class:"heb",lang:"he",dir:"rtl"},v[0].replace(/[†‡*]/g,"")),s.my[k]?h("div",{class:"my"},s.my[k]):h("div",{class:"my small muted"},"(ei omaa käännöstä)"),h("div",{class:"md"},v[1]));r.onclick=()=>patrVerse(pi,k);return r})),
+  h("div",{class:"row",style:"margin-top:14px"},s.done?h("button",{class:"btn gold",onclick:()=>patrBoss(pi)},s.boss?"Pomotaistelu uudestaan":"⚔ Pomotaistelu"):null,h("button",{class:"btn sec",onclick:()=>go("patr")},"Takaisin tarinoihin")))};
+})();
 
 </script>
 </body></html>
