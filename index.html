@@ -2850,7 +2850,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.13";
+const V4="5.0";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -3011,7 +3011,7 @@ function guideSheet(){sheet(sh=>[h("h3",null,"Näin Masoreetti toimii"),h("ul",{
   "<b>Puolikas piste</b>: jos rakenne on oikein ja vain yksi merkki väärin (esim. vokaali), saat ½ pistettä ja näet eron korostettuna.",
   "<b>Tentti</b> 26.11. klo 8.15, Metsätalo B212. Viimeistään 8.45 sisään. Mukaan saa yhden käsin kirjoitetun A4-lapun (molemmat puolet)."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:sh.close},"Selvä")])}
 function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:"small muted"},"Verrattuna v3:een:"),h("ul",{class:"list"},[
-  "<b>v4.13:</b> Hemmon suosikit omina peleinä koneen näppäimistölle: Sanavaellus (kirjoita käännös, Enter, Tiesin/Pidä, Vain ei-tiedetyt) ja Verbimuotojen määrittely valikoilla. Löytyvät Pelaa-sivulta ja HEMO-tilasta.","<b>v4.12:</b> Sanakirja-tila: koko ruudun sanakirja käännöstyöhön kirjan kanssa. Oma heprealainen näppäimistö, sanan perusmuodon tunnistus, iso teksti, käännösvihko ja näyttö pysyy päällä.","<b>v4.11.3:</b> Sanastoon lisätty kirjan loppusanastosta puuttuneet 43 sanaa (mm. אֲנִי, אָנֹכִי, אֱלֹהִים, וַיְהִי, וַיֹּאמֶר, שְׁמֹנֶה) ja Patriarkkojen tarinoiden 10 puuttuvaa sanaa.","<b>v4.11.1:</b> Sanakirjan haku uusittu: hakee koko sanastosta (myös avaamattomista luvuista), ymmärtää translitteroinnin ja loppukirjaimet, parhaat osumat ensin, sanaa napauttamalla avautuu kortti. Tekstin sanojen tunnistus osaa nyt etuliitteet, suffiksit ja heikot juuret (esim. וְהָאָרֶץ, לָהֶם, וַיִּשְׁלַח).","<b>v4.11:</b> Taivutussäännöt (Opi-sivu): kaikki taulukot yhdellä sivulla valitsemallasi verbillä. Uusi Yhden sanan taivutuspeli (Pelaa-sivu). Hakuteoksen haku toimii ilman vokaalimerkkejä ja translitteroinnilla.","<b>v4.10.1:</b> HEMO-tilaan lisätty Hemmon puuttuvat verbiosiot: heikot verbit, imperatiivi/jussiivi, infinitiivit, partisiipit ja objektisuffiksit.","<b>v4.10:</b> Patriarkkojen tarina on nyt käännöstehtävä: käännä rivi kerrallaan omin sanoin, vertaa mallikäännökseen ja lue lopuksi koko teksti.","<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
+  "<b>v5.0: TENTTIPOLKU.</b> Kotisivun alussa on päivän suunnitelma tenttiin 26.11. asti: opettele uudet ydinsanat korteilla ennen kyselyä, kertaa erääntyneet, päivän kielioppi ja kääntäminen. ”En tiedä” -nappi arvaamisen tilalle. Sanastoharjoitukset kysyvät nyt vain jo opeteltuja sanoja. Uusi intro: tähtitaivaalta Daavidin Jerusalemiin.","<b>v4.13:</b> Hemmon suosikit omina peleinä koneen näppäimistölle: Sanavaellus (kirjoita käännös, Enter, Tiesin/Pidä, Vain ei-tiedetyt) ja Verbimuotojen määrittely valikoilla. Löytyvät Pelaa-sivulta ja HEMO-tilasta.","<b>v4.12:</b> Sanakirja-tila: koko ruudun sanakirja käännöstyöhön kirjan kanssa. Oma heprealainen näppäimistö, sanan perusmuodon tunnistus, iso teksti, käännösvihko ja näyttö pysyy päällä.","<b>v4.11.3:</b> Sanastoon lisätty kirjan loppusanastosta puuttuneet 43 sanaa (mm. אֲנִי, אָנֹכִי, אֱלֹהִים, וַיְהִי, וַיֹּאמֶר, שְׁמֹנֶה) ja Patriarkkojen tarinoiden 10 puuttuvaa sanaa.","<b>v4.11.1:</b> Sanakirjan haku uusittu: hakee koko sanastosta (myös avaamattomista luvuista), ymmärtää translitteroinnin ja loppukirjaimet, parhaat osumat ensin, sanaa napauttamalla avautuu kortti. Tekstin sanojen tunnistus osaa nyt etuliitteet, suffiksit ja heikot juuret (esim. וְהָאָרֶץ, לָהֶם, וַיִּשְׁלַח).","<b>v4.11:</b> Taivutussäännöt (Opi-sivu): kaikki taulukot yhdellä sivulla valitsemallasi verbillä. Uusi Yhden sanan taivutuspeli (Pelaa-sivu). Hakuteoksen haku toimii ilman vokaalimerkkejä ja translitteroinnilla.","<b>v4.10.1:</b> HEMO-tilaan lisätty Hemmon puuttuvat verbiosiot: heikot verbit, imperatiivi/jussiivi, infinitiivit, partisiipit ja objektisuffiksit.","<b>v4.10:</b> Patriarkkojen tarina on nyt käännöstehtävä: käännä rivi kerrallaan omin sanoin, vertaa mallikäännökseen ja lue lopuksi koko teksti.","<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
   "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","<b>4.3:</b> Jerusalemin tori (Koti ja Pelaa): kymmenen ohikulkijaa, sana sanalta sekeleitä, fariseukset ja vartijat kiirehtivät, oma klezmer-musiikki kiihtyy combosta.","<b>4.4:</b> HEMO-tila läppärille (asetukset → Käyttötapa) ja lunttilappu tenttiin (Opi-sivu).","<b>4.5:</b> Hakuteos (Opi-sivu): oppitunnit kaikille luvuille 1–23 omin sanoin, taulukot, esimerkit ja yleisin virhe. Uusi aihe alkaa oppitunnilla.","<b>4.6:</b> Rabbi (tiukka) ja Sofer (lempeä) vuorottelevat, kertaus 1–3–7–14–30 päivän välein kaikille hallituille aiheille, viikon minitesti, yksi päivätavoite ja päivän yhteenveto, kodeksin sivut Minä-sivulla, siirto toiselle laitteelle linkillä (asetukset).","<b>4.7:</b> Kuvallinen opas: Minä → Miten sovellusta käytetään.","<b>4.8:</b> Asennusohjeet puhelimeen oppaassa."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
@@ -3795,7 +3795,7 @@ const _vMe11=vMe;vMe=function(){_vMe11();const sc=app.querySelector(".setc");if(
 HEMO[0][1].unshift(["Miten sovellusta käytetään",()=>go("opas")]);
 if(cur==="mina")go(cur);
 
-/* ===== v4.9: avausintro – toisen temppelin Jerusalem ===== */
+/* ===== v4.9 → v5.0: avausintro – Daavidin ajan Jerusalem ===== */
 (function(){
 const IK='masoreetti-intro';
 let IS={};try{IS=JSON.parse(localStorage.getItem(IK)||'{}')}catch(e){}
@@ -3803,93 +3803,73 @@ const isave=()=>{try{localStorage.setItem(IK,JSON.stringify(IS))}catch(e){}};
 const tday=()=>{const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()};
 const R=n=>Math.floor(Math.random()*n);
 const css=`
-#mintro{position:fixed;inset:0;z-index:9999;overflow:hidden;background:linear-gradient(#060a22 0%,#0d1238 38%,#24163e 66%,#4a2a14 86%,#2a1608 100%);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .9s ease,transform .9s ease;font-family:Manrope,system-ui,sans-serif}
-#mintro.out{opacity:0;transform:scale(1.06);pointer-events:none}
-#mintro .st{position:absolute;border-radius:50%;background:#fff;opacity:0;animation:mTw ease-in-out infinite,mIn 1.5s forwards}
-#mintro .moon{position:absolute;top:3.5%;right:7%;width:34px;height:34px;border-radius:50%;box-shadow:-7px 3px 0 0 #f4e4b0;opacity:0;animation:mIn 2s 1.2s forwards;transform:rotate(-20deg)}
-#mintro .city{position:absolute;left:0;right:0;bottom:0;width:100%;height:30vh;opacity:0;animation:mIn 2.4s 1.3s forwards}
-#mintro .tglow{opacity:0;animation:mGlow 4s 2.2s ease-in-out forwards}
-#mintro .stage{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 18px;margin-top:-22vh}
-#mintro svg.men{width:min(56vw,230px);height:auto;overflow:visible}
-#mintro .ln{fill:none;stroke:#e3b94a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900;animation:mDraw 2.2s 1.5s cubic-bezier(.6,0,.3,1) forwards}
-#mintro .ln.b{stroke-width:3;animation-delay:1.9s}
-#mintro .fl{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:mLight .5s forwards,mFlick 1.2s infinite ease-in-out}
-#mintro .halo{opacity:0;animation:mHalo 1s forwards}
-#mintro .scroll{position:relative;width:min(84vw,330px);height:74px;margin-top:10px;opacity:0;animation:mIn .4s 4.3s forwards}
-#mintro .parch{position:absolute;top:6px;bottom:6px;left:14px;right:14px;background:linear-gradient(#efe0bb,#e6d2a2 50%,#dcc48e);box-shadow:inset 0 0 18px rgba(120,80,30,.45);transform:scaleX(0);animation:mOpen 1.4s 4.4s cubic-bezier(.5,0,.2,1) forwards;display:flex;align-items:center;justify-content:center;overflow:hidden}
-#mintro .heb{font-family:'Noto Serif Hebrew','Times New Roman',serif;font-weight:500;font-size:clamp(20px,6.4vw,27px);color:#2a1a08;direction:rtl;white-space:nowrap;clip-path:inset(0 0 0 100%);animation:mWrite 2.2s 5.1s steps(22,end) forwards}
-#mintro .rod{position:absolute;top:0;bottom:0;width:16px;border-radius:8px;background:linear-gradient(90deg,#4a2a10,#8a5a2a 45%,#3a200c);left:50%;margin-left:-8px}
-#mintro .rod:before,#mintro .rod:after{content:"";position:absolute;left:-3px;width:22px;height:12px;border-radius:6px;background:#c9a24a}
-#mintro .rod:before{top:-8px}#mintro .rod:after{bottom:-8px}
-#mintro .rod.l{animation:mRodL 1.4s 4.4s cubic-bezier(.5,0,.2,1) forwards}
-#mintro .rod.r{animation:mRodR 1.4s 4.4s cubic-bezier(.5,0,.2,1) forwards}
-#mintro .ttl{margin-top:18px;font-weight:800;font-size:clamp(34px,10vw,50px);letter-spacing:.2em;margin-right:-.2em;color:#f2c14e;text-shadow:0 0 22px rgba(242,193,78,.45),0 2px 0 #5a3b0c;opacity:0;filter:blur(10px);animation:mTitle 1.5s 6.3s forwards}
-#mintro .he2{font-family:'Noto Serif Hebrew',serif;font-size:24px;color:#f4e4b0;direction:rtl;opacity:0;animation:mIn 1.2s 6.9s forwards;margin-top:2px}
-#mintro .sub{font-size:13px;letter-spacing:.18em;color:#c9c2e8;opacity:0;animation:mIn 1.2s 7.2s forwards;margin-top:2px}
-#mintro .go{margin-top:20px;min-height:58px;padding:8px 22px;border:2px solid #f2c14e;border-radius:14px;background:linear-gradient(#1e4fa3,#163c80);color:#fff;font-family:'Noto Serif Hebrew',serif;font-size:21px;direction:rtl;opacity:0;transform:translateY(8px);animation:mUp .9s 7.7s forwards,mPulse 2.4s 8.6s ease-in-out infinite;cursor:pointer}
+#mintro{position:fixed;inset:0;z-index:9999;overflow:hidden;background:#04061a;cursor:pointer;transition:opacity .9s ease;font-family:Manrope,system-ui,sans-serif}
+#mintro.out{opacity:0;pointer-events:none}
+#mintro .world{position:absolute;left:0;right:0;top:0;height:260vh;background:linear-gradient(#01020c 0%,#040824 30%,#0b1240 55%,#1c1a4a 72%,#3a2a4e 84%,#21142a 100%);transform:translateY(0);animation:mDesc 6.2s .4s cubic-bezier(.45,0,.2,1) forwards;will-change:transform}
+#mintro .st{position:absolute;border-radius:50%;background:#fff;animation:mTw ease-in-out infinite}
+#mintro .milk{position:absolute;left:-20%;top:12%;width:140%;height:40vh;background:radial-gradient(ellipse at center,rgba(170,180,255,.16),transparent 60%);transform:rotate(-24deg);filter:blur(8px)}
+#mintro .shoot{position:absolute;top:30%;left:70%;width:120px;height:2px;background:linear-gradient(90deg,#fff,transparent);transform:rotate(-30deg);opacity:0;animation:mShoot 1.2s 2.2s ease-out forwards}
+#mintro .scene{position:absolute;left:0;right:0;bottom:0;height:100vh}
+#mintro .moon{position:absolute;left:calc(71% - min(31vw,150px));bottom:calc(min(96vw,62vh) * .22);width:min(62vw,300px);height:min(62vw,300px);border-radius:50%;background:radial-gradient(circle at 42% 40%,#fffbe8 0%,#f6e7b8 55%,#e6cf8c 100%);box-shadow:0 0 70px 20px rgba(246,231,184,.35),0 0 200px 60px rgba(246,231,184,.15)}
+#mintro .moon i{position:absolute;border-radius:50%;background:rgba(190,160,100,.25)}
+#mintro .land{position:absolute;left:0;right:0;bottom:0;width:100%;height:min(96vw,62vh)}
+#mintro .david .str{animation:mStr 1.4s infinite ease-in-out}
+#mintro .david .arm{transform-box:fill-box;transform-origin:10% 10%;animation:mPlay 1.4s infinite ease-in-out}
+#mintro .notes{position:absolute;right:22%;bottom:calc(min(96vw,62vh) * .48);width:60px;height:80px;pointer-events:none}
+#mintro .notes span{position:absolute;bottom:0;color:#f6e7b8;font-size:18px;opacity:0;animation:mNote 3s infinite ease-out}
+#mintro .lamp{animation:mLamp 2.6s infinite ease-in-out}
+#mintro .logo{position:absolute;left:0;right:0;top:9vh;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 18px;z-index:3}
+#mintro .ttl{font-weight:800;font-size:clamp(34px,10vw,52px);letter-spacing:.2em;margin-right:-.2em;color:#f2c14e;text-shadow:0 0 24px rgba(242,193,78,.5),0 2px 0 #5a3b0c;opacity:0;filter:blur(10px);animation:mTitle 1.5s 6.4s forwards}
+#mintro .he2{font-family:'Noto Serif Hebrew',serif;font-size:26px;color:#f4e4b0;direction:rtl;opacity:0;animation:mIn 1.2s 7s forwards;margin-top:4px}
+#mintro .sub{font-size:12px;letter-spacing:.18em;color:#c9c2e8;opacity:0;animation:mIn 1.2s 7.3s forwards;margin-top:2px}
+#mintro .go{margin-top:16px;min-height:58px;padding:8px 22px;border:2px solid #f2c14e;border-radius:14px;background:linear-gradient(#1e4fa3,#163c80);color:#fff;font-family:'Noto Serif Hebrew',serif;font-size:21px;direction:rtl;opacity:0;transform:translateY(8px);animation:mUp .9s 7.7s forwards,mPulse 2.4s 8.6s ease-in-out infinite;cursor:pointer}
 #mintro .go small{display:block;direction:ltr;font-family:Manrope,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;opacity:.85;margin-top:2px}
-#mintro .veil{position:absolute;top:0;bottom:0;width:51%;z-index:5;animation-duration:2.4s;animation-delay:.5s;animation-fill-mode:forwards;animation-timing-function:cubic-bezier(.55,0,.25,1);background:repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(255,255,255,.06) 9px,rgba(0,0,0,.3) 18px),linear-gradient(90deg,#1b2f86,#3a1c6e 50%,#7a1230)}
-#mintro .veil.l{left:0;transform-origin:left;animation-name:mVeil}
-#mintro .veil.r{right:0;transform-origin:right;animation-name:mVeil;background:repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(255,255,255,.06) 9px,rgba(0,0,0,.3) 18px),linear-gradient(270deg,#1b2f86,#3a1c6e 50%,#7a1230)}
-#mintro .veil:after{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:repeating-linear-gradient(90deg,#e3b94a 0 4px,#9a7420 4px 8px);-webkit-mask:linear-gradient(#000,#000 40%,transparent);mask:linear-gradient(#000,#000 40%,transparent)}
-#mintro .veil:before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(227,185,74,.22) 2px,transparent 3px) 0 0/34px 34px}
 #mintro .skip{position:absolute;bottom:calc(12px + env(safe-area-inset-bottom));left:0;right:0;text-align:center;font-size:10px;font-weight:700;letter-spacing:.3em;color:rgba(244,228,176,.55);z-index:6;animation:mIn 1s 1s backwards,mHide .6s 7.4s forwards}
-#mintro.done *{animation-delay:0s!important;animation-duration:.01s!important}
-#mintro.done .veil,#mintro.done .skip{display:none}
-#mintro.done .go{animation:mPulse 2.4s ease-in-out infinite!important;opacity:1;transform:none}
-#mintro.done .fl{animation:mFlick 1.2s infinite ease-in-out!important;opacity:1}
-#mintro.done .st{animation:mTw 3s infinite ease-in-out!important;opacity:.8}
+#mintro.done .world{animation:none;transform:translateY(-160vh)}
+#mintro.done .ttl,#mintro.done .he2,#mintro.done .sub{animation:none;opacity:1;filter:none}
+#mintro.done .go{animation:mPulse 2.4s ease-in-out infinite;opacity:1;transform:none}
+#mintro.done .skip,#mintro.done .shoot{display:none}
+@keyframes mDesc{to{transform:translateY(-160vh)}}
 @keyframes mIn{to{opacity:1}}
 @keyframes mHide{to{opacity:0}}
-@keyframes mTw{0%,100%{opacity:.25}50%{opacity:1}}
-@keyframes mGlow{0%{opacity:0}45%{opacity:1}100%{opacity:.7}}
-@keyframes mDraw{to{stroke-dashoffset:0}}
-@keyframes mLight{0%{opacity:0;transform:scale(.2)}70%{opacity:1;transform:scale(1.25)}100%{opacity:1;transform:scale(1)}}
-@keyframes mFlick{0%,100%{transform:scale(1) rotate(-2deg)}35%{transform:scale(.9,1.1) rotate(3deg)}65%{transform:scale(1.05,.94) rotate(-3deg)}}
-@keyframes mHalo{to{opacity:.55}}
-@keyframes mOpen{to{transform:scaleX(1)}}
-@keyframes mRodL{to{left:0;margin-left:0}}
-@keyframes mRodR{to{left:100%;margin-left:-16px}}
-@keyframes mWrite{to{clip-path:inset(0 0 0 0)}}
+@keyframes mTw{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes mShoot{0%{opacity:0;transform:rotate(-30deg) translateX(0)}20%{opacity:1}100%{opacity:0;transform:rotate(-30deg) translateX(-260px)}}
+@keyframes mStr{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes mPlay{0%,100%{transform:rotate(0)}50%{transform:rotate(-7deg)}}
+@keyframes mNote{0%{opacity:0;transform:translate(0,0)}20%{opacity:.9}100%{opacity:0;transform:translate(-30px,-90px)}}
+@keyframes mLamp{0%,100%{opacity:.75}50%{opacity:1}}
 @keyframes mTitle{to{opacity:1;filter:blur(0);letter-spacing:.12em;margin-right:-.12em}}
 @keyframes mUp{to{opacity:1;transform:none}}
 @keyframes mPulse{0%,100%{box-shadow:0 0 0 0 rgba(242,193,78,0)}50%{box-shadow:0 0 24px 3px rgba(242,193,78,.5)}}
-@keyframes mVeil{0%{transform:scaleX(1)}100%{transform:scaleX(.06);filter:brightness(.6)}}
-@media (prefers-reduced-motion:reduce){#mintro *{animation-delay:0s!important;animation-duration:.01s!important}#mintro .veil{display:none}}`;
-function menorah(){
- // seitsemän lampun menora (Tituksen kaaren malli), liekit syttyvät oikealta vasemmalle
- const cx=125,top=40,arms=[[25,125],[55,95],[85,65]];let p='';
- arms.forEach(([x1])=>{const r=cx-x1;p+=`<path class="ln" d="M${x1} ${top}C${x1} ${top+r*1.25} ${2*cx-x1} ${top+r*1.25} ${2*cx-x1} ${top}"/>`});
- p+=`<path class="ln" d="M${cx} ${top}V196"/>`;
- p+=`<path class="ln b" d="M95 196h60l10 14H85zM78 210h94l12 18H66z"/>`;
- [25,55,85,125,165,195,225].forEach(x=>{p+=`<path class="ln b" d="M${x-9} ${top}h18" style="stroke-width:5"/>`});
- let f='';const xs=[225,195,165,125,85,55,25];xs.forEach((x,k)=>{const d=(3.2+k*.16).toFixed(2);f+=`<circle class="halo" cx="${x}" cy="${top-14}" r="16" fill="url(#mh)" style="animation-delay:${d}s"/><path class="fl" d="M${x} ${top-30}c6 8 7 13 0 19-7-6-6-11 0-19z" fill="url(#mf)" style="animation-delay:${d}s,${d}s"/>`});
- return `<svg class="men" viewBox="0 0 250 232" aria-hidden="true"><defs><radialGradient id="mf" cx="50%" cy="70%" r="60%"><stop offset="0" stop-color="#fff8d0"/><stop offset=".5" stop-color="#f6c14a"/><stop offset="1" stop-color="#e2672a"/></radialGradient><radialGradient id="mh"><stop offset="0" stop-color="#ffd98a" stop-opacity=".8"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient></defs>${p}${f}</svg>`;
-}
-function city(){
- return `<svg class="city" viewBox="0 0 400 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><radialGradient id="tg" cx="50%" cy="60%" r="50%"><stop offset="0" stop-color="#f6c96a" stop-opacity=".55"/><stop offset="1" stop-color="#f6c96a" stop-opacity="0"/></radialGradient><linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1230"/><stop offset="1" stop-color="#07050c"/></linearGradient></defs>
- <ellipse class="tglow" cx="210" cy="120" rx="170" ry="80" fill="url(#tg)"/>
- <path d="M0 150 Q60 120 120 140 T240 132 T400 128 V220 H0z" fill="#140d24"/>
- <path d="M0 170 L18 170 L18 152 L30 152 L30 170 L70 168 L70 146 L86 146 L86 168 L130 166 L130 150 L140 150 L140 140 L150 140 L150 150 L160 150 L160 166 L330 166 L330 148 L346 148 L346 166 L400 166 V220 H0z" fill="url(#hl)"/>
- <rect x="150" y="112" width="130" height="54" fill="#0c0818"/><path d="M150 112h130" stroke="#e3b94a" stroke-width="2"/>
- <g fill="#0c0818"><rect x="153" y="104" width="3" height="8"/>${Array.from({length:15},(_,i)=>`<rect x="${158+i*8}" y="104" width="3" height="8"/>`).join('')}</g>
- <rect x="192" y="66" width="46" height="46" fill="#0f0a1e"/><rect x="184" y="78" width="62" height="34" fill="#0f0a1e"/>
- <path d="M192 66h46M184 78h8M238 78h8" stroke="#f2c14e" stroke-width="2.2"/>
- <rect x="208" y="86" width="14" height="26" fill="#f2c14e" opacity=".85"/>
- <g stroke="#f2c14e" stroke-width="1.4">${Array.from({length:9},(_,i)=>`<path d="M${194+i*5.2} 60v6"/>`).join('')}</g>
- <path d="M0 190 Q100 172 200 186 T400 180 V220 H0z" fill="#06040a"/>
- <g fill="#f6c96a" opacity=".7">${[[40,176],[78,172],[112,174],[300,172],[352,170],[170,158],[262,158]].map(([x,y])=>`<rect x="${x}" y="${y}" width="2.5" height="3.5"/>`).join('')}</g></svg>`;
-}
-function stars(){let s='';for(let k=0;k<70;k++){const z=Math.random()<.15?2.6:1.2+Math.random();s+=`<span class="st" style="left:${R(100)}%;top:${R(58)}%;width:${z}px;height:${z}px;animation-duration:${2+Math.random()*4}s,1.5s;animation-delay:${(Math.random()*3).toFixed(1)}s,${(1+Math.random()*2).toFixed(1)}s"></span>`}return s}
-function html(){return `${stars()}<div class="moon"></div>${city()}
- <div class="stage">${menorah()}
-  <div class="scroll"><div class="parch"><span class="heb">בְּרֵאשִׁית בָּרָא אֱלֹהִים</span></div><span class="rod l"></span><span class="rod r"></span></div>
-  <div class="ttl">MASOREETTI</div>
-  <div class="he2">שְׁמַע יִשְׂרָאֵל</div>
-  <div class="sub">KUULE, ISRAEL · 5. MOOS. 6:4</div>
-  <button class="go" data-mi="go">בֹּאוּ שְׁעָרָיו<small>KÄYKÄÄ HÄNEN PORTEISTAAN · PS. 100:4</small></button>
- </div>
- <div class="veil l"></div><div class="veil r"></div>
+@media (prefers-reduced-motion:reduce){#mintro .world{animation:none;transform:translateY(-160vh)}#mintro *{animation-delay:0s!important;animation-duration:.01s!important}}`;
+function stars(){let s='';for(let k=0;k<170;k++){const z=Math.random()<.12?2.6:0.8+Math.random()*1.4;s+=`<span class="st" style="left:${R(100)}%;top:${(Math.random()*78).toFixed(1)}%;width:${z}px;height:${z}px;animation-duration:${2+Math.random()*4}s;animation-delay:${(Math.random()*3).toFixed(1)}s"></span>`}return s}
+function land(){
+ // Daavidin kaupunki kukkulalla (ei vielä temppeliä), etualalla Daavid soittaa lyyraa kalliolla kuuta vasten
+ const lamps=[[62,206],[80,214],[98,200],[121,212],[140,196],[56,222],[110,224]].map(([x,y])=>`<rect class="lamp" x="${x}" y="${y}" width="3" height="4" fill="#f6c96a" style="animation-delay:${(Math.random()*2).toFixed(1)}s"/>`).join('');
+ return `<svg class="land" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+ <path d="M0 250 Q70 205 150 215 T300 225 T400 215 V300 H0z" fill="#120c24"/>
+ <path d="M20 240 Q60 175 115 170 Q165 168 200 205 L200 300 H20z" fill="#0d0a1c"/>
+ <g fill="#0a0716"><path d="M38 232 V206 h8 v-6 h6 v6 h22 v-10 h8 v10 h26 v-8 h8 v8 h22 v-6 h8 v6 h20 v26z"/>
+ <rect x="58" y="192" width="22" height="16"/><rect x="88" y="186" width="26" height="22"/><rect x="118" y="194" width="18" height="14"/><rect x="138" y="184" width="30" height="24"/><rect x="146" y="176" width="14" height="8"/></g>
+ <path d="M38 206 h8 v-6 h6 v6 h22 v-10 h8 v10 h26 v-8 h8 v8 h22 v-6 h8 v6 h20" fill="none" stroke="#e3b94a" stroke-width=".8" opacity=".55"/>
+ ${lamps}
+ <path d="M0 300 V268 Q90 250 190 262 Q260 250 330 236 Q370 232 400 240 V300z" fill="#05040b"/>
+ <g transform="translate(-40 0)"><path d="M262 246 Q300 226 344 232 Q368 238 372 252 L380 300 H250z" fill="#030208"/>
+ <g class="david" fill="#030208">
+  <path d="M300 236 q-2 -18 8 -26 q10 -4 16 4 q6 12 2 22z"/>
+  <circle cx="314" cy="198" r="7"/>
+  <path d="M307 196 q7 -9 15 -2 l-3 -3z"/>
+  <path d="M296 240 q16 -6 34 0 l6 12 h-48z"/>
+  <path class="arm" d="M318 214 l14 6 l2 4 l-3 1 l-14 -5z"/>
+  <g transform="translate(330 202)"><path d="M0 0 q-5 14 2 26 h12 q7 -12 2 -26 q-4 6 -8 6 q-4 0 -8 -6z" fill="none" stroke="#030208" stroke-width="2.6"/><path d="M-1 1 h18" stroke="#030208" stroke-width="2.6"/>
+   <g class="str" stroke="#f6e7b8" stroke-width=".55" opacity=".8"><path d="M4 2 v23"/><path d="M8 3 v22"/><path d="M12 2 v23"/></g></g>
+ </g>
+ <g fill="#030208" opacity=".95"><ellipse cx="250" cy="262" rx="9" ry="5"/><circle cx="242" cy="259" r="3"/><ellipse cx="226" cy="266" rx="8" ry="4.5"/><circle cx="219" cy="263" r="2.6"/></g></g>
+ </svg>`}
+function html(){return `<div class="world"><div class="milk"></div>${stars()}<span class="shoot"></span>
+ <div class="scene"><div class="moon"><i style="left:30%;top:28%;width:18%;height:18%"></i><i style="left:58%;top:52%;width:12%;height:12%"></i><i style="left:40%;top:64%;width:8%;height:8%"></i></div>${land()}<div class="notes"><span style="left:0;animation-delay:1s">♪</span><span style="left:20px;animation-delay:2.1s">♫</span><span style="left:8px;animation-delay:3.2s">♪</span></div></div></div>
+ <div class="logo"><div class="ttl">MASOREETTI</div><div class="he2">שְׁמַע יִשְׂרָאֵל</div><div class="sub">KUULE, ISRAEL · 5. MOOS. 6:4</div>
+ <button class="go" data-mi="go">בֹּאוּ שְׁעָרָיו<small>KÄYKÄÄ HÄNEN PORTEISTAAN · PS. 100:4</small></button></div>
  <div class="skip">NAPAUTA OHITTAAKSESI</div>`}
 /* ääni: shofar (tekia) + lyyran arpeggio */
 let A=null;function ac(){try{if(!A)A=new (window.AudioContext||window.webkitAudioContext)();if(A.state==='suspended')A.resume()}catch(e){}return A}
@@ -3901,7 +3881,7 @@ function shofar(){const a=ac();if(!a)return;const t=a.currentTime;const o=a.crea
  const n=a.createBuffer(1,a.sampleRate*.25,a.sampleRate),d=n.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);const ns=a.createBufferSource();ns.buffer=n;const nf=a.createBiquadFilter();nf.type='bandpass';nf.frequency.value=1800;const ng=a.createGain();ng.gain.value=.06;ns.connect(nf);nf.connect(ng);ng.connect(a.destination);ns.start(t)}
 function pluck(f,when,vol){const a=ac();if(!a)return;const t=a.currentTime+when;const o=a.createOscillator();o.type='triangle';o.frequency.value=f;const o2=a.createOscillator();o2.type='sine';o2.frequency.value=f*2;const g=a.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.008);g.gain.exponentialRampToValueAtTime(.0008,t+1.6);const g2=a.createGain();g2.gain.value=.3;const lp=a.createBiquadFilter();lp.type='lowpass';lp.frequency.setValueAtTime(3200,t);lp.frequency.exponentialRampToValueAtTime(700,t+.6);o.connect(lp);o2.connect(g2);g2.connect(lp);lp.connect(g);g.connect(a.destination);o.start(t);o2.start(t);o.stop(t+1.7);o2.stop(t+1.7)}
 function drone(){const a=ac();if(!a)return;const t=a.currentTime;const g=a.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.05,t+.8);g.gain.linearRampToValueAtTime(0,t+4.2);g.connect(a.destination);[73.42,110].forEach(f=>{const o=a.createOscillator();o.type='sine';o.frequency.value=f;o.connect(g);o.start(t);o.stop(t+4.3)})}
-function sound(){shofar();drone();[293.66,311.13,369.99,392,440,466.16,523.25,587.33].forEach((f,i)=>pluck(f,2.0+i*.13,.12));pluck(293.66,3.2,.1);pluck(440,3.2,.08)}
+function sound(){drone();[293.66,311.13,369.99,392,440,466.16,523.25,587.33].forEach((f,i)=>pluck(f,.05+i*.16,.13));pluck(293.66,1.5,.11);pluck(440,1.5,.09);pluck(587.33,1.5,.07)}
 function show(){
  if(document.getElementById('mintro'))return;
  if(!document.getElementById('mintro-css')){const st=document.createElement('style');st.id='mintro-css';st.textContent=css;document.head.appendChild(st)}
@@ -3916,7 +3896,7 @@ const mode=()=>IS.mode||'day';
 if(mode()==='always'||(mode()==='day'&&IS.day!==tday()))show();
 /* asetus Minä-näkymään */
 const LBL={day:'Kerran päivässä',always:'Joka avauksella',off:'Pois päältä'};
-try{const _vMe12=vMe;vMe=function(){_vMe12();const sc=app.querySelector(".setc");if(!sc)return;const b1=h("button",{class:"card setc",onclick:()=>{IS.mode={day:'always',always:'off',off:'day'}[mode()];isave();go("mina")}},h("span",{class:"tkn"},"✡"),h("span",{class:"tx"},h("b",null,"Avausintro: "+LBL[mode()]),h("span",{class:"small muted"},"Napauta vaihtaaksesi")),h("span",{class:"muted"},"›"));const b2=h("button",{class:"card setc",onclick:show},h("span",{class:"tkn"},"🕎"),h("span",{class:"tx"},h("b",null,"Katso intro"),h("span",{class:"small muted"},"Temppelin esirippu, menora ja shofar")),h("span",{class:"muted"},"›"));sc.after(b1);b1.after(b2)};VIEWS.mina=vMe;if(cur==="mina")go(cur)}catch(e){}
+try{const _vMe12=vMe;vMe=function(){_vMe12();const sc=app.querySelector(".setc");if(!sc)return;const b1=h("button",{class:"card setc",onclick:()=>{IS.mode={day:'always',always:'off',off:'day'}[mode()];isave();go("mina")}},h("span",{class:"tkn"},"✡"),h("span",{class:"tx"},h("b",null,"Avausintro: "+LBL[mode()]),h("span",{class:"small muted"},"Napauta vaihtaaksesi")),h("span",{class:"muted"},"›"));const b2=h("button",{class:"card setc",onclick:show},h("span",{class:"tkn"},"🕎"),h("span",{class:"tx"},h("b",null,"Katso intro"),h("span",{class:"small muted"},"Tähtitaivaalta Daavidin Jerusalemiin")),h("span",{class:"muted"},"›"));sc.after(b1);b1.after(b2)};VIEWS.mina=vMe;if(cur==="mina")go(cur)}catch(e){}
 })();
 
 /* ===== v4.9.1: kaikki Patriarkkojen tarinat auki heti ===== */
@@ -4398,6 +4378,91 @@ const _go17=go;go=function(n,a){document.body.classList.toggle("wide",n==="vaell
 const sv=HEMO.find(x=>x[0]==="Sanasto");if(sv)sv[1].unshift(["Sanavaellus (kirjoita käännös näppäimistöllä)",()=>go("vaellus")]);
 const vb=HEMO.find(x=>x[0]==="Verbit");if(vb)vb[1].unshift(["Verbimuotojen määrittely (valikot, Enter)",()=>go("maar")]);
 const _vPlay17=vPlay;vPlay=function(){_vPlay17();const v=app.querySelector(".view");if(!v)return;const top=v.querySelector(".card.alkc")||v.querySelector(".top");const mk=(ic,t,d,f)=>h("button",{class:"card alkc",onclick:f},h("span",{class:"tkn"},ic),h("span",{class:"tx"},h("b",null,t),h("span",{class:"small muted"},d)),h("span",{class:"muted"},"›"));const a=mk("⌨️","Sanavaellus","Kirjoita käännös näppäimistöllä, kuten Hemmossa",()=>go("vaellus")),b=mk("🔎","Verbimuotojen määrittely","Määrittele muodot valikoista, kuten Hemmossa",()=>go("maar"));if(top){top.after(b);top.after(a)}else{v.prepend(b);v.prepend(a)}};VIEWS.pelaa=vPlay;
+})();
+
+/* ===== v5.0: TENTTIPOLKU – 17 päivän pelastussuunnitelma ===== */
+(function(){
+const EXAM=new Date(2026,10,26,8,15);
+const TK="masoreetti-polku";let PS={};try{PS=JSON.parse(localStorage.getItem(TK)||"{}")}catch(e){}PS.done=PS.done||{};
+const psave=()=>{try{localStorage.setItem(TK,JSON.stringify(PS))}catch(e){}};
+const dkey=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+const today=()=>{const d=new Date();d.setHours(0,0,0,0);return d};
+const daysLeft=()=>Math.max(0,Math.round((new Date(2026,10,26)-today())/864e5));
+const cl=s=>(typeof clean==="function"?clean(s):String(s).replace(/\(.*?\)/g,"").trim());
+/* ydinsanasto: lukujen sanastot kirjan järjestyksessä (tentissä usein toistuvat sanat) */
+const CORE=()=>VOCAB.filter(v=>v.c>0).slice().sort((a,b)=>a.c-b.c);
+const learned=v=>{const w=S.w&&S.w[v.h];return w&&w.n>0&&w.b>=1};
+const dueWords=()=>VOCAB.filter(v=>{const w=S.w&&S.w[v.h];return w&&w.n>0&&w.due&&w.due<=Date.now()}).sort((a,b)=>(S.w[a.h].b-S.w[b.h].b)||(a.c||99)-(b.c||99));
+/* kieliopin aikataulu */
+const GRAM=[["article","attr"],["gender","nominal","waw"],["preps","verbal"],["pron","demo"],["status","cstrforms"],["suffn","suffp"],["root","perfA"],["weakperf","perfEO"],["impf","impfA"],["wayyiqtol","weqatal"],["weakimpf"],["objsuf","imper"],["infin","partic"],["nifal","piel"],["hifil","commonverbs"]];
+function plan(){const start=PS.start?new Date(PS.start):today();if(!PS.start){PS.start=+start;psave()}
+ const total=Math.max(1,Math.round((new Date(2026,10,26)-start)/864e5));const idx=Math.min(total-1,Math.max(0,Math.round((today()-start)/864e5)));
+ const gramDays=Math.max(1,total-2);const g=idx<gramDays?GRAM[Math.min(GRAM.length-1,Math.floor(idx*GRAM.length/gramDays))]:null;
+ const core=CORE(),left=core.filter(v=>!learned(v)).length;const newDays=Math.max(1,daysLeft()-2);
+ const quota=left?Math.min(25,Math.max(10,Math.ceil(left/newDays))):0;
+ return {idx,total,gram:g,quota,left,coreN:core.length,final:idx>=total-2}}
+const td=()=>{const k=dkey(today());PS.done[k]=PS.done[k]||{};return PS.done[k]};
+function mark(id,val){td()[id]=val===undefined?true:val;psave()}
+/* ---------- yhteinen monivalintamoottori ---------- */
+function mcRun(title,queue,opts){opts=opts||{};const st=screen(title,{noDiff:true});let i=0,right=0,miss=0;const need=new Map();queue.forEach(q=>need.set(q.key,(need.get(q.key)||0)+1));
+ const prg=()=>{const p=document.getElementById("prg");if(p){p.hidden=false;p.textContent=`${Math.min(i+1,queue.length)} / ${queue.length}`}const b=document.getElementById("bar");if(b)b.style.width=(i/queue.length*100)+"%"};
+ function show(){st.innerHTML="";prg();if(i>=queue.length){return (opts.end||(()=>{}))(right,miss,st)}const q=queue[i];
+  const head=h("div",{class:"pq"},h("div",{class:"eyebrow"},q.he?"Mitä sana tarkoittaa?":"Valitse heprean sana"),q.he?h("div",{lang:"he",dir:"rtl",style:"font-family:'Noto Serif Hebrew',serif;font-size:56px;text-align:center;margin:8px 0"},q.v.h):h("h2",{style:"text-align:center;margin:14px 0"},cl(q.v.f)),q.he&&q.v.tr?h("div",{class:"small muted",style:"text-align:center"},q.v.tr):null);
+  const grid=h("div",{class:"opts"});const opt=[q.v].concat(q.d);shuffle(opt).forEach(o=>{const b=h("button",{class:"opt",lang:q.he?null:"he",dir:q.he?null:"rtl",style:q.he?"font-size:16px":"font-family:'Noto Serif Hebrew',serif;font-size:30px"},q.he?cl(o.f):o.h);b.onclick=()=>ans(o===q.v,b);grid.append(b)});
+  const idk=h("button",{class:"btn sec wide",style:"margin-top:10px",onclick:()=>ans(false,null,true)},"En tiedä – näytä vastaus");
+  st.append(head,grid,idk);
+  function ans(ok,b,dunno){grid.querySelectorAll("button").forEach(x=>x.disabled=true);idk.remove();[...grid.children].forEach(x=>{if(x.textContent===(q.he?cl(q.v.f):q.v.h))x.classList.add("ok")});if(b&&!ok)b.classList.add("no");
+   if(opts.record!==false)try{recordWord(q.v.h,ok)}catch(e){}
+   try{score(ok,ok?6:0)}catch(e){}
+   if(ok)right++;else{miss++;if(opts.retry){const k=Math.min(queue.length,i+3);queue.splice(k,0,Object.assign({},q,{d:shuffle(q.d)}))}}
+   st.append(h("div",{class:"fb "+(ok?"ok":"no")},h("b",{class:"t"},ok?"Oikein!":dunno?"Ei haittaa, opettele tämä:":"Ei aivan:"),h("div",{style:"margin-top:6px"},h("span",{lang:"he",dir:"rtl",style:"font-family:'Noto Serif Hebrew',serif;font-size:26px"},q.v.h)," = ",h("b",null,q.v.f)),q.v.x?h("div",{class:"small muted"},q.v.x):null,!ok&&opts.retry?h("div",{class:"small muted",style:"margin-top:4px"},"Sana tulee pian uudestaan."):null,
+    h("button",{class:"btn primary",style:"margin-top:8px",onclick:()=>{i++;show()}},"Jatka")));
+   if(ok)setTimeout(()=>{if(queue[i]===q){i++;show()}},700)}}
+ show()}
+function distract(v,pool){const same=pool.filter(x=>x!==v&&cl(x.f)!==cl(v.f)&&x.h!==v.h);return shuffle(same).slice(0,3)}
+/* ---------- 1) uusien sanojen opettelu: kortit → kysely kunnes osaa ---------- */
+function learnWords(n,cb){const batch=CORE().filter(v=>!learned(v)).slice(0,n||8);if(!batch.length){soferSay("Kaikki ydinsanat on jo opeteltu! Kertaa erääntyneet.","happy");return}
+ const st=screen("Uudet sanat",{noDiff:true});let i=0;
+ function card(){st.innerHTML="";const v=batch[i];const p=document.getElementById("prg");if(p){p.hidden=false;p.textContent=`Kortti ${i+1}/${batch.length}`}
+  st.append(h("div",{class:"card",style:"text-align:center;padding:22px"},h("div",{class:"eyebrow"},`Uusi sana · luku ${v.c}, s. ${v.p}`),h("div",{lang:"he",dir:"rtl",style:"font-family:'Noto Serif Hebrew',serif;font-size:64px;margin:10px 0"},v.h),h("div",{class:"small muted"},v.tr||""),h("h2",{style:"margin:10px 0 4px"},v.f),v.x?h("div",{class:"small muted"},v.x):null),
+   h("p",{class:"small muted",style:"text-align:center"},"Sano sana ääneen ja sen merkitys. Kortit ensin, sitten kysely vain näistä sanoista."),
+   h("div",{class:"row",style:"gap:8px"},i>0?h("button",{class:"btn sec",onclick:()=>{i--;card()}},"‹ Edellinen"):null,h("button",{class:"btn primary wide",onclick:()=>{i++;i<batch.length?card():quiz()}},i<batch.length-1?"Seuraava kortti ›":"Kyselyyn ›")))}
+ function quiz(){const pool=CORE();const q=[];shuffle(batch).forEach(v=>q.push({v,he:true,d:distract(v,batch.concat(pool)),key:v.h}));shuffle(batch).forEach(v=>q.push({v,he:false,d:distract(v,batch.concat(pool)),key:v.h+"#"}));
+  mcRun("Uudet sanat: kysely",q,{retry:true,record:false,end:(r,m,st)=>{batch.forEach(v=>{try{recordWord(v.h,true)}catch(e){}});mark("learn",(td().learn||0)+batch.length);
+   st.append(h("div",{class:"card",style:"text-align:center"},h("div",{class:"eyebrow"},"Opeteltu"),h("h2",null,`${batch.length} uutta sanaa`),h("p",{class:"small muted"},m?`${m} kertaa piti katsoa vastaus, ja ne sanat kysyttiin uudestaan. Huomenna nämä tulevat kertaukseen.`:"Kaikki suoraan oikein! Huomenna nämä tulevat kertaukseen."),
+    h("div",{class:"row wrap",style:"justify-content:center;gap:8px"},h("button",{class:"btn primary",onclick:()=>learnWords(n,cb)},"8 uutta lisää"),h("button",{class:"btn sec",onclick:()=>go("koti")},"Tenttipolulle"))))}})}
+ card()}
+window.learnWords=learnWords;
+/* ---------- 2) kertaus ---------- */
+function review(){let due=dueWords().slice(0,30);if(!due.length){soferSay("Ei erääntyneitä sanoja juuri nyt. Opettele uusia!","happy");return}
+ const pool=CORE();const q=due.map((v,k)=>({v,he:k%3!==2,d:distract(v,pool),key:v.h}));
+ mcRun("Sanakertaus",q,{retry:true,end:(r,m,st)=>{mark("review",true);st.append(h("div",{class:"card",style:"text-align:center"},h("div",{class:"eyebrow"},"Kertaus tehty"),h("h2",null,`${r}/${r+m} oikein`),h("p",{class:"small muted"},"Väärin menneet tulevat uudestaan jo tänään, oikein menneet harvemmin."),h("button",{class:"btn primary",onclick:()=>go("koti")},"Tenttipolulle")))}})}
+window.reviewWords=review;
+/* ---------- 3) kielioppi: oppitunti → helppo harjoitus ---------- */
+function gram(tp){mark("g_"+tp,"open");openLesson(tp)}
+/* ---------- Koti: tenttipolun kortti ---------- */
+function polkuCard(){const P=plan(),T=td();const dl=daysLeft();const due=dueWords().length;const core=CORE();const ln=core.filter(learned).length;
+ const tasks=[];
+ if(P.quota&&!P.final)tasks.push({id:"learn",t:`Opettele ${P.quota} uutta tärkeää sanaa`,d:`Kortit ensin, sitten kysely vain niistä. ${ln}/${core.length} ydinsanaa opeteltu.`,done:(T.learn||0)>=P.quota,go:()=>learnWords(8)});
+ tasks.push({id:"review",t:due?`Kertaa ${Math.min(due,30)} sanaa`:"Sanakertaus",d:due?"Erääntyneet sanat, ”En tiedä” on sallittu.":"Ei erääntyneitä juuri nyt.",done:!!T.review||!due,go:review});
+ (P.gram||[]).filter(tp=>TOP[tp]).forEach(tp=>tasks.push({id:"g_"+tp,t:`Kielioppi: ${TOP[tp].t}`,d:`Luku ${TOP[tp].ch}: oppitunti ja sen lopussa harjoitus.`,done:!!T["g_"+tp]||((typeof daysOk==="function")&&daysOk(tp)>=1),go:()=>gram(tp)}));
+ if(P.final)tasks.push({id:"exam",t:"Koetentti",d:"Sekoitus kaikesta, kuten tentissä.",done:!!T.exam,go:()=>{mark("exam");typeof examMode==="function"?examMode():go("pelaa")}});
+ tasks.push({id:"patr",t:"Käännä 3 riviä Patriarkkojen tarinasta",d:"Oikea tenttitaito: kääntäminen.",done:!!T.patr,go:()=>{mark("patr");go("patr")}});
+ const doneN=tasks.filter(t=>t.done).length;const next=tasks.find(t=>!t.done);
+ const box=h("div",{class:"card polku",style:"border:2px solid var(--gold);padding:16px"},
+  h("div",{style:"display:flex;justify-content:space-between;align-items:baseline"},h("span",{class:"eyebrow"},`TENTTIPOLKU · päivä ${P.idx+1}/${P.total}`),h("b",null,dl>0?`Tenttiin ${dl} pv`:"Tentti tänään!")),
+  h("div",{class:"bar",style:"height:8px;border-radius:4px;background:var(--line);margin:8px 0;overflow:hidden"},h("div",{style:`height:100%;width:${Math.round(ln/core.length*100)}%;background:var(--gold)`})),
+  h("div",{class:"small muted"},`Ydinsanasto ${ln}/${core.length} · tänään tehty ${doneN}/${tasks.length}`),
+  h("div",{style:"margin-top:8px"},tasks.map(t=>h("button",{class:"rec",style:"padding:10px 0",onclick:t.go},h("span",{style:`font-size:20px;width:28px;flex:none;color:${t.done?"#2f9e5b":"var(--muted,#8a94a6)"}`},t.done?"✓":"○"),h("span",{class:"tx"},h("b",{style:t.done?"text-decoration:line-through;opacity:.6":""},t.t),h("span",null,t.d))))),
+  next?h("button",{class:"btn gold wide",style:"margin-top:10px",onclick:next.go},"Jatka: "+next.t):h("div",{style:"margin-top:10px;font-weight:700;color:#2f9e5b"},"Päivän polku tehty! Huomenna jatketaan. Lisää voi tehdä aina: opettele uusia sanoja."));
+ return box}
+const _home18=vHome4;vHome4=function(a){_home18(a);const v=app.querySelector(".view");if(!v)return;const first=v.querySelector(".must")||v.children[1];const c=polkuCard();if(first)first.before(c);else v.prepend(c)};VIEWS.koti=vHome4;
+/* oppitunnin harjoituksesta paluu kirjaa kieliopin tehdyksi */
+const _score18=score;score=function(ok,pts){const r=_score18(ok,pts);try{if(ok&&typeof LTP!=="undefined"&&LTP){const T=td();if(T["g_"+LTP]==="open")T["g_"+LTP]=true,psave()}}catch(e){}return r};
+/* ---------- sanastoharjoitukset eivät enää kysy opettelemattomia sanoja ---------- */
+if(typeof vocabItem==="function"){const _vi=vocabItem;vocabItem=function(pool,dir){try{const P=pool||(typeof VOC==="function"?VOC():VOCAB);const known=P.filter(v=>S.w&&S.w[v.h]&&S.w[v.h].n>0);if(known.length>=6){const due=known.filter(v=>(S.w[v.h].due||0)<=Date.now());const v=rnd(due.length?due:known);dir=dir||rnd(["he","fi"]);const others=shuffle(P.filter(x=>x!==v&&clean(x.f)!==clean(v.f)));
+ if(dir==="he")return {t:"mc",tp:"vocab",word:v.h,q:"Mitä sana tarkoittaa?",heb:v.h,a:clean(v.f),w:others.slice(0,3).map(x=>clean(x.f)),x:`${v.h} (${v.tr}) = ${v.f}${v.x?" · "+v.x:""} — luku ${v.c}, s. ${v.p}.`,pg:v.p};
+ return {t:"mc",tp:"vocab",word:v.h,q:`Valitse heprean sana: ’${clean(v.f)}’`,a:v.h,w:others.slice(0,3).map(x=>x.h),hebOpts:true,x:`${v.h} (${v.tr}) — luku ${v.c}, s. ${v.p}.`,pg:v.p}}}catch(e){}return _vi(pool,dir)}}
 })();
 
 </script>
