@@ -2849,7 +2849,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="5.3";
+const V4="5.3.1";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -4406,7 +4406,12 @@ function plan(){const start=PS.start?new Date(PS.start):today();if(!PS.start){PS
  const gramDays=Math.max(1,total-2);const g=idx<gramDays?GRAM[Math.min(GRAM.length-1,Math.floor(idx*GRAM.length/gramDays))]:null;
  const core=CORE(),left=core.filter(v=>!learned(v)).length;const newDays=Math.max(1,daysLeft()-2);
  const avail=POOL().filter(v=>!learned(v)).length;const quota=avail?Math.min(avail,25,Math.max(10,Math.ceil(left/newDays))):0;
- const target=Math.min(LAST,1+Math.floor((LAST-1)*idx/Math.max(1,total-3)));return {idx,total,quota,left,coreN:core.length,final:idx>=total-2,target}}
+ let target=Math.min(LAST,1+Math.floor((LAST-1)*idx/Math.max(1,total-3)));
+ if(PS.placed){if(!PS.base){PS.base=raja();PS.baseDay=+today();psave()}
+  const pgs=c=>{const m=String((CH[c]||{}).pg||"").match(/(\d+)\D+(\d+)/);return m?(+m[2]-+m[1]+1):5};
+  const avail=Math.max(1,Math.round((new Date(2026,10,24)-new Date(PS.baseDay))/864e5));const el=Math.max(0,Math.round((today()-new Date(PS.baseDay))/864e5));
+  const tot=[...Array(Math.max(0,LAST-PS.base+1))].reduce((a,_,i)=>a+pgs(PS.base+i),0);const goal=tot*Math.min(1,el/avail);let cum=0;target=PS.base;
+  for(let c=PS.base;c<=LAST;c++){cum+=pgs(c);if(cum>goal){target=c;break}target=LAST}}return {idx,total,quota,left,coreN:core.length,final:idx>=total-2,target}}
 const td=()=>{const k=dkey(today());PS.done[k]=PS.done[k]||{};return PS.done[k]};
 function mark(id,val){td()[id]=val===undefined?true:val;psave()}
 /* ---------- yhteinen monivalintamoottori ---------- */
