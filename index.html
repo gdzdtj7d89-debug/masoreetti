@@ -2850,7 +2850,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="4.11";
+const V4="4.11.1";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -3011,7 +3011,7 @@ function guideSheet(){sheet(sh=>[h("h3",null,"Näin Masoreetti toimii"),h("ul",{
   "<b>Puolikas piste</b>: jos rakenne on oikein ja vain yksi merkki väärin (esim. vokaali), saat ½ pistettä ja näet eron korostettuna.",
   "<b>Tentti</b> 26.11. klo 8.15, Metsätalo B212. Viimeistään 8.45 sisään. Mukaan saa yhden käsin kirjoitetun A4-lapun (molemmat puolet)."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:sh.close},"Selvä")])}
 function newsSheet(){sheet(sh=>[h("h3",null,"Mitä uutta v4:ssä"),h("p",{class:"small muted"},"Verrattuna v3:een:"),h("ul",{class:"list"},[
-  "<b>v4.11:</b> Taivutussäännöt (Opi-sivu): kaikki taulukot yhdellä sivulla valitsemallasi verbillä. Uusi Yhden sanan taivutuspeli (Pelaa-sivu). Hakuteoksen haku toimii ilman vokaalimerkkejä ja translitteroinnilla.","<b>v4.10.1:</b> HEMO-tilaan lisätty Hemmon puuttuvat verbiosiot: heikot verbit, imperatiivi/jussiivi, infinitiivit, partisiipit ja objektisuffiksit.","<b>v4.10:</b> Patriarkkojen tarina on nyt käännöstehtävä: käännä rivi kerrallaan omin sanoin, vertaa mallikäännökseen ja lue lopuksi koko teksti.","<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
+  "<b>v4.11.1:</b> Sanakirjan haku uusittu: hakee koko sanastosta (myös avaamattomista luvuista), ymmärtää translitteroinnin ja loppukirjaimet, parhaat osumat ensin, sanaa napauttamalla avautuu kortti. Tekstin sanojen tunnistus osaa nyt etuliitteet, suffiksit ja heikot juuret (esim. וְהָאָרֶץ, לָהֶם, וַיִּשְׁלַח).","<b>v4.11:</b> Taivutussäännöt (Opi-sivu): kaikki taulukot yhdellä sivulla valitsemallasi verbillä. Uusi Yhden sanan taivutuspeli (Pelaa-sivu). Hakuteoksen haku toimii ilman vokaalimerkkejä ja translitteroinnilla.","<b>v4.10.1:</b> HEMO-tilaan lisätty Hemmon puuttuvat verbiosiot: heikot verbit, imperatiivi/jussiivi, infinitiivit, partisiipit ja objektisuffiksit.","<b>v4.10:</b> Patriarkkojen tarina on nyt käännöstehtävä: käännä rivi kerrallaan omin sanoin, vertaa mallikäännökseen ja lue lopuksi koko teksti.","<b>v4.9.1:</b> kaikki Patriarkkojen tarinat ovat auki heti.","<b>v4.9:</b> avausintro: temppelin esirippu aukeaa, menora syttyy ja shofar soi. Asetus Minä-sivulla.","Uusi Koti: pakko osata -aiheet ylimpänä, arvosana-arvio, tenttilaskuri.","Syöte on nyt <b>For you</b>, ja pakko osata -aiheet tulevat sinne väkisin.","Aihe on osattu vasta, kun vastaat oikein kolmena eri päivänä.",
   "Puolikkaat pisteet ja virheen korostus.","XP, tasot heprean aakkosilla, sekelit ja kultatalentit.","Oma hahmo ja <b>Jewlando</b>-kauppa: vaatteet, lemmikit, uhrieläimet, aarteet ja profiilin taustat.",
   "Tumma tila, uudet ikonit, asetukset Minä-sivulla.","Luvut avautuvat osaamalla tai tasotestillä.","Puuttuvat Patriarkkojen tarinan sanat lisätty sanastoon.",
   "<b>4.1:</b> Alkeispolku (Opi-sivulla): kirjaimet, samannäköiset, loppumuodot, vokaalit, lukeminen ja oma nimesi heprean kirjaimin.","<b>4.2:</b> Patriarkkojen tarina (Opi-sivulla): kuusi kurssin tekstiä jae kerrallaan, verbien jäsennys napeilla (varma/arvaus), käännös ja pomotaistelu.","<b>4.3:</b> Jerusalemin tori (Koti ja Pelaa): kymmenen ohikulkijaa, sana sanalta sekeleitä, fariseukset ja vartijat kiirehtivät, oma klezmer-musiikki kiihtyy combosta.","<b>4.4:</b> HEMO-tila läppärille (asetukset → Käyttötapa) ja lunttilappu tenttiin (Opi-sivu).","<b>4.5:</b> Hakuteos (Opi-sivu): oppitunnit kaikille luvuille 1–23 omin sanoin, taulukot, esimerkit ja yleisin virhe. Uusi aihe alkaa oppitunnilla.","<b>4.6:</b> Rabbi (tiukka) ja Sofer (lempeä) vuorottelevat, kertaus 1–3–7–14–30 päivän välein kaikille hallituille aiheille, viikon minitesti, yksi päivätavoite ja päivän yhteenveto, kodeksin sivut Minä-sivulla, siirto toiselle laitteelle linkillä (asetukset).","<b>4.7:</b> Kuvallinen opas: Minä → Miten sovellusta käytetään.","<b>4.8:</b> Asennusohjeet puhelimeen oppaassa."].map(s=>h("li",{html:s}))),h("button",{class:"btn primary wide",onclick:()=>{S.seen4=V4;save();sh.close()}},"Kiva!")])}
@@ -4085,6 +4085,88 @@ const _vKirja14=vKirja;vKirja=function(){_vKirja14();const v=app.querySelector("
    list.append(h("div",{class:"kch"},h("div",{class:"eyebrow"},`Luku ${c.n}${unlocked(c.n)?"":" · lukittu"}`),h("b",null,c.t),ts.map(t=>h("button",{class:"rec",onclick:()=>openLesson(t.id)},h("span",{class:"tx"},h("b",null,t.t),h("span",null,`s. ${t.pg}`)),h("span",{class:"mdots"},dots(t.id))))))});
   if(!n)list.append(h("p",{class:"small muted",style:"text-align:center;margin:18px 0"},"Ei osumia. Kokeile lyhyempää hakua tai suomenkielistä termiä."))};
  s.oninput=()=>{kirjaQ=s.value;draw()};draw()};VIEWS.kirja=vKirja;
+})();
+
+/* ===== v4.11.1: sanastohaku uusiksi ===== */
+(function(){
+const FIN={"ך":"כ","ם":"מ","ן":"נ","ף":"פ","ץ":"צ"};
+function fold(x){return String(x||"").toLowerCase().normalize("NFD")
+ .replace(/[֑-ֽֿ-ׇ]/g,"").replace(/־/g," ")
+ .replace(/[ךםןףץ]/g,c=>FIN[c])
+ .replace(/[\u0300-\u0307\u0309-\u036f]/g,"").normalize("NFC").replace(/[ʾʿ'’`]/g,"")
+ .replace(/ɛ/g,"e").replace(/ə/g,"e")
+ .replace(/sh/g,"s").replace(/kh/g,"k").replace(/ch/g,"h").replace(/tz|ts/g,"s").replace(/y/g,"j").replace(/w/g,"v").replace(/ph/g,"f")
+ .replace(/\(.*?\)/g," ").replace(/\s+/g," ").trim()}
+window.vfold=fold;
+let IDX=null;
+function index(){if(IDX)return IDX;IDX=VOCAB.map(x=>{const fi=fold(x.f),he=fold(x.h),tr=fold(x.tr),ex=fold(x.x||"");return {x,fi,he,tr,ex,words:(fi+" "+he+" "+tr).split(/[ ,;.]+/).filter(Boolean)}});return IDX}
+function search(q){q=fold(q);if(!q)return [];const out=[];for(const e of index()){let r=-1;
+ if(e.he===q||e.tr===q||e.fi===q||e.words.includes(q))r=0;
+ else if(e.words.some(w=>w.startsWith(q)))r=1;
+ else if(e.fi.includes(q)||e.he.includes(q)||e.tr.includes(q))r=2;
+ else if(e.ex.includes(q))r=3;
+ if(r>=0)out.push([r,e.x])}
+ out.sort((a,b)=>a[0]-b[0]||(a[1].c||99)-(b[1].c||99));return out.map(o=>o[1])}
+window.vocabSearch=search;
+function row(x,onOpen){const w=S.w&&S.w[x.h];const lockd=x.c>0&&!unlocked(x.c);
+ const b=h("button",{class:"vrow vbtn",onclick:()=>onOpen(x)},HE(x.h),h("span",{class:"t"},h("b",null,x.f),h("span",null,`${x.tr?x.tr+" · ":""}${x.c?"luku "+x.c:"kirjan sanasto"}${x.p?", s. "+x.p:""}${x.x?" · "+x.x:""}`)),
+  lockd?h("span",{class:"pill",title:"Luku ei ole vielä auki harjoituksissa"},"luku "+x.c):w?h("span",{class:"pill",title:"osaamistaso"},"●".repeat(Math.max(1,w.b||1))):null);return b}
+function openWord(x){try{if(!S.my.includes(x.h)){S.my.unshift(x.h);S.my=S.my.slice(0,200);save()}}catch(e){}
+ document.querySelectorAll(".sheet,.sheet-bg").forEach(e=>e.remove());if(typeof lookupSheet==="function")lookupSheet(x.h);}
+function searchUI(opts){opts=opts||{};let lim=60;
+ const s=h("input",{class:"search",type:"search",placeholder:"Hae suomeksi, hepreaksi tai translitteroinnilla",autocomplete:"off",autocapitalize:"off",spellcheck:"false",enterkeyhint:"search","aria-label":"Hae sanastosta"});
+ const cnt=h("p",{class:"small muted",style:"margin:8px 0 4px"});const out=h("div",{class:"vlist"});
+ const draw=()=>{const q=s.value.trim();out.innerHTML="";let list;
+  if(!q){list=(opts.chapter&&opts.chapter!=="all")?VOCAB.filter(x=>x.c===opts.chapter):(opts.all?VOCAB.slice():S.my.map(hh=>VOCAB.find(v=>v.h===hh)).filter(Boolean));
+   cnt.textContent=opts.all||opts.chapter?`${list.length} sanaa`:(list.length?"Viimeksi katsotut sanat":"Kirjoita hakusana. Haku käy läpi koko sanaston, myös luvut joita et ole vielä avannut.")}
+  else{list=search(q);if(opts.chapter&&opts.chapter!=="all")list=list.filter(x=>x.c===opts.chapter);cnt.textContent=list.length?`${list.length} osumaa`:""}
+  list.slice(0,lim).forEach(x=>out.append(row(x,openWord)));
+  if(list.length>lim)out.append(h("button",{class:"btn sec wide",style:"margin-top:8px",onclick:()=>{lim+=100;draw()}},`Näytä lisää (${list.length-lim})`));
+  if(q&&!list.length)out.append(h("div",{class:"small muted",style:"text-align:center;margin:18px 0;line-height:1.5"},"Ei osumia hakusanalla ”",h("b",null,q),"”.",h("br"),"Kokeile lyhyempää sanaa, perusmuotoa (esim. ’sanoa’, ei ’sanoi’) tai heprean juurta ilman vokaaleja."))};
+ let t;s.oninput=()=>{lim=60;clearTimeout(t);t=setTimeout(draw,90)};s.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();s.blur()}};
+ draw();return {s,cnt,out,draw,setChapter:c=>{opts.chapter=c;lim=60;draw()}}}
+window.vocabSearchUI=searchUI;
+vocabSheet=function(){document.querySelectorAll(".sheet,.sheet-bg").forEach(e=>e.remove());sheet(sh=>{const u=searchUI();setTimeout(()=>u.s.focus(),60);return [h("h3",null,"Sanakirja"),u.s,u.cnt,u.out]})};
+vVocab=function(arg){const v=h("div",{class:"view"});v.append(topbar("Sanasto"));let ch=arg&&arg.ch?arg.ch:"all";
+ const u=searchUI({all:true,chapter:ch});
+ const chips=h("div",{class:"chips"});[["all","Kaikki"],...CHAPTERS.filter(c=>VOCAB.some(x=>x.c===c.n)).map(c=>[c.n,"Luku "+c.n]),[0,"Kirjan sanasto"]].forEach(([k,l])=>{const b=h("button",{class:"chip","aria-pressed":k===ch,onclick:()=>{ch=k;chips.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));u.setChapter(k)}},l);chips.append(b)});
+ v.append(u.s,chips,u.cnt,u.out,h("p",{class:"small muted"},"Huom. kirjan loppusanaston skannauksesta puuttuu sivuja, joten mukana ovat kaikkien lukujen sanastot ja ne loppusanaston sanat, jotka skannauksesta erottuivat."));app.append(v)};
+VIEWS.sanasto=vVocab;
+const st=document.createElement("style");st.textContent=`.vbtn{width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);font:inherit;color:inherit;cursor:pointer;padding:10px 2px}.vbtn:active{background:var(--card2)}`;document.head.appendChild(st);
+})();
+/* ===== sanan tunnistus teksteistä: etuliitteet, suffiksit, heikot juuret ===== */
+(function(){
+const FINM={"ך":"כ","ם":"מ","ן":"נ","ף":"פ","ץ":"צ"};
+const cons=s=>String(s).normalize("NFD").replace(/[֑-ׇ]/g,"").replace(/[^א-ת]/g,"").replace(/[ךםןףץ]/g,c=>FINM[c]);
+const VC={"\u05B5":"e","\u05B6":"e","\u05B1":"e","\u05B7":"a","\u05B8":"a","\u05B2":"a","\u05B4":"i","\u05B9":"o","\u05BA":"o","\u05B3":"o","\u05BB":"u"};const vow=s=>String(s).normalize("NFD").replace(/[\u0591-\u05AF\u05BD\u05BE\u05C0\u05C3]/g,"").replace(/[\u05B1-\u05BB]/g,c=>VC[c]||c);
+let CI=null;const ci=()=>{if(CI)return CI;CI=new Map();VOCAB.forEach(v=>{String(v.h).split(/[\s\/,]+/).forEach(part=>{const c=cons(part);if(c.length<1)return;if(!CI.has(c))CI.set(c,[]);if(!CI.get(c).includes(v))CI.get(c).push(v)})});return CI};
+const PP={"ל":["לו","לי","לה","לנו","לכמ","להמ","להנ","לכ"],"ב":["בו","בי","בה","בנו","בכמ","בהמ","בכ"],"את":["אתו","אתי","אתנו","אתכמ","אתהמ","אתכ","אותו","אותי","אותה","אותנו","אותמ","אתמ","אתה"],"מנ":["ממנו","ממני","ממכ","ממנה","מהמ","מכמ"],"על":["עליו","עלי","עליה","עלינו","עליהמ","עליכמ","עליכ"],"אל":["אליו","אלי","אליה","אלינו","אליהמ","אליכמ","אליכ"],"עמ":["עמו","עמי","עמנו","עממ","עמה","עמכמ","עמכ"],"לפני":["לפניו","לפני","לפניה","לפנינו","לפניהמ","לפניכמ","לפניכ"],"תחת":["תחתיו","תחתי","תחתיה","תחתיהמ"],"אחר":["אחריו","אחרי","אחריה","אחריהמ"],"כ":["כמוהו","כמוני","כמוכ","כמוהמ"]};
+const PPI={};Object.entries(PP).forEach(([lem,fs])=>fs.forEach(f=>{(PPI[f]=PPI[f]||[]).push(lem)}));
+const SUF=["ותיהמ","ותיכמ","ותינו","יהמ","יכמ","יהנ","ינו","ותי","הממ","המ","כמ","הנ","כנ","נו","ני","יו","יה","יכ","ות","ימ","תמ","תנ","תי","ת","ה","ו","י","כ","מ","נ"];
+const PREF="והבכלמש";
+let PPL=new Set();
+function cands(word){PPL=new Set();const c0=cons(word);const out=new Map();const put=(c,cost)=>{if(c.length<2&&!["ל","ב","כ"].includes(c))return;if(!out.has(c)||out.get(c)>cost)out.set(c,cost)};
+ const fv=(String(word).normalize("NFD").match(/^[\u05D0-\u05EA][\u05BC\u05C1\u05C2]*([\u05B0-\u05BB])/)||[])[1];const okPP=l=>!((l==="ל"||l==="ב")&&fv==="\u05B0"&&!["לכ","בכ"].includes(c0));
+ if(PPI[c0])PPI[c0].filter(okPP).forEach(l=>{put(l,0);PPL.add(l)});
+ // etuliitteet (0–3)
+ const pre=[[c0,0]];for(let i=0;i<3;i++){const nx=[];pre.forEach(([s,k])=>{if(s.length>2&&PREF.includes(s[0]))nx.push([s.slice(1),k+1])});pre.push(...nx)}
+ // verbin persoonaetuliite (impf./wayyiqtol)
+ const vp=[];pre.forEach(([s,k])=>{vp.push([s,k]);if(s.length>2&&"יתאנ".includes(s[0]))vp.push([s.slice(1),k+1])});
+ vp.forEach(([s,k])=>{put(s,k);if(PPI[s]&&k>0)PPI[s].forEach(l=>{put(l,k+1);PPL.add(l)});
+  SUF.forEach(x=>{if(s.length-x.length>=2&&s.endsWith(x)){const st=s.slice(0,-x.length);put(st,k+1);SUF.forEach(y=>{if(st.length-y.length>=2&&st.endsWith(y))put(st.slice(0,-y.length),k+2)})}})});
+ // heikot juuret
+ [...out.entries()].forEach(([s,k])=>{if(s.length===2){put(s+"ה",k+1);put(s[0]+"ו"+s[1],k+1);put(s[0]+"י"+s[1],k+1);put("נ"+s,k+1);put("י"+s,k+1);put("א"+s,k+1);put("ה"+s,k+1);put("ל"+s,k+2);put(s+s[1],k+1)}
+  if(s.length>=3&&s.endsWith("ת"))put(s.slice(0,-1)+"ה",k+1);if(s.length===3&&s[1]==="ו")put(s[0]+s[2],k+1);if(s.length===3&&s[0]==="י")put(s.slice(1),k+1)});
+ return out}
+function analyze(word){const idx=ci();const C=cands(word);const W=vow(word);const res=[];
+ C.forEach((cost,c)=>{(idx.get(c)||[]).forEach(v=>{let sim=0;const V=vow(v.h);while(sim<Math.min(V.length,W.length)&&V[sim]===W[sim])sim++;const prep=PPL.has(c)&&/objekt|-lle|-ssa|-sta|päällä|luokse|kanssa|edessä|alla|jälkeen|kuin/.test(v.f)?1:0;res.push({v,cost,sim,len:c.length,prep,pp:PPL.has(c)})})});
+ res.sort((a,b)=>a.cost-b.cost||b.prep-a.prep||b.len-a.len||b.sim-a.sim);const seen=new Set();return res.filter(r=>!seen.has(r.v.h)&&seen.add(r.v.h)).slice(0,4)}
+window.analyzeWord=analyze;
+const _lk15=lookup;lookup=function(word){const w=String(word).replace(/[־־]/g,"").trim();let r=_lk15(w)||[];
+ const strong=r.some(x=>x.tx||x.wf||(x.v&&!x.how));if(strong)return r;
+ const a=analyze(w);if(!a.length)return r;
+ const have=new Set(r.filter(x=>x.v).map(x=>x.v.h));const top=a.map(x=>({v:x.v,how:x.pp?"prepositio + persoonasuffiksi":x.cost===0?"samat konsonantit":"perusmuoto (etu- tai jälkiliite poistettu)"}));
+ const rest=r.filter(x=>!(x.v&&top.some(t=>t.v.h===x.v.h)));return top.concat(rest.filter(x=>!x.root||!top.length))};
 })();
 
 </script>
