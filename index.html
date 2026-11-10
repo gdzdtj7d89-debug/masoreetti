@@ -2850,7 +2850,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"&&!/claude|anthropi
 setTimeout(checkAwards,2500);
 
 /* ================= MASOREETTI v4 ================= */
-const V4="6.0";
+const V4="6.0.1";
 S.xp=S.xp||0;S.sek=S.sek||0;S.tal=S.tal||0;S.inv=S.inv||{};S.notes=S.notes||[];S.md=S.md||{};
 S.eq=Object.assign({body:"tunika",head:"huivi",hand:null,pet:null,bg:"bg_aamu",tr:null},S.eq||{});
 S.set=Object.assign({theme:"auto",home:"koti",music:true},S.set);
@@ -5344,7 +5344,8 @@ body.bm-on .tabs{display:none}
 /* Kirjasto */
 .lib6{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .lib6 button.gold{border-color:var(--gold);background:linear-gradient(160deg,var(--goldsoft),var(--card))}
-.libh{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);margin:6px 2px -2px}
+.libh{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);margin:2px 2px -4px}
+.lib6 button{padding:9px 6px 8px}
 .chs{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
 .chs button{border-radius:12px;border:1.5px solid var(--line);background:var(--card);padding:8px 0 6px;font-weight:800;font-size:15px;color:var(--ink);cursor:pointer}
 .chs button small{display:block;font-size:9px;font-weight:700;color:var(--muted);margin-top:1px}
@@ -5401,7 +5402,7 @@ VIEWS.opi=function(a){if(a&&a.ch)return _opi(a);const v=h("div",{class:"view k6"
  v.append(h("div",{class:"libh"},"Luvut 1–14 · oppitunnit ja harjoitukset"),chs,
   h("div",{class:"libh"},"Taivutus"),h("div",{class:"lib6"},t("בנה","Tenttiverbit",()=>go("kolme"),1),t("הָיָה","Tärkeät verbit",()=>go("verbit")),t("🪜","Taivutusportaat",()=>go("portaat")),t("ק","Säännöt",()=>go("saannot")),t("🎯","Yhden sanan peli",()=>typeof oneSetup==="function"?oneSetup():go("pelaa")),t("🔎","Määrittely",()=>go("maar"))),
   h("div",{class:"libh"},"Sanat, tekstit ja tentti"),h("div",{class:"lib6"},t("⌨️","Sanavaellus",()=>go("vaellus")),t("א","Sanasto",()=>go("sanasto")),t("✍️","Kirjoita käsin",()=>go("kasin")),t("📜","Patriarkkojen tarina",()=>go("patr")),t("A4","Lunttilappu",()=>go("lappu")),t("🎲","Kaikki pelit",()=>go("pelaa"))),
-  h("button",{class:"bidk",style:"align-self:center",onclick:()=>go("opiAll")},"Kevään luvut 15–23 ja hakuteos ›"))};
+  h("div",{class:"lib6"},t("🏺","Jerusalemin tori",()=>startTori()),t("H","HEMO-tila",()=>{S.mode="hemo";save();location.reload()}),t("📚","Kevään luvut 15–23",()=>go("opiAll"))))};
 /* ---------- MINÄ: taita pitkät osat ---------- */
 const _m=VIEWS.mina;VIEWS.mina=function(a){_m(a);const v=app.querySelector(".view");if(!v)return;
  const fold=(t,els)=>{els=els.filter(Boolean);if(!els.length)return null;const d=h("details",{class:"more"},h("summary",null,t),h("div",{class:"in"}));const at=els[0];at.before(d);els.forEach(e=>d.lastChild.append(e));return d};
